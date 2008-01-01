@@ -43,7 +43,7 @@ class CountriesHelper
 		// Merge any additional options in the XML definition.
 		//$options = array_merge(parent::getOptions(), $options);
 
-		array_unshift($options, JHtml::_('select.option','onchange="alert("hola");"','onchange="alert("hola");"','onchange="alert("hola");"','onchange="alert("hola");"','onchange="alert("hola");"'));
+		array_unshift($options, JHtml::_('select.option',''));
 
 		return $options;
 	}

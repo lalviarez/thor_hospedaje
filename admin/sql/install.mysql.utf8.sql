@@ -40,6 +40,7 @@ CREATE TABLE IF NOT EXISTS `#__th_states` (
 CREATE TABLE IF NOT EXISTS `#__th_assets` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Id del bien ',
   `cid` int(11) unsigned NOT NULL DEFAULT '0',
+  `country_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Id del pais asociado al bien',
   `state_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Id del estado asociado al bien',
   `asset_name` varchar(50) NOT NULL COMMENT 'Nombre del bien',
   `asset_desc` text COMMENT 'Descripcion del bien',

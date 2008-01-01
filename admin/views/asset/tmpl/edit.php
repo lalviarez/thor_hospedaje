@@ -11,6 +11,17 @@ defined('_JEXEC') or die('Restricted access');
 JHtml::_('behavior.tooltip');
 JHtml::_('behavior.formvalidation');
 JHtml::_('formbehavior.chosen', 'select');
+$document = JFactory::getDocument();
+$document->addScriptDeclaration('
+jQuery(document).ready(function($){
+    $("#jform_country_id").bind("change",function(){
+		$("#jform_state_id").load("index.php?option=com_thorhospedaje&task=states.statesAjax&id_country="+$("#jform_country_id").val(),function(){
+			$("#jform_state_id").val("").trigger("liszt:updated");
+		});
+	});
+}); 
+');
+
 ?>
 <script type="text/javascript">
 	Joomla.submitbutton = function(task)
@@ -23,7 +34,7 @@ JHtml::_('formbehavior.chosen', 'select');
 </script>
 <form action="<?php echo JRoute::_('index.php?option=com_thorhospedaje&layout=edit&id='.(int) $this->item->id); ?>" method="post" name="adminForm" id="asset-form" class="form-validate form-horizontal">
 	<div class="row-fluid">
-		<!-- Begin country -->
+		<!-- Begin asset -->
 		<div class="span10 form-horizontal">
 	<fieldset>
 		<ul class="nav nav-tabs">
@@ -119,7 +130,7 @@ JHtml::_('formbehavior.chosen', 'select');
 			</div>
 		</div>
 		</div>
-	<!-- End country -->
+	<!-- End asset -->
 	<!-- Begin Sidebar -->
 		<div class="span2">
 			<h4><?php echo JText::_('JDETAILS');?></h4>
