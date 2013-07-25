@@ -12,13 +12,13 @@
 			
 		<field name="country_desc" type="textarea"
 			label="JGLOBAL_DESCRIPTION" description="TH_COUNTRY_FIELD_DESCRIPTION_DESC"
-			class="inputbox" rows="3" cols="30" />
+			class="inputbox" rows="3" cols="30" required="true"/>
 		
 		<field
 			name="image"
 			type="media"
 			label="TH_COUNTRY_FIELD_IMAGE_LABEL"
-			description="TH_COUNTRY_FIELD_IMAGE_DESC" />
+			description="TH_COUNTRY_FIELD_IMAGE_DESC" required="true"/>
 			
 		<field name="created_date" type="calendar"
 			label="JGLOBAL_FIELD_CREATED_LABEL" description="JGLOBAL_FIELD_CREATED_DESC"

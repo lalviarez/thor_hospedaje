@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @version		$Id: countries.php 2013-07-11
+ * @version		$Id: states.php 2013-07-11
  * @copyright	Copyright (C) 2013 Leonardo Alviarez - Edén Arreaza. All Rights Reserved.
  * @license		GNU General Public License version 3, or later
  * @note		Note : All ini files need to be saved as UTF-8 - No BOM
@@ -26,9 +26,10 @@ class ThorHospedajeModelStates extends JModelList
 			$config['filter_fields'] = array(
 				'id', 'a.id',
 				'cid', 'a.cid',
-				'country', 'a.country',
-         		        'language', 'a.language',   
-         		        'state', 'a.state',
+				'state_name', 'a.state_name',
+         	   	'country_id', 'a.country_id',
+         	    'language', 'a.language',   
+         	    'state', 'a.state',
 				'access', 'a.access',
 				'ordering', 'a.ordering',
 				
@@ -77,10 +78,12 @@ class ThorHospedajeModelStates extends JModelList
 		$orderDirn	= $this->state->get('list.direction', 'ASC');
              
 
-		/*if ($orderCol == 'ordering')
+		if ($orderCol == 'ordering')
 		{
-			$orderCol='a.ordering';
-		}*/
+			$orderCol='country_name '.$orderDirn.', a.ordering';
+			
+			
+		}
 		
 		$query->order($db->escape($orderCol.' '.$orderDirn));
 		

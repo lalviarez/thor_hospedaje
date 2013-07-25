@@ -1,9 +1,9 @@
 <?php
 /**
- * @version		$Id: view.html.php 2013-07-11
+ * @version		$Id: default.php 2013-07-11
  * @copyright	Copyright (C) 2013 Leonardo Alviarez - Edén Arreaza. All Rights Reserved.
  * @license		GNU General Public License version 3, or later
- * @note			Note : All ini files need to be saved as UTF-8 - No BOM
+ * @note		Note : All ini files need to be saved as UTF-8 - No BOM
  */
 
 defined('_JEXEC') or die;
@@ -106,7 +106,7 @@ if ($saveOrder)
 			<?php foreach($this->items as $i => $item):
 			$ordering  = ($listOrder == 'ordering');
 			?>
-			<tr class="row<?php echo $i % 2; ?>">
+			<tr class="row<?php echo $i % 2; ?>" sortable-group-id="<?php echo $item->country_id;?>">
                 <td class="order nowrap center hidden-phone">
 					<?php //if ($canChange) :
 						$disableClassName = '';
