@@ -127,7 +127,7 @@ if ($saveOrder)
 					<?php echo JHtml::_('grid.id', $i, $item->id); ?>
 				</td>
 				<td>
-					<a href="<?php echo JRoute::_('index.php?option=com_thorhospedaje&task=country.edit&id='.$item->id);?>" title="<?php echo $this->escape($item->nombre); ?>">
+					<a href="<?php echo JRoute::_('index.php?option=com_thorhospedaje&task=country.edit&id='.$item->id);?>" title="<?php echo $this->escape($item->country); ?>">
 					<?php echo $this->escape(str_replace(JURI::root(), '', $item->country)); ?></a>
 					<?php /*echo $item->greeting;*/ ?> 
 				</td>

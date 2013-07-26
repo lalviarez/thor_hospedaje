@@ -34,6 +34,12 @@ class ThorHospedajeModelCountries extends JModelList
 
 		// From the th_countries table
 		$query->from('#__th_countries'.' AS a');
+		
+		// Filter by language
+		if (JLanguageMultilang::isEnabled() /*$this->getState('filter.language')*/)
+		{
+			$query->where('a.language in (' . $db->Quote(JFactory::getLanguage()->getTag()) . ',' . $db->Quote('*') . ')');
+		}
         //$query->from($db->quoteName('#__th_countries').' AS a');
         $query->order('a.ordering'); 
         
