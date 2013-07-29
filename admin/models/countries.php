@@ -50,7 +50,7 @@ class ThorHospedajeModelCountries extends JModelList
 		$query = $db->getQuery(true);
 
 		// Select some fields
-		$query->select('a.id,a.country,a.state,a.access,a.language, a.ordering as ordering');
+		$query->select('a.id, a.country, a.state, a.access, a.language, a.ordering as ordering');
 
 		// From the countries table
 		$query->from('#__th_countries'.' AS a');
@@ -114,12 +114,10 @@ class ThorHospedajeModelCountries extends JModelList
 		// Load the parameters.
 		/*$params = JComponentHelper::getParams('com_banners');
 		$this->setState('params', $params);*/
-		$language = $this->getUserStateFromRequest($this->context.'.filter.language', 'filter_language', '');
-		$this->setState('filter.language', $language);
+		//$language = $this->getUserStateFromRequest($this->context.'.filter.language', 'filter_language', '');
+		//$this->setState('filter.language', $language);
 
 		// List state information.
 		parent::populateState('a.ordering', 'asc');
-	}*/
-	
-	
+	}	
 }

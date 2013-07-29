@@ -28,21 +28,41 @@ class ThorHospedajeModelCountries extends JModelList
 		// Create a new query object.
 		$db = JFactory::getDBO();
 		$query = $db->getQuery(true);
-
-		// Select some fields
-		$query->select('a.id,a.country,a.country_desc,a.image,a.ordering');
-
-		// From the th_countries table
-		$query->from('#__th_countries'.' AS a');
+		
+		// Select field to query
+		$query->select($this->getState('list.select', 'a.*'));
+		$query->from($db->quoteName('#__th_countries').' AS a');
+		
+		// Filter by state
+		$state = $this->getState('filter.state');
+		if (is_numeric($state))
+		{
+			$query->where('a.state = '.(int) $state);
+		}
 		
 		// Filter by language
-		if (JLanguageMultilang::isEnabled() /*$this->getState('filter.language')*/)
+		if ($this->getState('filter.language'))
 		{
 			$query->where('a.language in (' . $db->Quote(JFactory::getLanguage()->getTag()) . ',' . $db->Quote('*') . ')');
-		}
+		}	
+		
+		// Add the list ordering clause.
+		$query->order($db->escape($this->getState('list.ordering', 'a.ordering')).' '.$db->escape($this->getState('list.direction', 'ASC')));
+		
+		// Select some fields
+		//*$query->select('a.id,a.country,a.country_desc,a.image,a.ordering');
+
+		// From the th_countries table
+		//*$query->from('#__th_countries'.' AS a');
+		
+		// Filter by language
+		//*if (JLanguageMultilang::isEnabled() /*$this->getState('filter.language')*/)
+		//*{
+			//*$query->where('a.language in (' . $db->Quote(JFactory::getLanguage()->getTag()) . ',' . $db->Quote('*') . ')');
+		//*}
         //$query->from($db->quoteName('#__th_countries').' AS a');
-        $query->order('a.ordering'); 
-        
+        //*$query->order('a.ordering'); 
+
 		return $query;
 	}
 }
