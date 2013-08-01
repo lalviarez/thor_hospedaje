@@ -47,7 +47,7 @@ class ThorHospedajeModelStates extends JModelList
 		}	
 		
 		$id_country = $this->getState('filter.id_country', '%');
-		$query->where('a.id_country' = (int) $id_country);
+		$query->where('a.country_id = '.(int) $id_country);
 		
 		// Add the list ordering clause.
 		$query->order($db->escape($this->getState('list.ordering', 'a.ordering')).' '.$db->escape($this->getState('list.direction', 'ASC')));
