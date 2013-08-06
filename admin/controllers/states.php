@@ -67,5 +67,28 @@ class ThorHospedajeControllerStates extends JControllerAdmin
 		// Close the application
 		JFactory::getApplication()->close();
 	}
+	
+	/**
+	 *  Method to return data of states.
+	 * @return  void
+	 *
+	 * @since   3.0
+	 */
+	public function statesAjax()
+	{
+		
+		// Get the input
+		//$id_country	= $this->input->getInt('id_country');
+
+		// Get the model
+		$model = $this->getModel();
+
+		$list = $model->get('Items');
+		print_r ($list);
+		echo "Hola";
+		// Close the application
+		JFactory::getApplication()->close();
+	}
+	
 }
 
