@@ -78,14 +78,27 @@ class ThorHospedajeControllerStates extends JControllerAdmin
 	{
 		
 		// Get the input
-		//$id_country	= $this->input->getInt('id_country');
+		$id_country	= $this->input->getInt('id_country');
 
 		// Get the model
-		$model = $this->getModel();
+		//$model = $this->getModel();
+		$model = JModelLegacy::getInstance('States', 'ThorHospedajeModel', array('ignore_request' => true));
 
-		$list = $model->get('Items');
-		print_r ($list);
-		echo "Hola";
+		$items = $model->getItems();
+		
+		/*
+		 * Se debe hacer una consulta más elegante en el modelo
+		 * para sustituir este filtro improvisado de estados por paises
+		 * */
+		$option = "";
+		foreach ($items as $item)
+		{
+			if ((int)$item->country_id === (int)$id_country)
+			{
+				$option .= sprintf("<option value='%d'>%s</option>", $item->id, htmlspecialchars($item->state_name));
+			}
+		}
+		echo $option;
 		// Close the application
 		JFactory::getApplication()->close();
 	}
