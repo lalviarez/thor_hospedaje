@@ -1,7 +1,6 @@
 <?php
-
 /**
- * @version		$Id: view.html.php 2013-07-11
+ * @version		$Id: view.html.php 2013-07-29
  * @copyright	Copyright (C) 2013 Leonardo Alviarez - Edén Arreaza. All Rights Reserved.
  * @license		GNU General Public License version 3, or later
  * @note		Note : All ini files need to be saved as UTF-8 - No BOM
@@ -16,7 +15,7 @@ jimport('joomla.application.component.view');
 /**
  * States View
  */
-class ThorHospedajeViewStates extends JViewLegacy
+class ThorHospedajeViewAssets extends JViewLegacy
 {
 	
 	protected $items;
@@ -27,7 +26,7 @@ class ThorHospedajeViewStates extends JViewLegacy
 	
 
 	/**
-	 * Countries view display method
+	 * Assets view display method
 	 * @return void
 	 */
 	function display($tpl = null) 
@@ -57,10 +56,10 @@ class ThorHospedajeViewStates extends JViewLegacy
 	 */
 	protected function addToolBar() 
 	{
-		JToolBarHelper::title(JText::_('TH_MANAGER_STATES'));
-		JToolBarHelper::addNew('state.add');
-		JToolBarHelper::editList('state.edit');
-		JToolBarHelper::deleteList('','states.delete');		
+		JToolBarHelper::title(JText::_('TH_MANAGER_ASSETS'));
+		JToolBarHelper::addNew('asset.add');
+		JToolBarHelper::editList('asset.edit');
+		JToolBarHelper::deleteList('','asset.delete');		
 	}
 
 	/**

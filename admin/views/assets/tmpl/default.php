@@ -1,6 +1,6 @@
 <?php
 /**
- * @version		$Id: default.php 2013-07-11
+ * @version		$Id: default.php 2013-07-29
  * @copyright	Copyright (C) 2013 Leonardo Alviarez - Edén Arreaza. All Rights Reserved.
  * @license		GNU General Public License version 3, or later
  * @note		Note : All ini files need to be saved as UTF-8 - No BOM
@@ -24,8 +24,8 @@ $saveOrder	= $listOrder == 'ordering';
 
 if ($saveOrder)
 {
-	$saveOrderingUrl = 'index.php?option=com_thorhospedaje&task=states.saveOrderAjax&tmpl=component';
-	JHtml::_('sortablelist.sortable', 'stateList', 'adminForm', strtolower($listDirn), $saveOrderingUrl);
+	$saveOrderingUrl = 'index.php?option=com_thorhospedaje&task=assets.saveOrderAjax&tmpl=component';
+	JHtml::_('sortablelist.sortable', 'assetList', 'adminForm', strtolower($listDirn), $saveOrderingUrl);
 }
 
 //$sortFields = $this->getSortFields();
@@ -48,7 +48,7 @@ if ($saveOrder)
 		Joomla.tableOrdering(order, dirn, '');
 	}*/
 </script>
-<form action="<?php echo JRoute::_('index.php?option=com_thorhospedaje&view=states'); ?>" method="post" name="adminForm" id="adminForm">
+<form action="<?php echo JRoute::_('index.php?option=com_thorhospedaje&view=assets'); ?>" method="post" name="adminForm" id="adminForm">
 <?php if (!empty( $this->sidebar)) : ?>
 	<div id="j-sidebar-container" class="span2">
 		<?php echo $this->sidebar; ?>
@@ -64,7 +64,7 @@ if ($saveOrder)
 		<?php echo $this->pagination->getLimitBox(); ?>
 	</div>
 </div>		
-<table class="table table-striped" id="stateList">
+<table class="table table-striped" id="assetList">
 			<thead>
 				<tr> 
 				    <th width="1%" class="nowrap center hidden-phone">
@@ -75,12 +75,14 @@ if ($saveOrder)
 						<input type="checkbox" name="checkall-toggle" value="" title="<?php echo JText::_('JGLOBAL_CHECK_ALL'); ?>" onclick="Joomla.checkAll(this)" />
 					</th>
 					<th>
-						<?php echo JHtml::_('grid.sort','TH_STATES_HEADING_STATE','a.state_name',$listDirn, $listOrder); ?>
+						<?php echo JHtml::_('grid.sort','TH_ASSETS_HEADING_ASSET','a.state_name',$listDirn, $listOrder); ?>
 					</th>
 					<th>
-						<?php echo JHtml::_('grid.sort','TH_COUNTRIES_HEADING_COUNTRY','a.country_id',$listDirn, $listOrder); ?>
+						<?php echo JHtml::_('grid.sort','TH_ASSETS_HEADING_COUNTRY','a.country_id',$listDirn, $listOrder); ?>
 					</th>
-					
+							<th>
+						<?php echo JHtml::_('grid.sort','TH_ASSETS_HEADING_STATE','a.state_id',$listDirn, $listOrder); ?>
+					</th>
 					<th width="1%" style="min-width:55px" class="nowrap center">
 						<?php echo JHtml::_('grid.sort', 'JSTATUS', 'a.state',$listDirn, $listOrder); ?>
 					</th>
@@ -130,12 +132,15 @@ if ($saveOrder)
 					<?php echo JHtml::_('grid.id', $i, $item->id); ?>
 				</td>
 				<td>
-					<a href="<?php echo JRoute::_('index.php?option=com_thorhospedaje&task=state.edit&id='.$item->id);?>" title="<?php echo $this->escape($item->state_name); ?>">
-					<?php echo $this->escape(str_replace(JURI::root(), '', $item->state_name)); ?></a>
+					<a href="<?php echo JRoute::_('index.php?option=com_thorhospedaje&task=asset.edit&id='.$item->id);?>" title="<?php echo $this->escape($item->asset_name); ?>">
+					<?php echo $this->escape(str_replace(JURI::root(), '', $item->asset_name)); ?></a>
 				</td>
 				<td>
 					<?php echo $this->escape($item->country_name); ?>
 				</td>
+				<td>
+					<?php echo $this->escape($item->state_name); ?>
+				</td>	
 				<td class="center">
 					<?php echo JHtml::_('jgrid.published', $item->state, $i, 'states.');
 					/*, $canChange, 'cb', $item->publish_up, $item->publish_down*/ ?>

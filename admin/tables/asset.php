@@ -1,7 +1,6 @@
 <?php
-
 /**
- * @version		$Id: country.php 2013-07-11
+ * @version		$Id: asset.php 2013-07-29
  * @copyright	Copyright (C) 2013 Leonardo Alviarez - Edén Arreaza. All Rights Reserved.
  * @license		GNU General Public License version 3, or later
  * @note		Note : All ini files need to be saved as UTF-8 - No BOM
@@ -15,9 +14,9 @@ defined('_JEXEC') or die('Restricted access');
 jimport('joomla.database.table');
  
 /**
- * State Table class
+ * Asset Table class
  */
-class ThorHospedajeTableState extends JTable
+class ThorHospedajeTableAsset extends JTable
 {
         /**
          * Constructor
@@ -26,7 +25,7 @@ class ThorHospedajeTableState extends JTable
          */
         function __construct(&$db) 
         {
-                parent::__construct('#__th_states', 'id', $db);
+                parent::__construct('#__th_assets', 'id', $db);
         }        
    
         

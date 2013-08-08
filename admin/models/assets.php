@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @version		$Id: states.php 2013-07-11
+ * @version		$Id: assets.php 2013-07-29
  * @copyright	Copyright (C) 2013 Leonardo Alviarez - Edén Arreaza. All Rights Reserved.
  * @license		GNU General Public License version 3, or later
  * @note		Note : All ini files need to be saved as UTF-8 - No BOM
@@ -14,9 +14,9 @@ defined('_JEXEC') or die('Restricted access');
 jimport('joomla.application.component.modellist');
 
 /**
- * States Model
+ * Assets Model
  */
-class ThorHospedajeModelStates extends JModelList
+class ThorHospedajeModelAssets extends JModelList
 {
 
 	public function __construct($config = array())
@@ -26,8 +26,8 @@ class ThorHospedajeModelStates extends JModelList
 			$config['filter_fields'] = array(
 				'id', 'a.id',
 				'cid', 'a.cid',
-				'state_name', 'a.state_name',
-         	   	'country_id', 'a.country_id',
+				'asset_name', 'a.asset_name',
+         	   	'state_id', 'a.state_id',
          	    'language', 'a.language',   
          	    'state', 'a.state',
 				'access', 'a.access',
@@ -51,14 +51,14 @@ class ThorHospedajeModelStates extends JModelList
 		$query = $db->getQuery(true);
 
 		// Select some fields
-		$query->select('a.id,a.state_name,a.country_id,a.state,a.access,a.language, a.ordering as ordering');
+		$query->select('a.id,a.asset_name,a.state_id,a.state,a.access,a.language, a.ordering as ordering');
 
 		// From the states table
-		$query->from('#__th_states'.' AS a');
+		$query->from('#__th_assets'.' AS a');
 
-		// Join over the country
-		$query->select('c.country AS country_name');
-		$query->join('LEFT', $db->quoteName('#__th_countries').' AS c ON c.id = a.country_id');  
+		// Join over the state
+		$query->select('c.state_name AS state_name');
+		$query->join('LEFT', $db->quoteName('#__th_states').' AS c ON c.id = a.state_id');  
 
        		 // Join over the language
 		$query->select('l.title AS language_title');
@@ -80,7 +80,7 @@ class ThorHospedajeModelStates extends JModelList
 
 		if ($orderCol == 'ordering')
 		{
-			$orderCol='country_name '.$orderDirn.', a.ordering';
+			$orderCol='asset_name '.$orderDirn.', a.ordering';
 			
 			
 		}
