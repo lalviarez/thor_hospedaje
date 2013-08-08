@@ -1,24 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- $Id: country.xml 51 2013-07-11 01:33:21Z chdemko $ -->
+<!-- $Id: asset.xml 51 2013-07-29 01:33:21Z chdemko $ -->
 <form>
 	<fieldset>
 		<field name="id" type="text" default="0" label="JGLOBAL_FIELD_ID_LABEL"
 			readonly="true" class="readonly"
 			description="JGLOBAL_FIELD_ID_DESC"/>
 			
-		<field name="country" type="text" class="inputbox"
-			size="40" label="TH_COUNTRY_FIELD_COUNTRY_LABEL"
-			description="TH_COUNTRY_FIELD_COUNTRY_DESC" required="true" />
-			
-		<field name="country_desc" type="textarea"
-			label="JGLOBAL_DESCRIPTION" description="TH_COUNTRY_FIELD_DESCRIPTION_DESC"
-			class="inputbox" rows="3" cols="30" required="true"/>
+		<field name="asset_name" type="text" class="inputbox"
+			size="40" label="TH_ASSET_FIELD_ASSET_LABEL"
+			description="TH_ASSET_FIELD_ASSET_DESC" required="true" />
+		
+        <field name="country_id" type="countries" extension="com_thorhospedaje"
+			label="TH_STATE_FIELD_COUNTRY_LABEL" description="TH_STATE_FIELD_COUNTRY_DESC"
+			class="inputbox" required="true" /> 	
+
+		<field name="state_id" type="states" extension="com_thorhospedaje"
+			label="TH_ASSET_FIELD_STATE_LABEL" description="TH_ASSET_FIELD_STATE_DESC"
+			class="inputbox" required="true" /> 	
+
+		<field name="asset_desc" type="textarea"
+			label="JGLOBAL_DESCRIPTION" description="TH_ASSET_FIELD_DESCRIPTION_DESC"
+			class="inputbox" rows="3" cols="30" required="true" />
 		
 		<field
 			name="image"
 			type="media"
-			label="TH_COUNTRY_FIELD_IMAGE_LABEL"
-			description="TH_COUNTRY_FIELD_IMAGE_DESC" required="true"/>
+			label="TH_ASSET_FIELD_IMAGE_LABEL"
+			description="TH_ASSET_FIELD_IMAGE_DESC" required="true" />
 			
 		<field name="created_date" type="calendar"
 			label="JGLOBAL_FIELD_CREATED_LABEL" description="JGLOBAL_FIELD_CREATED_DESC"
@@ -43,7 +51,7 @@
 			name="state"
 			type="list"
 			label="JSTATUS"
-			description="TH_COUNTRY_FIELD_STATE_DESC"
+			description="TH_STATE_FIELD_STATE_DESC"
 			class="inputbox span12 small"
 			size="1"
 			default="1">

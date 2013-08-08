@@ -15,7 +15,7 @@ defined('_JEXEC') or die('Restricted access');
 jimport('joomla.database.table');
  
 /**
- * State Table class
+ * Estado Table class
  */
 class ThorHospedajeTableState extends JTable
 {
