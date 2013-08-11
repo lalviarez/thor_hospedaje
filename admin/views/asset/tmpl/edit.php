@@ -27,7 +27,7 @@ JHtml::_('formbehavior.chosen', 'select');
 		<div class="span10 form-horizontal">
 	<fieldset>
 		<ul class="nav nav-tabs">
-			<li class="active"><a href="#details" data-toggle="tab"><?php echo empty($this->item->id) ? JText::_('TH_ASSET_NEW_ASSET') : JText::sprintf('TH_ASSET_EDIT_COUNTRY', $this->item->id); ?></a></li>
+			<li class="active"><a href="#details" data-toggle="tab"><?php echo empty($this->item->id) ? JText::_('TH_ASSET_NEW_ASSET') : JText::sprintf('TH_ASSET_EDIT_ASSET', $this->item->id); ?></a></li>
 			<li><a href="#publishing" data-toggle="tab"><?php echo JText::_('JGLOBAL_FIELDSET_PUBLISHING');?></a></li>
 		</ul>
 		<div class="tab-content">
@@ -51,6 +51,45 @@ JHtml::_('formbehavior.chosen', 'select');
 				<div class="control-group">
 					<div class="control-label"><?php echo $this->form->getLabel('image'); ?></div>
 					<div class="controls"><?php echo $this->form->getInput('image'); ?></div>
+				</div>
+				<div class="control-group">
+					<div class="control-label"><?php echo $this->form->getLabel('image1'); ?></div>
+					<div class="controls"><?php echo $this->form->getInput('image1'); ?></div>
+				</div>
+				<div class="control-group">
+					<div class="control-label"><?php echo $this->form->getLabel('image2'); ?></div>
+					<div class="controls"><?php echo $this->form->getInput('image2'); ?></div>
+				</div>
+				<div class="control-group">
+					<div class="control-label"><?php echo $this->form->getLabel('image3'); ?></div>
+					<div class="controls"><?php echo $this->form->getInput('image3'); ?></div>
+				</div>
+				<div class="control-group">
+					<div class="control-label"><?php echo $this->form->getLabel('image4'); ?></div>
+					<div class="controls"><?php echo $this->form->getInput('image4'); ?></div>
+				</div>
+				<div class="control-group">
+					<div class="control-label"><?php echo $this->form->getLabel('image5'); ?></div>
+					<div class="controls"><?php echo $this->form->getInput('image5'); ?></div>
+				</div>
+				<div class="control-group">
+					<div class="control-label"><?php echo $this->form->getLabel('image6'); ?></div>
+					<div class="controls"><?php echo $this->form->getInput('image6'); ?></div>
+				</div>
+				<div class="control-group">
+					<div class="control-label"><?php echo $this->form->getLabel('image7'); ?></div>
+					<div class="controls"><?php echo $this->form->getInput('image7'); ?></div>
+				</div>
+				<div class="control-group">
+					<div class="control-label"><?php echo $this->form->getLabel('image8'); ?></div>
+					<div class="controls"><?php echo $this->form->getInput('image8'); ?></div>
+				</div><div class="control-group">
+					<div class="control-label"><?php echo $this->form->getLabel('image9'); ?></div>
+					<div class="controls"><?php echo $this->form->getInput('image9'); ?></div>
+				</div>
+				<div class="control-group">
+					<div class="control-label"><?php echo $this->form->getLabel('image10'); ?></div>
+					<div class="controls"><?php echo $this->form->getInput('image10'); ?></div>
 				</div>
 			</div>
 			

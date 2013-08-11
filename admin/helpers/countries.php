@@ -26,7 +26,8 @@ class CountriesHelper
 		$query->select('id as value, country as text');
 		$query->from('#__th_countries AS a');
 		$query->order('a.country');
-
+		
+		
 		// Get the options.
 		$db->setQuery($query);
 
