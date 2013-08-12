@@ -58,6 +58,7 @@ class ThorHospedajeViewAsset extends JViewLegacy
 		JToolBarHelper::apply('asset.apply');
 		JToolBarHelper::save('asset.save');
 		JToolBarHelper::save2new('asset.save2new');
+		//SRToolBarHelper::mediaManager();	
 		JToolBarHelper::cancel('asset.cancel', $isNew ? 'JTOOLBAR_CANCEL' : 'JTOOLBAR_CLOSE');
 	}
 }
