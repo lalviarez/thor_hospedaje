@@ -1,6 +1,7 @@
 DROP TABLE IF EXISTS `#__th_countries`;
 DROP TABLE IF EXISTS `#__th_states`;
 DROP TABLE IF EXISTS `#__th_assets`;
+DROP TABLE IF EXISTS `#__th_rooms`;
 CREATE TABLE IF NOT EXISTS `#__th_countries` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Id de pais',
   `cid` int(11) unsigned NOT NULL DEFAULT '0',
@@ -53,6 +54,28 @@ CREATE TABLE IF NOT EXISTS `#__th_assets` (
   `image8` text COMMENT 'Imagen 8 del bien',  	
   `image9` text COMMENT 'Imagen 9 del bien',  	
   `image10` text COMMENT 'Imagen 10 del bien',  	
+  `created_date` datetime NOT NULL DEFAULT '0000-00-00 00:00:00' COMMENT 'Fecha de creacion',
+  `created_by` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Autor del registro',
+  `modified_date` datetime NOT NULL DEFAULT '0000-00-00 00:00:00' COMMENT 'Fecha de modificacion del registro',
+  `modified_by` int(11) unsigned NOT NULL DEFAULT '0' COMMENT 'id del usuario que modifico el registro por ultima vez',
+  `state` tinyint(11) NOT NULL DEFAULT '0' COMMENT 'Estado de publicacion',
+  `access` int(11) NOT NULL DEFAULT '1',
+  `language` varchar(7) NOT NULL DEFAULT '' COMMENT 'Lenguaje del bien registrado',
+  `ordering` int(11) unsigned NOT NULL DEFAULT '0' COMMENT 'Orden de los registros',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+
+CREATE TABLE IF NOT EXISTS `#__th_rooms` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Id de la habitacion ',
+  `cid` int(11) unsigned NOT NULL DEFAULT '0',
+  `asset_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Id de la posada y/o hotel asociada a la habitacion',
+  `room_name` varchar(50) NOT NULL COMMENT 'Nombre de la habitacion',
+  `room_desc` text COMMENT 'Descripcion de la habitacion',
+  `room_cost` int(10) unsigned COMMENT 'Costo de la habitacion',
+  `rooms_number` text COMMENT 'Numero de las habitaciones',
+  `number_adult` int(10) unsigned COMMENT 'Numero de adultos',
+  `number_children` int(10) unsigned COMMENT 'Numero de niños',
   `created_date` datetime NOT NULL DEFAULT '0000-00-00 00:00:00' COMMENT 'Fecha de creacion',
   `created_by` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Autor del registro',
   `modified_date` datetime NOT NULL DEFAULT '0000-00-00 00:00:00' COMMENT 'Fecha de modificacion del registro',

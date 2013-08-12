@@ -125,7 +125,7 @@ TH_ROOM_FIELD_STATE_DESC="Estado de publicación de la habitación"
 TH_ROOM_FIELD_LANGUAGE_DESC="Idioma de publicación de la habitación"
 
 
-;For room tab
+;For asset tab
 TH_ROOM_NEW_ROOM="Nueva habitación"
 TH_ROOM_EDIT_ROOM="Editar habitación"
 
