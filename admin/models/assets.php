@@ -57,10 +57,14 @@ class ThorHospedajeModelAssets extends JModelList
 		$query->from('#__th_assets'.' AS a');
 
 		// Join over the state
-		$query->select('c.state_name AS state_name');
-		$query->join('LEFT', $db->quoteName('#__th_states').' AS c ON c.id = a.state_id');  
+		$query->select('s.state_name AS state_name,s.country_id');
+		$query->join('LEFT', $db->quoteName('#__th_states').' AS s ON s.id = a.state_id');  
 
-       		 // Join over the language
+		// Join over the country
+		$query->select('c.country AS country_name');
+		$query->join('LEFT', $db->quoteName('#__th_countries').' AS c ON c.id = s.country_id');  
+
+       	// Join over the language
 		$query->select('l.title AS language_title');
 		$query->join('LEFT', $db->quoteName('#__languages').' AS l ON l.lang_code = a.language');  
 

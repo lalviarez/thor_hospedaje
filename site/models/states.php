@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @version		$Id: countries.php 2013-07-11
+ * @version		$Id: states.php 2013-07-31
  * @copyright	Copyright (C) 2013 Leonardo Alviarez - Edén Arreaza. All Rights Reserved.
  * @license		GNU General Public License version 3, or later
  * @note		Note : All ini files need to be saved as UTF-8 - No BOM
@@ -14,9 +14,9 @@ defined('_JEXEC') or die('Restricted access');
 jimport('joomla.application.component.modellist');
 
 /**
- * Countries Model
+ * States Model
  */
-class ThorHospedajeModelCountries extends JModelList
+class ThorHospedajeModelStates extends JModelList
 {
 	/**
 	 * Method to build an SQL query to load the list data.
@@ -31,7 +31,7 @@ class ThorHospedajeModelCountries extends JModelList
 		
 		// Select field to query
 		$query->select($this->getState('list.select', 'a.*'));
-		$query->from($db->quoteName('#__th_countries').' AS a');
+		$query->from($db->quoteName('#__th_states').' AS a');
 		
 		// Filter by state
 		$state = $this->getState('filter.state');
@@ -46,22 +46,16 @@ class ThorHospedajeModelCountries extends JModelList
 			$query->where('a.language in (' . $db->Quote(JFactory::getLanguage()->getTag()) . ',' . $db->Quote('*') . ')');
 		}	
 		
+		$id_country = $this->getState('filter.id_country', '%');
+		if ($id_country === "%"){
+			$query->where('a.country_id LIKE '."'".$id_country."'");
+		}
+		else{
+			$query->where('a.country_id = '. (int) $id_country);
+		}
+		
 		// Add the list ordering clause.
 		$query->order($db->escape($this->getState('list.ordering', 'a.ordering')).' '.$db->escape($this->getState('list.direction', 'ASC')));
-		
-		// Select some fields
-		//*$query->select('a.id,a.country,a.country_desc,a.image,a.ordering');
-
-		// From the th_countries table
-		//*$query->from('#__th_countries'.' AS a');
-		
-		// Filter by language
-		//*if (JLanguageMultilang::isEnabled() /*$this->getState('filter.language')*/)
-		//*{
-			//*$query->where('a.language in (' . $db->Quote(JFactory::getLanguage()->getTag()) . ',' . $db->Quote('*') . ')');
-		//*}
-        //$query->from($db->quoteName('#__th_countries').' AS a');
-        //*$query->order('a.ordering'); 
 
 		return $query;
 	}
