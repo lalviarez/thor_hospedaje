@@ -46,13 +46,16 @@ class ThorHospedajeModelStates extends JModelList
 			$query->where('a.language in (' . $db->Quote(JFactory::getLanguage()->getTag()) . ',' . $db->Quote('*') . ')');
 		}	
 		
-		$id_country = $this->getState('filter.id_country', '%');
-		if ($id_country === "%"){
+		$id_country = $this->getState('filter.id_country', NULL);
+		if ($id_country != NULL){
+			
+		}
+/*		if ($id_country === "%"){
 			$query->where('a.country_id LIKE '."'".$id_country."'");
 		}
 		else{
 			$query->where('a.country_id = '. (int) $id_country);
-		}
+		}*/
 		
 		// Add the list ordering clause.
 		$query->order($db->escape($this->getState('list.ordering', 'a.ordering')).' '.$db->escape($this->getState('list.direction', 'ASC')));
