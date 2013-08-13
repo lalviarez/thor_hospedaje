@@ -28,6 +28,7 @@ class ThorHospedajeModelStates extends JModelList
 		// Create a new query object.
 		$db = JFactory::getDBO();
 		$query = $db->getQuery(true);
+		$app = JFactory::getApplication();
 		
 		// Select field to query
 		$query->select($this->getState('list.select', 'a.*'));
@@ -47,9 +48,18 @@ class ThorHospedajeModelStates extends JModelList
 		}	
 		
 		$id_country = $this->getState('filter.id_country', NULL);
-		if ($id_country != NULL){
-			
+		if ($id_country != NULL)
+		{
+			$app->setUserState('filter.id_country', $id_country);
+			echo "Set " . $app->getUserState('filter.id_country', NULL);
 		}
+		else
+		{
+			echo "Get " . $app->getUserState('filter.id_country', NULL);
+			$id_country = $app->getUserState('filter.id_country', NULL);
+		}
+		$query->where('a.country_id = '. (int) $id_country);
+		
 /*		if ($id_country === "%"){
 			$query->where('a.country_id LIKE '."'".$id_country."'");
 		}
