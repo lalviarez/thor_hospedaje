@@ -18,6 +18,50 @@ jimport('joomla.application.component.modellist');
  */
 class ThorHospedajeModelCountries extends JModelList
 {
+		/**
+	 * Method to auto-populate the model state.
+	 *
+	 * Note. Calling getState in this method will result in recursion.
+	 *
+	 * @return  void
+	 * @since   1.6 <- Hay que averiguar que es esto y dejarlo o eliminarlo
+	 */
+	protected function populateState($ordering = 'ordering', $direction = 'ASC')
+	{
+		$app = JFactory::getApplication();
+
+		// List state information
+		/* $value = $app->input->get('limit', $app->getCfg('list_limit', 0), 'uint');
+		 * 
+		 * Comentado por LJAH, Esto debe editarse luego cuando ya se puedan pasar parámetros 
+		 * para la presentación de la lista de países
+		**/
+		$value = 4;
+		$this->setState('list.limit', $value);
+
+		$value = $app->input->get('limitstart', 0, 'uint');
+		$this->setState('list.start', $value);
+
+		$orderCol = $app->input->get('filter_order', 'a.ordering');
+		if (!in_array($orderCol, $this->filter_fields))
+		{
+			$orderCol = 'a.ordering';
+		}
+		$this->setState('list.ordering', $orderCol);
+
+		$listOrder = $app->input->get('filter_order_Dir', 'ASC');
+		if (!in_array(strtoupper($listOrder), array('ASC', 'DESC', '')))
+		{
+			$listOrder = 'ASC';
+		}
+		$this->setState('list.direction', $listOrder);
+
+		$params = $app->getParams();
+		$this->setState('params', $params);
+		
+		$this->setState('filter.language', $app->getLanguageFilter());
+	}
+	
 	/**
 	 * Method to build an SQL query to load the list data.
 	 *
@@ -49,20 +93,6 @@ class ThorHospedajeModelCountries extends JModelList
 		// Add the list ordering clause.
 		$query->order($db->escape($this->getState('list.ordering', 'a.ordering')).' '.$db->escape($this->getState('list.direction', 'ASC')));
 		
-		// Select some fields
-		//*$query->select('a.id,a.country,a.country_desc,a.image,a.ordering');
-
-		// From the th_countries table
-		//*$query->from('#__th_countries'.' AS a');
-		
-		// Filter by language
-		//*if (JLanguageMultilang::isEnabled() /*$this->getState('filter.language')*/)
-		//*{
-			//*$query->where('a.language in (' . $db->Quote(JFactory::getLanguage()->getTag()) . ',' . $db->Quote('*') . ')');
-		//*}
-        //$query->from($db->quoteName('#__th_countries').' AS a');
-        //*$query->order('a.ordering'); 
-
 		return $query;
 	}
 }

@@ -10,51 +10,70 @@ defined('_JEXEC') or die;
 
 // Include the component HTML helpers.
 JHtml::addIncludePath(JPATH_COMPONENT.'/helpers');
-$baseurl = JURI::base();
-$this->pagination->set("limitstart", 0);
-$this->pagination->set("limit", 1);
-$rows=count($this->items);
+JHtml::_('behavior.framework');
+JHtml::_('bootstrap.framework');
+$document = JFactory::getDocument();
+$document->addStyleSheet('media/com_thor_hospedaje/css/th_countries.css');
+$document->addScript('media/com_thor_hospedaje/js/jquery.ThreeDots.min.js');
+$document->addScriptDeclaration('
+jQuery(document).ready(function(){
+    jQuery(window).on("resize", function () {
 
-foreach($this->items as $i => $item):
-    echo "<table>";
-    if(!($i % 2)) :
-		$image=$item->image;
-		$country=$item->country;
-		$country_desc=$item->country_desc;
-		
-		if($i==($rows-1)):
-?>		
-			<tr height='120px'>
-				<td width='25%'><img src="<?php echo $baseurl . $image;?>" width='160px' height='120px'></td>
-				<td width='25%'><?php echo $country."<br>".$country_desc;?> </td>
-				<td width='25%'>&nbsp;</td>
-				<td width='25%'>&nbsp;</td>
-			</tr>
-<?php  endif; 	
+    var w = jQuery("[id^=th-country-image]").outerWidth(true);
+    var h = jQuery("[id^=th-country-image]").outerHeight(true);
+    
+    jQuery("[id^=th-country-text]").height(h);
 
-	else:
-		$image2=$item->image;
-		$country2=$item->country;
-		$country_desc2=$item->country_desc;
-	    
-?>	
-	<tr height='120px'>
-		<td width='25%'><img src="<?php echo $baseurl . $image;?>" width='160px' height='120px'></td>
-		<td width='25%'><?php echo $country."<br>".$country_desc;?> </td>
-		<td width='25%'><img src="<?php echo $baseurl . $image2;?>" width='160px' height='120px'></td>
-		<td width='25%'><?php echo $country2."<br>".$country_desc2;?></td>
-	</tr>
-	
+	}).resize();
+    
+	jQuery(".ellipsis").ThreeDots();
+}); 
+');
 
-<?php
-	endif;
-endforeach; ?>
-    <tr>
-		<td colspan="7">
-		<?php echo $this->pagination->getListFooter(); ?>
-		</td>
-	</tr>
-    </table>
+// LJAH: Estos parámetros deben ser sustituidos con parámetros pasados por usuario
+$rowCount = 2;
+$itemRow = 2;
+$itemWidth = 47;
+?>
+<?php /* Falta agregar y probar el uso de la clase que el usuario pasa por parametro */ ?>
+<div class="mod_th_countries">
+	<?php
+	$count = 0;
+	for ($i = $count;  $i < count($this->items); $i++):
+		if (isset($this->items[$count])): 
+	?>		<div class="row-fluid">
+			<?php
+			for ($j = 0; $j < $itemRow; $j++):
+				if (isset($this->items[$count])):
+					$item = $this->items[$count];
+			?>
+
+			<a href="index.php?option=com_thorhospedaje&view=country&id_country=<?php echo $item->id; ?>">
+
+			<div class="country-item" style="width: <?php echo $itemWidth; ?>%;">
+				<div id="th-country-image-<?php echo $count;?>" class="country-image">
+					<img src="<?php echo $item->image?>">
+				</div>
+				<div id="th-country-text-<?php echo $count;?>" class="country-text">
+					<h1><?php echo $item->country; ?></h1>
+					<div class="ellipsis"><span class="ellipsis_text"><?php echo $item->country_desc; ?></span></div>
+				</div>
+			</div>
+			</a>
+			<?php
+					$count++;
+				endif;
+			endfor;
+			?>
+			</div>
+		<?php
+		endif;
+		?>
+	<?php 
+	endfor; 
+	?>
+</div>
+<?php echo $this->pagination->getListFooter(); ?>
 
 
 

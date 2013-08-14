@@ -37,6 +37,10 @@
 		<folder>models</folder>
 		<folder>views</folder>		
 	</files>
+	<media folder="media" destination="com_thor_hospedaje">
+        <folder>css</folder>
+        <folder>js</folder>
+    </media>
 	<administration>
 		<menu>TH_MENU</menu>
 		<submenu>
