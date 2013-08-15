@@ -54,7 +54,7 @@
 		<files folder="admin">
 			<!-- <filename>access.xml</filename> -->
 			<filename>thorhospedaje.php</filename>
-			<!-- <filename>config.xml</filename> -->
+			<filename>config.xml</filename>
 			<filename>controller.php</filename>
 			<filename>index.html</filename>
 			<folder>controllers</folder>

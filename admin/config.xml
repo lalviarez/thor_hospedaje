@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<config>
+
+	<fieldset name="countries"
+		label="TH_FIELD_CONFIG_COUNTRIES_DISPLAY"
+		description="TH_FIELD_CONFIG_COUNTRIES__DESC"
+	>
+				
+		<field
+			name="countries-rowcount"
+			type="text"
+			default="2"
+			label="TH_COUNTRIES_FIELD_ROWCOUNT_LABEL"
+			description="TH_COUNTRIES_FIELD_ROWCOUNT_DESC" />
+		<field
+			name="countries-itemrow"
+			type="text"
+			default="2"
+			label="TH_COUNTRIES_FIELD_ITEMROW_LABEL"
+			description="TH_COUNTRIES_FIELD_ITEMROW_DESC" />
+		<field
+			name="countries-itemwidth"
+			type="text"
+			default="47"
+			label="TH_COUNTRIES_FIELD_ITEMWIDTH_LABEL"
+			description="TH_COUNTRIES_FIELD_ITEMWIDTH_DESC" />
+		
+	</fieldset>
+
+	<fieldset name="country"
+		label="TH_FIELD_CONFIG_COUNTRY_DISPLAY"
+		description="TH_FIELD_CONFIG_COUNTRY__DESC"
+	>
+				
+		<field
+			name="country-rowcount"
+			type="text"
+			default="2"
+			label="TH_COUNTRY_FIELD_ROWCOUNT_LABEL"
+			description="TH_COUNTRY_FIELD_ROWCOUNT_DESC" />
+		<field
+			name="country-itemrow"
+			type="text"
+			default="2"
+			label="TH_COUNTRY_FIELD_ITEMROW_LABEL"
+			description="TH_COUNTRY_FIELD_ITEMROW_DESC" />
+		<field
+			name="country-itemwidth"
+			type="text"
+			default="47"
+			label="TH_COUNTRY_FIELD_ITEMWIDTH_LABEL"
+			description="TH_COUNTRY_FIELD_ITEMWIDTH_DESC" />
+		
+	</fieldset>
+	
+</config>

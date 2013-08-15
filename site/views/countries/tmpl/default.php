@@ -30,10 +30,9 @@ jQuery(document).ready(function(){
 }); 
 ');
 
-// LJAH: Estos parámetros deben ser sustituidos con parámetros pasados por usuario
-$rowCount = 2;
-$itemRow = 2;
-$itemWidth = 47;
+$rowCount = (int) $this->params->get('countries-rowcount', 2);
+$itemRow = (int) $this->params->get('countries-itemrow', 2);;
+$itemWidth = (int) $this->params->get('countries-itemwidth', 47);
 ?>
 <?php /* Falta agregar y probar el uso de la clase que el usuario pasa por parametro */ ?>
 <div class="mod_th_countries">

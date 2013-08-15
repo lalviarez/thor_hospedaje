@@ -18,10 +18,13 @@ jimport('joomla.application.component.view');
  */
 class ThorHospedajeViewCountries extends JViewLegacy
 {
+	protected $state;
 	
 	protected $items;
 
 	protected $pagination;
+	
+	protected $params;
 
 	/**
 	 * Countries view display method
@@ -30,8 +33,10 @@ class ThorHospedajeViewCountries extends JViewLegacy
 	function display($tpl = null) 
 	{
 		// Get data from the model
+		$this->state		= $this->get('State');
 		$this->items		= $this->get('Items');
-		$this->pagination	= $this->get('Pagination');  
+		$this->pagination	= $this->get('Pagination'); 
+		$this->params = &$this->state->params; 
 
         // Check for errors.
 		if (count($errors = $this->get('Errors'))) 

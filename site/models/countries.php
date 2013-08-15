@@ -18,7 +18,14 @@ jimport('joomla.application.component.modellist');
  */
 class ThorHospedajeModelCountries extends JModelList
 {
-		/**
+	
+	/**
+	 * Model context string.
+	 *
+	 * @var		string
+	 */
+	public $_context = 'com_thorhospedaje.countries';
+	/**
 	 * Method to auto-populate the model state.
 	 *
 	 * Note. Calling getState in this method will result in recursion.
@@ -29,14 +36,14 @@ class ThorHospedajeModelCountries extends JModelList
 	protected function populateState($ordering = 'ordering', $direction = 'ASC')
 	{
 		$app = JFactory::getApplication();
-
+		$params = $app->getParams();
+		
 		// List state information
-		/* $value = $app->input->get('limit', $app->getCfg('list_limit', 0), 'uint');
-		 * 
-		 * Comentado por LJAH, Esto debe editarse luego cuando ya se puedan pasar parámetros 
-		 * para la presentación de la lista de países
-		**/
-		$value = 4;
+		// Load parameters
+		$this->setState('params', $params);
+		
+		// Se calculan los elementos a traer en cada consulta
+		$value = ((int) $params->get('countries-rowcount', 2)) * ((int) $params->get('countries-rowcount', 2));
 		$this->setState('list.limit', $value);
 
 		$value = $app->input->get('limitstart', 0, 'uint');
@@ -55,11 +62,11 @@ class ThorHospedajeModelCountries extends JModelList
 			$listOrder = 'ASC';
 		}
 		$this->setState('list.direction', $listOrder);
-
-		$params = $app->getParams();
-		$this->setState('params', $params);
 		
 		$this->setState('filter.language', $app->getLanguageFilter());
+		
+		// Filter by state, only published
+		$this->setState('filter.state', 1);
 	}
 	
 	/**

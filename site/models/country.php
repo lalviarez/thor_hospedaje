@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @version		$Id: countries.php 2013-08-14
+ * @version		$Id: country.php 2013-08-14
  * @copyright	Copyright (C) 2013 Leonardo Alviarez - Edén Arreaza. All Rights Reserved.
  * @license		GNU General Public License version 3, or later
  * @note		Note : All ini files need to be saved as UTF-8 - No BOM
@@ -14,7 +14,7 @@ defined('_JEXEC') or die('Restricted access');
 jimport('joomla.application.component.modellist');
 
 /**
- * Countries Model
+ * Country Model
  */
 class ThorHospedajeModelCountry extends JModelItem
 {
@@ -41,14 +41,18 @@ class ThorHospedajeModelCountry extends JModelItem
 	protected function populateState()
 	{
 		$app = JFactory::getApplication('site');
-
+		$params = $app->getParams();
+		
 		// List state information
 		/* $value = $app->input->get('limit', $app->getCfg('list_limit', 0), 'uint');
 		 * 
 		 * Comentado por LJAH, Esto debe editarse luego cuando ya se puedan pasar parámetros 
-		 * para la presentación de la lista de países
+		 * para la presentación de la lista de estados de un país
 		**/
-		$value = 4;
+		// Load the parameters.
+		$this->setState('params', $params);
+		
+		$value = ((int) $params->get('country-rowcount', 2)) * ((int) $params->get('country-rowcount', 2));
 		$this->setState('list.limit', $value);
 
 		$value = $app->input->get('limitstart', 0, 'uint');
@@ -59,22 +63,14 @@ class ThorHospedajeModelCountry extends JModelItem
 		$this->setState('list.ordering', 'ordering');
 		$this->setState('list.direction', 'ASC');
 
-		$params = $app->getParams();
-		$this->setState('params', $params);
-		
 		$this->setState('filter.language', $app->getLanguageFilter());
 		
 		// Load state from the request.
 		$pk = $app->input->getInt('id');
-		$this->setState('contact.id', $pk);
-
-		// Load the parameters.
-		$params = $app->getParams();
-		$this->setState('params', $params);
-		
-		// Load state from the request.
-		$pk = $app->input->getInt('id');
 		$this->setState('country.id', $pk);
+		
+		// Filter by state, only published
+		$this->setState('filter.state', 1);
 	}
 	
 	/**

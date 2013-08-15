@@ -27,6 +27,8 @@ class ThorHospedajeViewCountry extends JViewLegacy
 	protected $state;
 
 	protected $item;
+	
+	protected $params;
 
 	/**
 	 * Country view display method
@@ -39,7 +41,7 @@ class ThorHospedajeViewCountry extends JViewLegacy
 		// Get data from the model
 		$this->item		= $this->get('Item');
 		$this->state	= $this->get('State');
-		//$this->pagination	= $this->get('Pagination');  
+		$this->params = &$this->state->params; 
 
 		if ($this->item)
 		{
@@ -65,7 +67,7 @@ class ThorHospedajeViewCountry extends JViewLegacy
 			$limitstart = $app->input->get('limitstart', 0, 'uint');
 			$statesModel->setState('list.start', $limitstart);
 			// LJAH: Esto debe cambiarse por parametros pasados por usuario
-			$countItems = 4;
+			$countItems = ((int) $this->params->get('country-rowcount', 2)) * ((int) $this->params->get('country-rowcount', 2));
 			$statesModel->setState('list.limit', $countItems);
 
 			$this->item->states = $statesModel->getItems();
