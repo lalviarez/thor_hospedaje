@@ -9,18 +9,21 @@
 		<field
 			name="countries-rowcount"
 			type="text"
+			class="inputbox validate-numeric"
 			default="2"
 			label="TH_COUNTRIES_FIELD_ROWCOUNT_LABEL"
 			description="TH_COUNTRIES_FIELD_ROWCOUNT_DESC" />
 		<field
 			name="countries-itemrow"
 			type="text"
+			class="inputbox validate-numeric"
 			default="2"
 			label="TH_COUNTRIES_FIELD_ITEMROW_LABEL"
 			description="TH_COUNTRIES_FIELD_ITEMROW_DESC" />
 		<field
 			name="countries-itemwidth"
 			type="text"
+			class="inputbox validate-numeric"
 			default="47"
 			label="TH_COUNTRIES_FIELD_ITEMWIDTH_LABEL"
 			description="TH_COUNTRIES_FIELD_ITEMWIDTH_DESC" />
@@ -35,18 +38,21 @@
 		<field
 			name="country-rowcount"
 			type="text"
+			class="inputbox validate-numeric"
 			default="2"
 			label="TH_COUNTRY_FIELD_ROWCOUNT_LABEL"
 			description="TH_COUNTRY_FIELD_ROWCOUNT_DESC" />
 		<field
 			name="country-itemrow"
 			type="text"
+			class="inputbox validate-numeric"
 			default="2"
 			label="TH_COUNTRY_FIELD_ITEMROW_LABEL"
 			description="TH_COUNTRY_FIELD_ITEMROW_DESC" />
 		<field
 			name="country-itemwidth"
 			type="text"
+			class="inputbox validate-numeric"
 			default="47"
 			label="TH_COUNTRY_FIELD_ITEMWIDTH_LABEL"
 			description="TH_COUNTRY_FIELD_ITEMWIDTH_DESC" />

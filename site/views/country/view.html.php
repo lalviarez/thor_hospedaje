@@ -41,10 +41,14 @@ class ThorHospedajeViewCountry extends JViewLegacy
 		// Get data from the model
 		$this->item		= $this->get('Item');
 		$this->state	= $this->get('State');
-		$this->params = &$this->state->params; 
+		$this->params = JComponentHelper::getParams('com_thorhospedaje');
 
 		if ($this->item)
 		{
+			// If we found an item, merge the item parameters
+			$this->params->merge($this->item->params);
+			//$this->params = $this->item->params;
+			
 			// Get States Model data
 			$statesModel = JModelLegacy::getInstance('States', 'ThorHospedajeModel', array('ignore_request' => true));
 			$statesModel->setState('list.select', 'a.id, a.state_name, a.state_desc, a.image, a.ordering');
@@ -66,7 +70,8 @@ class ThorHospedajeViewCountry extends JViewLegacy
 			// Set the limits for pagination
 			$limitstart = $app->input->get('limitstart', 0, 'uint');
 			$statesModel->setState('list.start', $limitstart);
-			// LJAH: Esto debe cambiarse por parametros pasados por usuario
+			
+			// Se calculan los elementos a traer en cada consulta
 			$countItems = ((int) $this->params->get('country-rowcount', 2)) * ((int) $this->params->get('country-rowcount', 2));
 			$statesModel->setState('list.limit', $countItems);
 

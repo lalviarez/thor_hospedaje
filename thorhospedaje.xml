@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <extension type="component" version="3.0" method="upgrade">
-	<name>Thor Hospedaje</name>
+	<!-- Se debe colocar esto <name>com_thor_hospedaje</name> -->
+	<name>com_thorhospedaje</name>
 	<author>Leonardo Alviarez, Edén Arreaza</author>
 	<creationDate>July 2013</creationDate>
 	<copyright>Copyright (C) 2013. All rights reserved.</copyright>
@@ -37,7 +38,7 @@
 		<folder>models</folder>
 		<folder>views</folder>		
 	</files>
-	<media folder="media" destination="com_thor_hospedaje">
+	<media folder="media" destination="com_thorhospedaje">
         <folder>css</folder>
         <folder>js</folder>
     </media>

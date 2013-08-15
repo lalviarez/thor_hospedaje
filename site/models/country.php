@@ -52,6 +52,7 @@ class ThorHospedajeModelCountry extends JModelItem
 		// Load the parameters.
 		$this->setState('params', $params);
 		
+		// Se calculan los elementos a traer en cada consulta
 		$value = ((int) $params->get('country-rowcount', 2)) * ((int) $params->get('country-rowcount', 2));
 		$this->setState('list.limit', $value);
 
@@ -165,14 +166,14 @@ class ThorHospedajeModelCountry extends JModelItem
 				{
 					return JError::raiseError(404, JText::_('COM_CONTENT_ERROR_ARTICLE_NOT_FOUND'));
 				}
+*/
 
 				// Convert parameter fields to objects.
 				$registry = new JRegistry;
-				$registry->loadString($data->attribs);
-
-				$data->params = clone $this->getState('params');
-				$data->params->merge($registry);
-
+				$registry->loadString($country->params);
+				$country->params = clone $this->getState('params');
+				$country->params->merge($registry);
+/*
 				$registry = new JRegistry;
 				$registry->loadString($data->metadata);
 				$data->metadata = $registry;

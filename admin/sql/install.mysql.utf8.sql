@@ -13,6 +13,7 @@ CREATE TABLE IF NOT EXISTS `#__th_countries` (
   `access` int(11) NOT NULL DEFAULT '1',
   `language` varchar(7) NOT NULL DEFAULT '' COMMENT 'Lenguaje del pais registrado',
   `ordering` int(11) unsigned NOT NULL DEFAULT '0' COMMENT 'Orden de los registros',
+  `params` text NOT NULL DEFAULT '' COMMENT "Parametros de configuracion",
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
@@ -31,5 +32,6 @@ CREATE TABLE IF NOT EXISTS `#__th_states` (
   `access` int(11) NOT NULL DEFAULT '1',
   `language` varchar(7) NOT NULL DEFAULT '' COMMENT 'Lenguaje del estado registrado',
   `ordering` int(11) unsigned NOT NULL DEFAULT '0' COMMENT 'Orden de los registros',
+  `params` text NOT NULL DEFAULT '' COMMENT "Parametros de configuracion",
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;

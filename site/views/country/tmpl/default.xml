@@ -1,10 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Esto debe editarse acorde a la vista, podría pasarse un id de pais como parámetro para 
-	filtrar los estados -->
 <metadata>
-        <layout title="EDITAR_TH_COUNTRY_VIEW_DEFAULT_TITLE">
-                <message>
-                        <![CDATA[EDITAR_TH_COUNTRY_VIEW_DEFAULT_DESC]]>
-                </message>
-        </layout>
+	<layout title="TH_COUNTRY_VIEW_DEFAULT_TITLE">
+		<!-- <help
+			key = "JHELP_MENUS_MENU_ITEM_CONTACT_SINGLE_CONTACT"
+		/> -->
+		<message>
+			<![CDATA[TH_COUNTRY_VIEW_DEFAULT_DESC]]>
+		</message>
+	</layout>
+	
+	<!-- Add fields to the request variables for the layout. -->
+	<fields name="request">
+		<fieldset name="request"
+			addfieldpath="/administrator/components/com_thorhospedaje/models/fields"
+		>
+			<field name="id"
+				type="modal_countries"
+				description="TH_COUNTRY_SELECT_COUNTRY_DESC"
+				label="TH_COUNTRY_SELECT_COUNTRY_LABEL"
+				required="true"
+			/>
+		</fieldset>
+	</fields>
 </metadata>

@@ -13,8 +13,8 @@ JHtml::addIncludePath(JPATH_COMPONENT.'/helpers');
 JHtml::_('behavior.framework');
 JHtml::_('bootstrap.framework');
 $document = JFactory::getDocument();
-$document->addStyleSheet('media/com_thor_hospedaje/css/th_states.css');
-$document->addScript('media/com_thor_hospedaje/js/jquery.ThreeDots.min.js');
+$document->addStyleSheet('media/com_thorhospedaje/css/th_states.css');
+$document->addScript('media/com_thorhospedaje/js/jquery.ThreeDots.min.js');
 $document->addScriptDeclaration('
 jQuery(document).ready(function(){
     jQuery(window).on("resize", function () {

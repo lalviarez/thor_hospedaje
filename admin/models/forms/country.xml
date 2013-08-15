@@ -67,5 +67,42 @@
 			class="inputbox span12 small">
 			<option value="*">JALL</option>
 		</field>
-	</fieldset>	
+	</fieldset>
+	
+	<fields name="params">
+		<fieldset name="jbasic" label="JGLOBAL_FIELDSET_DISPLAY_OPTIONS">
+				
+			<field
+			name="country-rowcount"
+			type="text"
+			class="inputbox validate-numeric"
+			default=""
+			label="TH_COUNTRY_FIELD_ROWCOUNT_LABEL"
+			description="TH_COUNTRY_FIELD_ROWCOUNT_DESC" />
+		<field
+			name="country-itemrow"
+			type="text"
+			class="inputbox validate-numeric"
+			default=""
+			label="TH_COUNTRY_FIELD_ITEMROW_LABEL"
+			description="TH_COUNTRY_FIELD_ITEMROW_DESC" />
+		<field
+			name="country-itemwidth"
+			type="text"
+			class="inputbox validate-numeric"
+			default=""
+			label="TH_COUNTRY_FIELD_ITEMWIDTH_LABEL"
+			description="TH_COUNTRY_FIELD_ITEMWIDTH_DESC" />
+		
+		<field
+			name="country-itemMenu"
+			type="text"
+			class="inputbox validate-numeric"
+			default=""
+			required="true"
+			label="TH_COUNTRY_FIELD_ITEMMENU_LABEL"
+			description="TH_COUNTRY_FIELD_ITEMMENU_DESC" />
+					
+		</fieldset>
+    </fields>
 </form>
