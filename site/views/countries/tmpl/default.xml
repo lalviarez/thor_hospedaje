@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <metadata>
-        <layout title="TH_COUNTRY_VIEW_DEFAULT_TITLE">
-                <message>
-                        <![CDATA[TH_COUNTRY_VIEW_DEFAULT_DESC]]>
-                </message>
+        <layout title="COM_THORHOSPEDAJE_COUNTRIES_VIEW_DEFAULT_TITLE">
+			<!-- <help
+				key = "JHELP_MENUS_MENU_ITEM_CONTACT_SINGLE_CONTACT"
+			/> -->
+            <message>
+                <![CDATA[COM_THORHOSPEDAJE_COUNTRIES_VIEW_DEFAULT_DESC]]>
+            </message>
         </layout>
 </metadata>

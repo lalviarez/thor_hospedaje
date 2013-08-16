@@ -59,6 +59,7 @@ class ThorHospedajeViewCountry extends JViewLegacy
 		JToolBarHelper::apply('country.apply');
 		JToolBarHelper::save('country.save');
 		JToolBarHelper::save2new('country.save2new');
+		JToolBarHelper::preferences('com_thorhospedaje');
 		JToolBarHelper::cancel('country.cancel', $isNew ? 'JTOOLBAR_CANCEL' : 'JTOOLBAR_CLOSE');
 	}
 }
