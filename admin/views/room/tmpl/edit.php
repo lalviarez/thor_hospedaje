@@ -21,13 +21,13 @@ JHtml::_('formbehavior.chosen', 'select');
 		}
 	}
 </script>
-<form action="<?php echo JRoute::_('index.php?option=com_thorhospedaje&layout=edit&id='.(int) $this->item->id); ?>" method="post" name="adminForm" id="room-form" class="form-validate form-horizontal">
+<form action="<?php echo JRoute::_('index.php?option=com_thorhospedaje&layout=edit&id='.(int) $this->item->room_id); ?>" method="post" name="adminForm" id="room-form" class="form-validate form-horizontal">
 	<div class="row-fluid">
 		<!-- Begin room -->
 		<div class="span10 form-horizontal">
 	<fieldset>
 		<ul class="nav nav-tabs">
-			<li class="active"><a href="#details" data-toggle="tab"><?php echo empty($this->item->id) ? JText::_('TH_ROOM_NEW_ROOM') : JText::sprintf('TH_ROOM_EDIT_ROOM', $this->item->id); ?></a></li>
+			<li class="active"><a href="#details" data-toggle="tab"><?php echo empty($this->item->room_id) ? JText::_('TH_ROOM_NEW_ROOM') : JText::sprintf('TH_ROOM_EDIT_ROOM', $this->item->room_id); ?></a></li>
 			<li><a href="#publishing" data-toggle="tab"><?php echo JText::_('JGLOBAL_FIELDSET_PUBLISHING');?></a></li>
 		</ul>
 		<div class="tab-content">
@@ -50,15 +50,15 @@ JHtml::_('formbehavior.chosen', 'select');
 				</div>
 				<div class="control-group">
 					<div class="control-label"><?php echo $this->form->getLabel('rooms_number'); ?></div>
-					<div class="controls"><?php echo $this->form->getInput('rooms_number'); ?></div>
+					<div class="controls" ><?php echo $this->form->getInput('rooms_number'); ?></div>
 				</div>
 				<div class="control-group">
 					<div class="control-label"><?php echo $this->form->getLabel('number_adult'); ?></div>
 					<div class="controls"><?php echo $this->form->getInput('number_adult'); ?></div>
 				</div>
 				<div class="control-group">
-					<div class="control-label"><?php echo $this->form->getLabel('number_childen'); ?></div>
-					<div class="controls"><?php echo $this->form->getInput('number_childen'); ?></div>
+					<div class="control-label"><?php echo $this->form->getLabel('number_children'); ?></div>
+					<div class="controls"><?php echo $this->form->getInput('number_children'); ?></div>
 				</div>
 			</div>
 			
@@ -83,7 +83,7 @@ JHtml::_('formbehavior.chosen', 'select');
 					<div class="control-label"><?php echo $this->form->getLabel('modified_date'); ?></div>
 					<div class="controls"><?php echo $this->form->getInput('modified_date'); ?></div>
 				</div>
-				<input type="hidden" name="task" value="asset.edit" />
+				<input type="hidden" name="task" value="room.edit" />
 				<?php echo JHtml::_('form.token'); ?>
 			</div>
 		</div>

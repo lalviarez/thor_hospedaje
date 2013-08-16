@@ -142,7 +142,7 @@ if ($saveOrder)
 					<?php echo $this->escape($item->state_name); ?>
 				</td>	
 				<td class="center">
-					<?php echo JHtml::_('jgrid.published', $item->state, $i, 'states.');
+					<?php echo JHtml::_('jgrid.published', $item->state, $i, 'assets.');
 					/*, $canChange, 'cb', $item->publish_up, $item->publish_down*/ ?>
 					
 				</td>

@@ -1,7 +1,7 @@
 <?php
 /**
- * @version		$Id: default.php 2013-07-29
- * @copyright	Copyright (C) 2013 Leonardo Alviarez - Edén Arreaza. All Rights Reserved.
+ * @version		$Id: default.php 2013-08-12
+ * @copyright		Copyright (C) 2013 Leonardo Alviarez - Edén Arreaza. All Rights Reserved.
  * @license		GNU General Public License version 3, or later
  * @note		Note : All ini files need to be saved as UTF-8 - No BOM
  */
@@ -24,8 +24,8 @@ $saveOrder	= $listOrder == 'ordering';
 
 if ($saveOrder)
 {
-	$saveOrderingUrl = 'index.php?option=com_thorhospedaje&task=assets.saveOrderAjax&tmpl=component';
-	JHtml::_('sortablelist.sortable', 'assetList', 'adminForm', strtolower($listDirn), $saveOrderingUrl);
+	$saveOrderingUrl = 'index.php?option=com_thorhospedaje&task=rooms.saveOrderAjax&tmpl=component';
+	JHtml::_('sortablelist.sortable', 'roomList', 'adminForm', strtolower($listDirn), $saveOrderingUrl);
 }
 
 //$sortFields = $this->getSortFields();
@@ -48,7 +48,7 @@ if ($saveOrder)
 		Joomla.tableOrdering(order, dirn, '');
 	}*/
 </script>
-<form action="<?php echo JRoute::_('index.php?option=com_thorhospedaje&view=assets'); ?>" method="post" name="adminForm" id="adminForm">
+<form action="<?php echo JRoute::_('index.php?option=com_thorhospedaje&view=rooms'); ?>" method="post" name="adminForm" id="adminForm">
 <?php if (!empty( $this->sidebar)) : ?>
 	<div id="j-sidebar-container" class="span2">
 		<?php echo $this->sidebar; ?>
