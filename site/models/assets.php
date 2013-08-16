@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @version		$Id: states.php 2013-07-31
+ * @version		$Id: assets.php 2013-08-16
  * @copyright	Copyright (C) 2013 Leonardo Alviarez - Edén Arreaza. All Rights Reserved.
  * @license		GNU General Public License version 3, or later
  * @note		Note : All ini files need to be saved as UTF-8 - No BOM
@@ -16,7 +16,7 @@ jimport('joomla.application.component.modellist');
 /**
  * States Model
  */
-class ThorHospedajeModelStates extends JModelList
+class ThorHospedajeModelAssets extends JModelList
 {
 	/**
 	 * Method to build an SQL query to load the list data.
@@ -32,7 +32,7 @@ class ThorHospedajeModelStates extends JModelList
 		
 		// Select field to query
 		$query->select($this->getState('list.select', 'a.*'));
-		$query->from($db->quoteName('#__th_states').' AS a');
+		$query->from($db->quoteName('#__th_assets').' AS a');
 		
 		// Filter by state
 		$state = $this->getState('filter.state');
@@ -46,25 +46,24 @@ class ThorHospedajeModelStates extends JModelList
 		{
 			$query->where('a.language in (' . $db->Quote(JFactory::getLanguage()->getTag()) . ',' . $db->Quote('*') . ')');
 		}	
-
+		
 		/*
 		 * LJAH: Esta rutina debe revisarse para mejorarla, posiblemente
 		 * haya codigo que no haga nada.
 		 **/
-		$id_country = $this->getState('filter.id_country', NULL);
+		$state_id = $this->getState('filter.state_id', NULL);
 		if ($id_country != NULL)
 		{
-			$app->setUserState('filter.id_country', $id_country);
-			$app->getUserState('filter.id_country', NULL);
+			$app->setUserState('filter.state_id', $state_id);
+			$app->getUserState('filter.state_id', NULL);
 		}
 		else
 		{
-			$app->getUserState('filter.id_country', NULL);
-			$id_country = $app->getUserState('filter.id_country', NULL);
+			$app->getUserState('filter.state_id', NULL);
+			$id_country = $app->getUserState('filter.state_id', NULL);
 		}
-		$query->where('a.country_id = '. (int) $id_country);
+		$query->where('a.state_id = '. (int) $state_id);
 		/* --- */
-		
 		
 /*		if ($id_country === "%"){
 			$query->where('a.country_id LIKE '."'".$id_country."'");

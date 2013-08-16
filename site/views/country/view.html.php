@@ -36,7 +36,7 @@ class ThorHospedajeViewCountry extends JViewLegacy
 	 */
 	function display($tpl = null) 
 	{
-		$app		= JFactory::getApplication();
+		$app = JFactory::getApplication();
 		
 		// Get data from the model
 		$this->item		= $this->get('Item');
