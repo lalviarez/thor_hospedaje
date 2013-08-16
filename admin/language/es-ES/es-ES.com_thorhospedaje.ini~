@@ -103,6 +103,7 @@ TH_MANAGER_ROOM_NEW="Thor Hospedaje: Nueva Habitación"
 TH_MANAGER_ROOM_EDIT="Thor Hospedaje: Editar Habitación"
 
 TH_ROOMS_HEADING_ROOM="Habitación"
+TH_ROOMS_HEADING_ASSET="Posada y/o Hotel"
 TH_ROOMS_HEADING_COUNTRY="País"
 TH_ROOMS_HEADING_STATE="Estado"
 
@@ -125,7 +126,7 @@ TH_ROOM_FIELD_STATE_DESC="Estado de publicación de la habitación"
 TH_ROOM_FIELD_LANGUAGE_DESC="Idioma de publicación de la habitación"
 
 
-;For asset tab
+;For room tab
 TH_ROOM_NEW_ROOM="Nueva habitación"
 TH_ROOM_EDIT_ROOM="Editar habitación"
 
@@ -142,11 +143,15 @@ TH_STATES_N_ITEMS_PUBLISHED_1="%d Estado publicado correctamente"
 TH_STATES_N_ITEMS_UNPUBLISHED="%d Estados despublicados correctamente"
 TH_STATES_N_ITEMS_UNPUBLISHED_1="%d Estado despublicado correctamente"
 
-TH_ASSETS_N_ITEMS_PUBLISHED="%d Posadas y/o Hotelespublicados correctamente"
+TH_ASSETS_N_ITEMS_PUBLISHED="%d Posadas y/o Hoteles publicados correctamente"
 TH_ASSETS_N_ITEMS_PUBLISHED_1="%d Posada y/o Hotel publicado correctamente"
 TH_ASSETS_N_ITEMS_UNPUBLISHED="%d Posadas y/o Hoteles despublicados correctamente"
 TH_ASSETS_N_ITEMS_UNPUBLISHED_1="%d Posada y/o Hotel despublicado correctamente"
 
+TH_ROOMS_N_ITEMS_PUBLISHED="%d Habitaciones publicadas correctamente"
+TH_ROOMS_N_ITEMS_PUBLISHED_1="%d Habitación publicada correctamente"
+TH_ROOMS_N_ITEMS_UNPUBLISHED="%d Habitaciones despublicadas correctamente"
+TH_ROOMS_N_ITEMS_UNPUBLISHED_1="%d Habitación despublicada correctamente"
 
 ;For delete items
 TH_COUNTRIES_N_ITEMS_DELETED="%d Países eliminados correctamente"
@@ -158,6 +163,8 @@ TH_STATES_N_ITEMS_DELETED_1="%d Estado eliminado correctamente"
 TH_ASSETS_N_ITEMS_DELETED="%d Posadas y/o Hoteles eliminados correctamente"
 TH_ASSETS_N_ITEMS_DELETED_1="%d Posada y/o Hotel eliminado correctamente"
 
+TH_ROOMS_N_ITEMS_DELETED="%d Habitaciones eliminadas correctamente"
+TH_ROOMS_N_ITEMS_DELETED_1="%d Habitación eliminada correctamente"
 
 TH_COUNTRY_HEADING_PUBLISHED_LABEL="Publicado"
 TH_COUNTRY_HEADING_PUBLISHED_DESC="Seleccione el estado del país"
