@@ -10,7 +10,7 @@
 			size="40" label="TH_ROOM_FIELD_ROOM_LABEL"
 			description="TH_ROOM_FIELD_ROOM_DESC" required="true" />
 		
-        <field name="asset_id" type="assets" extension="com_thorhospedaje"
+        	<field name="asset_id" type="assets" extension="com_thorhospedaje"
 			label="TH_ROOM_FIELD_ASSET_LABEL" description="TH_ROOM_FIELD_ASSET_DESC"
 			class="inputbox" required="true" /> 	
 
@@ -26,11 +26,11 @@
 			label="TH_ROOM_FIELD_ROOMS_NUMBER_LABEL" description="TH_ROOM_FIELD_ROOMS_NUMBER_DESC"
 			class="inputbox" rows="3" cols="30" required="true" />	
 		
-		<field name="number_adult" class="inputbox"  size="10"
+		<field name="number_adult" class="inputbox validate-numeric"  size="10"
 			label="TH_ROOM_FIELD_NUMBER_ADULT_LABEL" description="TH_ROOM_FIELD_NUMBER_ADULT_DESC"
 			required="true" />	
 			
-		<field name="number_childen" class="inputbox"  size="10"
+		<field name="number_children" class="inputbox validate-numeric"  size="10"
 			label="TH_ROOM_FIELD_NUMBER_CHILDREN_LABEL" description="TH_ROOM_FIELD_NUMBER_CHILDREN_DESC"
 			required="true" />			
 			

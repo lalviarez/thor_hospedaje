@@ -64,7 +64,7 @@ if ($saveOrder)
 		<?php echo $this->pagination->getLimitBox(); ?>
 	</div>
 </div>		
-<table class="table table-striped" id="assetList">
+<table class="table table-striped" id="roomList">
 			<thead>
 				<tr> 
 				    <th width="1%" class="nowrap center hidden-phone">
@@ -75,13 +75,10 @@ if ($saveOrder)
 						<input type="checkbox" name="checkall-toggle" value="" title="<?php echo JText::_('JGLOBAL_CHECK_ALL'); ?>" onclick="Joomla.checkAll(this)" />
 					</th>
 					<th>
-						<?php echo JHtml::_('grid.sort','TH_ASSETS_HEADING_ASSET','a.state_name',$listDirn, $listOrder); ?>
+						<?php echo JHtml::_('grid.sort','TH_ROOMS_HEADING_ROOM','r.room_name',$listDirn, $listOrder); ?>
 					</th>
 					<th>
-						<?php echo JHtml::_('grid.sort','TH_ASSETS_HEADING_COUNTRY','a.country_id',$listDirn, $listOrder); ?>
-					</th>
-							<th>
-						<?php echo JHtml::_('grid.sort','TH_ASSETS_HEADING_STATE','a.state_id',$listDirn, $listOrder); ?>
+						<?php echo JHtml::_('grid.sort','TH_ROOMS_HEADING_ASSET','a.country_id',$listDirn, $listOrder); ?>
 					</th>
 					<th width="1%" style="min-width:55px" class="nowrap center">
 						<?php echo JHtml::_('grid.sort', 'JSTATUS', 'a.state',$listDirn, $listOrder); ?>
@@ -109,7 +106,7 @@ if ($saveOrder)
 			$ordering  = ($listOrder == 'ordering');
 			?>
 			<tr class="row<?php echo $i % 2; ?>" sortable-group-id="<?php echo $item->country_id;?>">
-                <td class="order nowrap center hidden-phone">
+                	<td class="order nowrap center hidden-phone">
 					<?php //if ($canChange) :
 						$disableClassName = '';
 						$disabledLabel	  = '';
@@ -129,20 +126,17 @@ if ($saveOrder)
 					<?php /*endif;*/ ?>
 				</td>     			
 				<td>
-					<?php echo JHtml::_('grid.id', $i, $item->id); ?>
+					<?php echo JHtml::_('grid.id', $i, $item->room_id); ?>
 				</td>
 				<td>
-					<a href="<?php echo JRoute::_('index.php?option=com_thorhospedaje&task=asset.edit&id='.$item->id);?>" title="<?php echo $this->escape($item->asset_name); ?>">
-					<?php echo $this->escape(str_replace(JURI::root(), '', $item->asset_name)); ?></a>
+					<a href="<?php echo JRoute::_('index.php?option=com_thorhospedaje&task=room.edit&id='.$item->room_id);?>" title="<?php echo $this->escape($item->room_name); ?>">
+					<?php echo $this->escape(str_replace(JURI::root(), '', $item->room_name)); ?></a>
 				</td>
 				<td>
-					<?php echo $this->escape($item->country_name); ?>
+					<?php echo $this->escape($item->asset_name); ?>
 				</td>
-				<td>
-					<?php echo $this->escape($item->state_name); ?>
-				</td>	
 				<td class="center">
-					<?php echo JHtml::_('jgrid.published', $item->state, $i, 'states.');
+					<?php echo JHtml::_('jgrid.published', $item->state, $i, 'rooms.');
 					/*, $canChange, 'cb', $item->publish_up, $item->publish_down*/ ?>
 					
 				</td>
@@ -157,7 +151,7 @@ if ($saveOrder)
 						<?php endif;?>
 				</td>
 				<td>
-					<?php echo $item->id; ?>
+					<?php echo $item->room_id; ?>
 				</td>
 			</tr>
 			<?php endforeach; ?>

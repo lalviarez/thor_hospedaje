@@ -27,9 +27,9 @@ class ThorHospedajeModelRooms extends JModelList
 				'id', 'a.id',
 				'cid', 'a.cid',
 				'asset_name', 'a.asset_name',
-         	   	'state_id', 'a.state_id',
-         	    'language', 'a.language',   
-         	    'state', 'a.state',
+         	   		'state_id', 'a.state_id',
+         	    		'language', 'a.language',   
+         	   		'state', 'a.state',
 				'access', 'a.access',
 				'ordering', 'a.ordering',
 				
@@ -51,31 +51,28 @@ class ThorHospedajeModelRooms extends JModelList
 		$query = $db->getQuery(true);
 
 		// Select some fields
-		$query->select('a.id,a.asset_name,a.state_id,a.state,a.access,a.language, a.ordering as ordering');
+		$query->select('r.id as room_id,r.room_name,r.asset_id,r.state,r.access,r.language, r.ordering as ordering');
 
 		// From the states table
-		$query->from('#__th_assets'.' AS a');
+		$query->from('#__th_rooms'.' AS r');
 
-		// Join over the state
-		$query->select('s.state_name AS state_name,s.country_id');
-		$query->join('LEFT', $db->quoteName('#__th_states').' AS s ON s.id = a.state_id');  
+		// Join over the asset
+		$query->select('a.asset_name as asset_name,a.id');
+		$query->join('LEFT', $db->quoteName('#__th_assets').' AS a ON a.id = r.id');  
 
-		// Join over the country
-		$query->select('c.country AS country_name');
-		$query->join('LEFT', $db->quoteName('#__th_countries').' AS c ON c.id = s.country_id');  
-
-       	// Join over the language
+		
+       		// Join over the language
 		$query->select('l.title AS language_title');
-		$query->join('LEFT', $db->quoteName('#__languages').' AS l ON l.lang_code = a.language');  
+		$query->join('LEFT', $db->quoteName('#__languages').' AS l ON l.lang_code = r.language');  
 
 		// Join over the asset groups.
 		$query->select('ag.title AS access_level');
-		$query->join('LEFT', '#__viewlevels AS ag ON ag.id = a.access');
+		$query->join('LEFT', '#__viewlevels AS ag ON ag.id = r.access');
 
 		// Filter by access level.
 		if ($access = $this->getState('filter.access'))
 		{
-			$query->where('a.access = '.(int) $access);
+			$query->where('r.access = '.(int) $access);
 		}
 		// Add the list ordering clause.
 		$orderCol	= $this->state->get('list.ordering', 'ordering');
@@ -84,13 +81,13 @@ class ThorHospedajeModelRooms extends JModelList
 
 		if ($orderCol == 'ordering')
 		{
-			$orderCol='asset_name '.$orderDirn.', a.ordering';
+			$orderCol='room_name '.$orderDirn.', r.ordering';
 			
 			
 		}
 		
 		$query->order($db->escape($orderCol.' '.$orderDirn));
-		
+		echo $query;
 		return $query;
 	}
 
