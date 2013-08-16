@@ -116,7 +116,7 @@ class ThorHospedajeModelCountry extends JModelItem
 				$query->order($db->escape($this->getState('list.ordering', 'a.ordering')).' '.$db->escape($this->getState('list.direction', 'ASC')));
 
 				$query->where('a.id = ' . (int) $pk);
-				
+
 				$db->setQuery($query);
 				$country = $db->loadObject();
 				

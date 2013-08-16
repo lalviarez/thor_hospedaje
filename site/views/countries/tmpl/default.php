@@ -45,9 +45,20 @@ $itemWidth = (int) $this->params->get('countries-itemwidth', 47);
 			for ($j = 0; $j < $itemRow; $j++):
 				if (isset($this->items[$count])):
 					$item = $this->items[$count];
+					$Itemid = $item->params->get('country-itemMenu',0);
 			?>
-
-			<a href="<?php echo JRoute::_('index.php?view=country&id='. $item->id);?>">
+					<?php 
+					if ($Itemid): 
+					?>
+						<a href="<?php echo JRoute::_('index.php?view=country&id='. $item->id .'&Itemid='. $Itemid);?>">
+					<?php
+					else:
+					?>
+						<a href="<?php echo JRoute::_('index.php?view=country&id='. $item->id);?>">
+					<?php
+					endif;
+					?>
+					
 			<div class="country-item" style="width: <?php echo $itemWidth; ?>%;">
 				<div id="th-country-image-<?php echo $count;?>" class="country-image">
 					<img src="<?php echo $item->image?>">

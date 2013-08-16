@@ -102,4 +102,39 @@ class ThorHospedajeModelCountries extends JModelList
 		
 		return $query;
 	}
+	
+	/**
+	 * Method to get a list of countries.
+	 *
+	 * Overriden to inject convert the attribs field into a JParameter object.
+	 *
+	 * @return  mixed  An array of objects on success, false on failure.
+	 * @since   1.6
+	 */
+	public function getItems()
+	{
+		$items	= parent::getItems();
+		/*$user	= JFactory::getUser();
+		$userId	= $user->get('id');
+		$guest	= $user->get('guest');
+		$groups	= $user->getAuthorisedViewLevels();
+		$input  = JFactory::getApplication()->input;
+
+		// Get the global params
+		$globalParams = JComponentHelper::getParams('com_content', true);*/
+
+		// Convert the parameter fields into objects.
+		foreach ($items as &$item)
+		{
+			if (isset($item->params))
+			{
+				$registry = new JRegistry;
+				$registry->loadString($item->params);
+				$item->params = clone $this->getState('params');
+				$item->params->merge($registry);
+			}
+		}
+
+		return $items;
+	}
 }
