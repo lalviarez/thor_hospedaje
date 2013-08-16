@@ -26,8 +26,7 @@ class CountriesHelper
 		$query->select('id as value, country as text');
 		$query->from('#__th_countries AS a');
 		$query->order('a.country');
-		
-		
+
 		// Get the options.
 		$db->setQuery($query);
 
@@ -43,7 +42,7 @@ class CountriesHelper
 		// Merge any additional options in the XML definition.
 		//$options = array_merge(parent::getOptions(), $options);
 
-		array_unshift($options, JHtml::_('select.option',''));
+		array_unshift($options, JHtml::_('select.option','','','onchange="alert("hola");"','onchange="alert("hola");"'));
 
 		return $options;
 	}

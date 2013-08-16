@@ -51,7 +51,8 @@
 			-->
 			<menu link="option=com_thorhospedaje&amp;view=countries" view="countries">TH_MENU_COUNTRIES</menu>
 			<menu link="option=com_thorhospedaje&amp;view=states" view="states">TH_MENU_STATES</menu>
-			<menu link="option=com_thorhospedaje&amp;view=assets" view="assets">TH_MENU_ASSETS</menu>	
+			<menu link="option=com_thorhospedaje&amp;view=assets" view="assets">TH_MENU_ASSETS</menu>
+			<menu link="option=com_thorhospedaje&amp;view=rooms" view="rooms">TH_MENU_ROOMS</menu>	
 		</submenu>
 		<files folder="admin">
 			<!-- <filename>access.xml</filename> -->

@@ -1,8 +1,8 @@
 <?php
 
 /**
- * @version		$Id: assets.php 2013-07-29
- * @copyright	Copyright (C) 2013 Leonardo Alviarez - Edén Arreaza. All Rights Reserved.
+ * @version		$Id: rooms.php 2013-08-12
+ * @copyright		Copyright (C) 2013 Leonardo Alviarez - Edén Arreaza. All Rights Reserved.
  * @license		GNU General Public License version 3, or later
  * @note		Note : All ini files need to be saved as UTF-8 - No BOM
  */
@@ -14,9 +14,9 @@ defined('_JEXEC') or die('Restricted access');
 jimport('joomla.application.component.modellist');
 
 /**
- * Assets Model
+ * Rooms Model
  */
-class ThorHospedajeModelAssets extends JModelList
+class ThorHospedajeModelRooms extends JModelList
 {
 
 	public function __construct($config = array())
