@@ -27,7 +27,68 @@
 			type="media"
 			label="TH_ASSET_FIELD_IMAGE_LABEL"
 			description="TH_ASSET_FIELD_IMAGE_DESC" required="true" />
+		
+		<field
+			name="image1"
+			type="media"
+			label="TH_ASSET_FIELD_IMAGE1_LABEL"
+			description="TH_ASSET_FIELD_IMAGE1_DESC" />
 			
+		<field
+			name="image2"
+			type="media"
+			label="TH_ASSET_FIELD_IMAGE2_LABEL"
+			description="TH_ASSET_FIELD_IMAGE2_DESC" />
+			
+		<field
+			name="image3"
+			type="media"
+			label="TH_ASSET_FIELD_IMAGE3_LABEL"
+			description="TH_ASSET_FIELD_IMAGE3_DESC" />
+		
+		<field
+			name="image4"
+			type="media"
+			label="TH_ASSET_FIELD_IMAGE4_LABEL"
+			description="TH_ASSET_FIELD_IMAGE4_DESC" />
+		
+		<field
+			name="image5"
+			type="media"
+			label="TH_ASSET_FIELD_IMAGE5_LABEL"
+			description="TH_ASSET_FIELD_IMAGE5_DESC" />
+			
+		<field
+			name="image6"
+			type="media"
+			label="TH_ASSET_FIELD_IMAGE6_LABEL"
+			description="TH_ASSET_FIELD_IMAGE6_DESC" />
+			
+		<field
+			name="image7"
+			type="media"
+			label="TH_ASSET_FIELD_IMAGE7_LABEL"
+			description="TH_ASSET_FIELD_IMAGE7_DESC" />
+			
+		<field
+			name="image8"
+			type="media"
+			label="TH_ASSET_FIELD_IMAGE8_LABEL"
+			description="TH_ASSET_FIELD_IMAGE8_DESC" />
+			
+		<field
+			name="image9"
+			type="media"
+			label="TH_ASSET_FIELD_IMAGE9_LABEL"
+			description="TH_ASSET_FIELD_IMAGE9_DESC" />
+			
+		<field
+			name="image10"
+			type="media"
+			label="TH_ASSET_FIELD_IMAGE10_LABEL"
+			description="TH_ASSET_FIELD_IMAGE10_DESC" />
+			
+													
 		<field name="created_date" type="calendar"
 			label="JGLOBAL_FIELD_CREATED_LABEL" description="JGLOBAL_FIELD_CREATED_DESC"
 			class="inputbox" size="22" format="%Y-%m-%d %H:%M:%S"

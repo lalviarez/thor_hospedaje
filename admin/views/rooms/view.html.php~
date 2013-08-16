@@ -13,26 +13,30 @@ defined('_JEXEC') or die('Restricted access');
 jimport('joomla.application.component.view');
 
 /**
- * Asset View
+ * States View
  */
-class ThorHospedajeViewAsset extends JViewLegacy
+class ThorHospedajeViewAssets extends JViewLegacy
 {
 	
 	protected $items;
 
 	protected $pagination;
+	
+	protected $state;
+	
 
 	/**
-	 * Asset view display method
+	 * Assets view display method
 	 * @return void
 	 */
 	function display($tpl = null) 
 	{
 		// Get data from the model
-		$this->item		= $this->get('Item');
-		$this->form		= $this->get('Form');  
-
-
+		$this->items		= $this->get('Items');
+		$this->pagination	= $this->get('Pagination');  
+		$this->state		= $this->get('State');
+        
+      
 		// Check for errors.
 		if (count($errors = $this->get('Errors'))) 
 		{
@@ -52,13 +56,26 @@ class ThorHospedajeViewAsset extends JViewLegacy
 	 */
 	protected function addToolBar() 
 	{
-		JRequest::setVar('hidemainmenu', true);
-		$isNew = ($this->item->id == 0);
-		JToolBarHelper::title($isNew ? JText::_('TH_MANAGER_ASSET_NEW') : JText::_('TH_MANAGER_ASSET_EDIT'));
-		JToolBarHelper::apply('asset.apply');
-		JToolBarHelper::save('asset.save');
-		JToolBarHelper::save2new('asset.save2new');
-		//SRToolBarHelper::mediaManager();	
-		JToolBarHelper::cancel('asset.cancel', $isNew ? 'JTOOLBAR_CANCEL' : 'JTOOLBAR_CLOSE');
+		JToolBarHelper::title(JText::_('TH_MANAGER_ASSETS'));
+		JToolBarHelper::addNew('asset.add');
+		JToolBarHelper::editList('asset.edit');
+		JToolBarHelper::deleteList('','asset.delete');		
 	}
+
+	/**
+	 * Returns an array of fields the table can be sorted by
+	 *
+	 * @return  array  Array containing the field name to sort by as the key and display text as value
+	 *
+	 * @since   3.0
+	 */
+	/*protected function getSortFields()
+	{
+		return array(
+			'ordering' => JText::_('JGRID_HEADING_ORDERING'),
+			'a.country' => JText::_('COM_BANNERS_HEADING_NAME'),
+			'a.id' => JText::_('JGRID_HEADING_ID')
+		);
+	}*/
+
 }

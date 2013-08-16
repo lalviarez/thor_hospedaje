@@ -1,6 +1,6 @@
 <?php
 /**
- * @version		$Id: view.html.php 2013-07-29
+ * @version		$Id: view.html.php 2013-08-12
  * @copyright	Copyright (C) 2013 Leonardo Alviarez - Edén Arreaza. All Rights Reserved.
  * @license		GNU General Public License version 3, or later
  * @note		Note : All ini files need to be saved as UTF-8 - No BOM
@@ -15,7 +15,7 @@ jimport('joomla.application.component.view');
 /**
  * Asset View
  */
-class ThorHospedajeViewAsset extends JViewLegacy
+class ThorHospedajeViewRoom extends JViewLegacy
 {
 	
 	protected $items;
@@ -23,7 +23,7 @@ class ThorHospedajeViewAsset extends JViewLegacy
 	protected $pagination;
 
 	/**
-	 * Asset view display method
+	 * Room view display method
 	 * @return void
 	 */
 	function display($tpl = null) 
@@ -54,11 +54,11 @@ class ThorHospedajeViewAsset extends JViewLegacy
 	{
 		JRequest::setVar('hidemainmenu', true);
 		$isNew = ($this->item->id == 0);
-		JToolBarHelper::title($isNew ? JText::_('TH_MANAGER_ASSET_NEW') : JText::_('TH_MANAGER_ASSET_EDIT'));
-		JToolBarHelper::apply('asset.apply');
-		JToolBarHelper::save('asset.save');
-		JToolBarHelper::save2new('asset.save2new');
+		JToolBarHelper::title($isNew ? JText::_('TH_MANAGER_ROOM_NEW') : JText::_('TH_MANAGER_ROOM_EDIT'));
+		JToolBarHelper::apply('room.apply');
+		JToolBarHelper::save('room.save');
+		JToolBarHelper::save2new('room.save2new');
 		//SRToolBarHelper::mediaManager();	
-		JToolBarHelper::cancel('asset.cancel', $isNew ? 'JTOOLBAR_CANCEL' : 'JTOOLBAR_CLOSE');
+		JToolBarHelper::cancel('room.cancel', $isNew ? 'JTOOLBAR_CANCEL' : 'JTOOLBAR_CLOSE');
 	}
 }

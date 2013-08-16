@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @version		$Id: asset.php 2013-07-29
+ * @version		$Id: room.php 2013-08-12
  * @copyright	Copyright (C) 2013 Leonardo Alviarez - Edén Arreaza. All Rights Reserved.
  * @license		GNU General Public License version 3, or later
  * @note		Note : All ini files need to be saved as UTF-8 - No BOM
@@ -14,9 +14,9 @@ defined('_JEXEC') or die('Restricted access');
 jimport('joomla.application.component.modeladmin');
 
 /**
- * Asset Model
+ * Room Model
  */
-class ThorHospedajeModelAsset extends JModelAdmin
+class ThorHospedajeModelRoom extends JModelAdmin
 {
 	/**
 	 * Returns a reference to the a Table object, always creating it.
@@ -27,7 +27,7 @@ class ThorHospedajeModelAsset extends JModelAdmin
 	 * @return	JTable	A database object
 	 * @since	1.6
 	 */
-	public function getTable($type = 'Asset', $prefix = 'ThorHospedajeTable', $config = array()) 
+	public function getTable($type = 'Room', $prefix = 'ThorHospedajeTable', $config = array()) 
 	{
 		return JTable::getInstance($type, $prefix, $config);
 	}
@@ -42,7 +42,7 @@ class ThorHospedajeModelAsset extends JModelAdmin
 	public function getForm($data = array(), $loadData = true) 
 	{
 		// Get the form.
-		$form = $this->loadForm('com_thorhospedaje.asset', 'asset', array('control' => 'jform', 'load_data' => $loadData));
+		$form = $this->loadForm('com_thorhospedaje.room', 'room', array('control' => 'jform', 'load_data' => $loadData));
 		if (empty($form)) 
 		{
 			return false;
@@ -58,7 +58,7 @@ class ThorHospedajeModelAsset extends JModelAdmin
 	protected function loadFormData() 
 	{
 		// Check the session for previously entered form data.
-		$data = JFactory::getApplication()->getUserState('com_thorhospedaje.edit.asset.data', array());
+		$data = JFactory::getApplication()->getUserState('com_thorhospedaje.edit.room.data', array());
 		if (empty($data)) 
 		{
 			$data = $this->getItem();
@@ -145,7 +145,7 @@ class ThorHospedajeModelAsset extends JModelAdmin
 			if (empty($table->ordering))
 			{
 				$db = JFactory::getDbo();
-				$db->setQuery('SELECT MAX(ordering) FROM #__th_assets');
+				$db->setQuery('SELECT MAX(ordering) FROM #__th_rooms');
 				$max = $db->loadResult();
 
 				$table->ordering = $max + 1;
