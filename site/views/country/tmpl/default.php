@@ -51,9 +51,19 @@ $itemMenu = (int) $this->params->get('country-itemMenu', 0);
 			for ($j = 0; $j < $itemRow; $j++):
 				if (isset($list[$count])):
 					$item = $list[$count];
+					$Itemid = $item->params->get('state-itemMenu',0);
 			?>
-
-			<a href="<?php echo JRoute::_('index.php?view=state&id='. $item->id);?>">
+					<?php 
+					if ($Itemid): 
+					?>
+						<a href="<?php echo JRoute::_('index.php?view=state&id='. $item->id .'&Itemid='. $Itemid);?>">
+					<?php
+					else:
+					?>
+						<a href="<?php echo JRoute::_('index.php?view=state&id='. $item->id);?>">
+					<?php
+					endif;
+					?>
 			<div class="state-item" style="width: <?php echo $itemWidth; ?>%;">
 				<div id="th-state-image-<?php echo $count;?>" class="state-image">
 					<img src="<?php echo $item->image?>">

@@ -58,6 +58,7 @@ class ThorHospedajeViewState extends JViewLegacy
 		JToolBarHelper::apply('state.apply');
 		JToolBarHelper::save('state.save');
 		JToolBarHelper::save2new('state.save2new');
+		JToolBarHelper::preferences('com_thorhospedaje');
 		JToolBarHelper::cancel('state.cancel', $isNew ? 'JTOOLBAR_CANCEL' : 'JTOOLBAR_CLOSE');
 	}
 }

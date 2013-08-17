@@ -1,0 +1,69 @@
+.mod_th_assets{
+
+}
+
+.mod_th_assets .row-fluid{
+	padding-left: 0 !important;
+	padding-right: 0 !important;
+}
+
+.mod_th_assets .row-fluid > a{
+	color : #000000 !important;
+}
+
+.mod_th_assets .row-fluid > a:hover{
+	color : #000000 !important;
+}
+
+.asset-item{
+	border: 1px solid #CCCCCC;
+	float: left;
+	height: auto;
+	/*width: 47%;*/
+	margin: 2px;
+	padding: 5px;
+	border-radius: 4px 4px 4px 4px;
+	background: none repeat scroll 0 0 #F9F9F9;
+	
+}
+
+.asset-item:hover{
+    background: none repeat scroll 0 0 #FFFFFF;
+    border: 1px solid #AAAAAA;
+    box-shadow: 0 0 10px #999999;
+    transition: all 0.5s ease 0s;
+}
+
+.asset-image{
+	float: left;
+	height: auto;
+	margin-right: 2px;
+	width: 50%;
+}
+
+.asset-image > img{
+	height: auto;
+	width: 100%;	
+}
+
+.asset-text{
+	width: auto;
+	font-size: 0.9em;
+	/*overflow: hidden;
+	text-overflow: ellipsis;*/
+}
+/*
+.asset-text > p{
+	margin: 0;
+}*/
+
+.asset-text > h1{
+	font-size: 1.1em;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;	
+}
+
+.mod_th_assets .row-fluid > p{
+	margin: 0 0 10px;
+}

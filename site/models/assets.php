@@ -52,7 +52,7 @@ class ThorHospedajeModelAssets extends JModelList
 		 * haya codigo que no haga nada.
 		 **/
 		$state_id = $this->getState('filter.state_id', NULL);
-		if ($id_country != NULL)
+		if ($state_id != NULL)
 		{
 			$app->setUserState('filter.state_id', $state_id);
 			$app->getUserState('filter.state_id', NULL);
@@ -60,7 +60,7 @@ class ThorHospedajeModelAssets extends JModelList
 		else
 		{
 			$app->getUserState('filter.state_id', NULL);
-			$id_country = $app->getUserState('filter.state_id', NULL);
+			$state_id = $app->getUserState('filter.state_id', NULL);
 		}
 		$query->where('a.state_id = '. (int) $state_id);
 		/* --- */

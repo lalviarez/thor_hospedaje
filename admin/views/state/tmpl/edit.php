@@ -29,6 +29,12 @@ JHtml::_('formbehavior.chosen', 'select');
 		<ul class="nav nav-tabs">
 			<li class="active"><a href="#details" data-toggle="tab"><?php echo empty($this->item->id) ? JText::_('TH_STATE_NEW_STATE') : JText::sprintf('TH_STATE_EDIT_STATE', $this->item->id); ?></a></li>
 			<li><a href="#publishing" data-toggle="tab"><?php echo JText::_('JGLOBAL_FIELDSET_PUBLISHING');?></a></li>
+			<?php
+			$fieldSets = $this->form->getFieldsets('params');
+			foreach ($fieldSets as $name => $fieldSet) :
+			?>
+			<li><a href="#params-<?php echo $name;?>" data-toggle="tab"><?php echo JText::_($fieldSet->label);?></a></li>
+			<?php endforeach; ?>
 		</ul>
 		<div class="tab-content">
 			<div class="tab-pane active" id="details">
@@ -72,9 +78,11 @@ JHtml::_('formbehavior.chosen', 'select');
 					<div class="control-label"><?php echo $this->form->getLabel('modified_date'); ?></div>
 					<div class="controls"><?php echo $this->form->getInput('modified_date'); ?></div>
 				</div>
-				<input type="hidden" name="task" value="state.edit" />
-				<?php echo JHtml::_('form.token'); ?>
 			</div>
+			<?php echo $this->loadTemplate('params'); ?>
+			
+			<input type="hidden" name="task" value="state.edit" />
+			<?php echo JHtml::_('form.token'); ?>
 		</div>
 		</div>
 	<!-- End country -->

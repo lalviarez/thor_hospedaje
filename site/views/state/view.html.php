@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @version		$Id: view.html.php 2013-08-14
+ * @version		$Id: view.html.php 2013-08-16
  * @copyright	Copyright (C) 2013 Leonardo Alviarez - Edén Arreaza. All Rights Reserved.
  * @license		GNU General Public License version 3, or later
  * @note		Note : All ini files need to be saved as UTF-8 - No BOM
@@ -11,15 +11,15 @@
 defined('_JEXEC') or die('Restricted access');
 
 // Import model states
-require_once JPATH_COMPONENT.'/models/states.php';
+require_once JPATH_COMPONENT.'/models/assets.php';
 
 // import Joomla view library
 jimport('joomla.application.component.view');
 
 /**
- * Countries View
+ * State View
  */
-class ThorHospedajeViewCountry extends JViewLegacy
+class ThorHospedajeViewState extends JViewLegacy
 {
 	
 	protected $pagination;
@@ -31,7 +31,7 @@ class ThorHospedajeViewCountry extends JViewLegacy
 	protected $params;
 
 	/**
-	 * Country view display method
+	 * State view display method
 	 * @return void
 	 */
 	function display($tpl = null) 
@@ -50,36 +50,33 @@ class ThorHospedajeViewCountry extends JViewLegacy
 			//$this->params = $this->item->params;
 			
 			// Get States Model data
-			$statesModel = JModelLegacy::getInstance('States', 'ThorHospedajeModel', array('ignore_request' => true));
-			$statesModel->setState('list.select', 'a.*');
+			$assetsModel = JModelLegacy::getInstance('Assets', 'ThorHospedajeModel', array('ignore_request' => true));
+			$assetsModel->setState('list.select', 'a.*');
 		
-			// Load parameters
-			$statesModel->setState('params', $this->params);
-			
 			// Filter by state of publicated
-			$statesModel->setState('filter.state', 1);
+			$assetsModel->setState('filter.state', 1);
 
 			// Filter by language
-			$statesModel->setState('filter.language', $app->getLanguageFilter());
+			$assetsModel->setState('filter.language', $app->getLanguageFilter());
 			
-			// Filter by Country
-			$id_country	= $this->item->id;
-			$statesModel->setState('filter.id_country', $id_country);
+			// Filter by State
+			$state_id	= $this->item->id;
+			$assetsModel->setState('filter.state_id', $state_id);
 			
 			// Ordering
-			$statesModel->setState('list.ordering', 'ordering');
-			$statesModel->setState('list.direction','asc');
+			$assetsModel->setState('list.ordering', 'ordering');
+			$assetsModel->setState('list.direction','asc');
 			
 			// Set the limits for pagination
 			$limitstart = $app->input->get('limitstart', 0, 'uint');
-			$statesModel->setState('list.start', $limitstart);
+			$assetsModel->setState('list.start', $limitstart);
 			
 			// Se calculan los elementos a traer en cada consulta
-			$countItems = ((int) $this->params->get('country-rowcount', 2)) * ((int) $this->params->get('country-rowcount', 2));
-			$statesModel->setState('list.limit', $countItems);
+			$countItems = ((int) $this->params->get('state-rowcount', 2)) * ((int) $this->params->get('state-rowcount', 2));
+			$assetsModel->setState('list.limit', $countItems);
 
-			$this->item->states = $statesModel->getItems();
-			$this->pagination = $statesModel->getPagination();
+			$this->item->assets = $assetsModel->getItems();
+			$this->pagination = $assetsModel->getPagination();
 		}
 		
         // Check for errors.
