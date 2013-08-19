@@ -64,11 +64,6 @@ $listDirn	= $this->escape($this->state->get('list.direction'));
 					<?php echo $this->escape($item->country_name); ?>
 				</td>
 				<td class="center">
-					<?php echo JHtml::_('jgrid.published', $item->state, $i, 'states.');
-					/*, $canChange, 'cb', $item->publish_up, $item->publish_down*/ ?>
-					
-				</td>
-				<td class="center">
 						<?php echo $this->escape($item->access_level); ?>
 				</td>
 				<td class="center">

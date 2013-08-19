@@ -10,11 +10,11 @@
 			size="40" label="TH_STATE_FIELD_STATE_LABEL"
 			description="TH_STATE_FIELD_STATE_DESC" required="true" />
 		
-        <field name="country_id" type="countries" extension="com_thorhospedaje"
-			label="TH_STATE_FIELD_COUNTRY_LABEL" description="TH_STATE_FIELD_COUNTRY_DESC"
-			class="inputbox" required="true" /> 	
+        	<field name="country_id" type="modal_countries"	description="TH_COUNTRY_SELECT_COUNTRY_DESC"
+				label="TH_COUNTRY_SELECT_COUNTRY_LABEL"
+				required="true"	/>
 
-		<field name="state_desc" type="textarea"
+              	<field name="state_desc" type="textarea"
 			label="JGLOBAL_DESCRIPTION" description="TH_STATE_FIELD_DESCRIPTION_DESC"
 			class="inputbox" rows="3" cols="30" required="true" />
 		
