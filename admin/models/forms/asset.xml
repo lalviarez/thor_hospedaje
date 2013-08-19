@@ -10,14 +10,15 @@
 			size="40" label="TH_ASSET_FIELD_ASSET_LABEL"
 			description="TH_ASSET_FIELD_ASSET_DESC" required="true" />
 		
-        <field name="country_id" type="countries" extension="com_thorhospedaje"
-			label="TH_STATE_FIELD_COUNTRY_LABEL" description="TH_STATE_FIELD_COUNTRY_DESC"
-			class="inputbox" required="true" /> 	
+        	<field name="country_id" type="modal_countries"	description="TH_COUNTRY_SELECT_COUNTRY_DESC"
+				label="TH_COUNTRY_SELECT_COUNTRY_LABEL"
+				required="true"	/>
 
-		<field name="state_id" type="states" extension="com_thorhospedaje"
-			label="TH_ASSET_FIELD_STATE_LABEL" description="TH_ASSET_FIELD_STATE_DESC"
-			class="inputbox" required="true" /> 	
+		<field name="state_id" type="modal_states" description="TH_STATE_SELECT_STATE_DESC"
+				label="TH_STATE_SELECT_STATE_LABEL"
+				required="true"	/>		
 
+		
 		<field name="asset_desc" type="textarea"
 			label="JGLOBAL_DESCRIPTION" description="TH_ASSET_FIELD_DESCRIPTION_DESC"
 			class="inputbox" rows="3" cols="30" required="true" />
