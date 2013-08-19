@@ -80,7 +80,7 @@ if ($saveOrder)
 					<th>
 						<?php echo JHtml::_('grid.sort','TH_ASSETS_HEADING_COUNTRY','a.country_id',$listDirn, $listOrder); ?>
 					</th>
-							<th>
+					<th>
 						<?php echo JHtml::_('grid.sort','TH_ASSETS_HEADING_STATE','a.state_id',$listDirn, $listOrder); ?>
 					</th>
 					<th width="1%" style="min-width:55px" class="nowrap center">

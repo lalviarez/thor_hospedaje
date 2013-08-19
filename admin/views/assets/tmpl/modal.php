@@ -1,6 +1,6 @@
 <?php
 /**
- * @version		$Id: default.php 2013-08-16
+ * @version		$Id: modal.php 2013-08-19
  * @copyright	Copyright (C) 2013 Leonardo Alviarez - Edén Arreaza. All Rights Reserved.
  * @license		GNU General Public License version 3, or later
  * @note		Note : All ini files need to be saved as UTF-8 - No BOM
@@ -18,7 +18,7 @@ $listOrder	= $this->escape($this->state->get('list.ordering'));
 $listDirn	= $this->escape($this->state->get('list.direction'));
 ?>
 
-<form action="<?php echo JRoute::_('index.php?option=com_thorhospedaje&view=states&layout=modal&tmpl=component&function='.$function);?>" method="post" name="adminForm" id="adminForm" class="form-inline">
+<form action="<?php echo JRoute::_('index.php?option=com_thorhospedaje&view=assets&layout=modal&tmpl=component&function='.$function);?>" method="post" name="adminForm" id="adminForm" class="form-inline">
 <div id="filter-bar" class="btn-toolbar">
 	<div class="btn-group pull-right hidden-phone">
 		<label for="limit" class="element-invisible"><?php echo JText::_('JFIELD_PLG_SEARCH_SEARCHLIMIT_DESC');?></label>
@@ -29,10 +29,13 @@ $listDirn	= $this->escape($this->state->get('list.direction'));
 			<thead>
 				<tr> 	
 					<th class="title">
-						<?php echo JHtml::_('grid.sort','TH_STATES_HEADING_STATE','a.country',$listDirn, $listOrder); ?>
+						<?php echo JHtml::_('grid.sort','TH_ASSETS_HEADING_ASSET','a.country',$listDirn, $listOrder); ?>
 					</th>
 					<th>
 						<?php echo JHtml::_('grid.sort','TH_COUNTRIES_HEADING_COUNTRY','a.country_id',$listDirn, $listOrder); ?>
+					</th>
+					<th>
+						<?php echo JHtml::_('grid.sort','TH_ASSETS_HEADING_STATE','a.state_id',$listDirn, $listOrder); ?>
 					</th>
 					<th width="5%" class="center nowrap">
 						<?php echo JHtml::_('grid.sort', 'JGRID_HEADING_ACCESS', 'a.access',$listDirn, $listOrder); ?>
@@ -57,13 +60,15 @@ $listDirn	= $this->escape($this->state->get('list.direction'));
 			?>
 			<tr class="row<?php echo $i % 2; ?>">
 				<td>
-					<a class="pointer" onclick="if (window.parent) window.parent.<?php echo $this->escape($function);?>('<?php echo $item->id; ?>', '<?php echo $this->escape(addslashes($item->state_name)); ?>');" title="<?php echo $this->escape($item->state_name); ?>">
-					<?php echo $this->escape(str_replace(JURI::root(), '', $item->state_name)); ?></a>
+					<a class="pointer" onclick="if (window.parent) window.parent.<?php echo $this->escape($function);?>('<?php echo $item->id; ?>', '<?php echo $this->escape(addslashes($item->asset_name)); ?>');" title="<?php echo $this->escape($item->asset_name); ?>">
+					<?php echo $this->escape(str_replace(JURI::root(), '', $item->asset_name)); ?></a>
 				</td>
 				<td>
 					<?php echo $this->escape($item->country_name); ?>
 				</td>
-
+				<td>
+					<?php echo $this->escape($item->state_name); ?>
+				</td>
 				<td class="center">
 						<?php echo $this->escape($item->access_level); ?>
 				</td>
