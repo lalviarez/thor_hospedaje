@@ -87,7 +87,6 @@ class ThorHospedajeModelRooms extends JModelList
 		}
 		
 		$query->order($db->escape($orderCol.' '.$orderDirn));
-		echo $query;
 		return $query;
 	}
 

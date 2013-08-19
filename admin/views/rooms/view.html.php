@@ -59,7 +59,7 @@ class ThorHospedajeViewRooms extends JViewLegacy
 		JToolBarHelper::title(JText::_('TH_MANAGER_ROOMS'));
 		JToolBarHelper::addNew('room.add');
 		JToolBarHelper::editList('room.edit');
-		JToolBarHelper::deleteList('','room.delete');		
+		JToolBarHelper::deleteList('','rooms.delete');		
 	}
 
 	/**
