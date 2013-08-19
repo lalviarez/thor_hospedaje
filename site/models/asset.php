@@ -164,14 +164,10 @@ class ThorHospedajeModelAsset extends JModelItem
 */
 
 				// Convert parameter fields to objects.
-				/*
-				 *LJAH: No hay parametros en esta tabla todavia
-				 * debe agregarse el campo y descomentar esta rutina 
-				 * */
-				/*$registry = new JRegistry;
+				$registry = new JRegistry;
 				$registry->loadString($asset->params);
 				$asset->params = clone $this->getState('params');
-				$asset->params->merge($registry);*/
+				$asset->params->merge($registry);
 /*
 				$registry = new JRegistry;
 				$registry->loadString($data->metadata);

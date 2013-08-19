@@ -24,6 +24,7 @@ class ThorHospedajeModelStates extends JModelList
 	 * @var		string
 	 */
 	public $_context = 'com_thorhospedaje.states';
+	
 	/**
 	 * Method to auto-populate the model state.
 	 *
@@ -34,7 +35,7 @@ class ThorHospedajeModelStates extends JModelList
 	 */
 	protected function populateState($ordering = 'ordering', $direction = 'ASC')
 	{
-		$app = JFactory::getApplication();
+		$app = JFactory::getApplication('site');
 		$params = $app->getParams();
 		
 		// List state information

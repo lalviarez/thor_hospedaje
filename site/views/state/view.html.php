@@ -53,6 +53,9 @@ class ThorHospedajeViewState extends JViewLegacy
 			$assetsModel = JModelLegacy::getInstance('Assets', 'ThorHospedajeModel', array('ignore_request' => true));
 			$assetsModel->setState('list.select', 'a.*');
 		
+			// Load parameters
+			$assetsModel->setState('params', $this->params);
+			
 			// Filter by state of publicated
 			$assetsModel->setState('filter.state', 1);
 

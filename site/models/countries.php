@@ -35,7 +35,7 @@ class ThorHospedajeModelCountries extends JModelList
 	 */
 	protected function populateState($ordering = 'ordering', $direction = 'ASC')
 	{
-		$app = JFactory::getApplication();
+		$app = JFactory::getApplication('site');
 		$params = $app->getParams();
 		
 		// List state information
