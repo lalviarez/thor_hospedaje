@@ -63,7 +63,6 @@ $listDirn	= $this->escape($this->state->get('list.direction'));
 				<td>
 					<?php echo $this->escape($item->country_name); ?>
 				</td>
-
 				<td class="center">
 						<?php echo $this->escape($item->access_level); ?>
 				</td>
