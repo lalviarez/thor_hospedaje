@@ -21,13 +21,13 @@ JHtml::_('formbehavior.chosen', 'select');
 		}
 	}
 </script>
-<form action="<?php echo JRoute::_('index.php?option=com_thorhospedaje&layout=edit&id='.(int) $this->item->room_id); ?>" method="post" name="adminForm" id="room-form" class="form-validate form-horizontal">
+<form action="<?php echo JRoute::_('index.php?option=com_thorhospedaje&layout=edit&id='.(int) $this->item->id); ?>" method="post" name="adminForm" id="room-form" class="form-validate form-horizontal">
 	<div class="row-fluid">
 		<!-- Begin room -->
 		<div class="span10 form-horizontal">
 	<fieldset>
 		<ul class="nav nav-tabs">
-			<li class="active"><a href="#details" data-toggle="tab"><?php echo empty($this->item->room_id) ? JText::_('TH_ROOM_NEW_ROOM') : JText::sprintf('TH_ROOM_EDIT_ROOM', $this->item->room_id); ?></a></li>
+			<li class="active"><a href="#details" data-toggle="tab"><?php echo empty($this->item->id) ? JText::_('TH_ROOM_NEW_ROOM') : JText::sprintf('TH_ROOM_EDIT_ROOM', $this->item->id); ?></a></li>
 			<li><a href="#publishing" data-toggle="tab"><?php echo JText::_('JGLOBAL_FIELDSET_PUBLISHING');?></a></li>
 		</ul>
 		<div class="tab-content">
@@ -37,8 +37,8 @@ JHtml::_('formbehavior.chosen', 'select');
 					<div class="controls"><?php echo $this->form->getInput('room_name'); ?></div>
 				</div>
 				<div class="control-group">
-					<div class="control-label"><?php echo $this->form->getLabel('asset_id'); ?></div>
-					<div class="controls"><?php echo $this->form->getInput('asset_id'); ?></div>
+					<div class="control-label"><?php echo $this->form->getLabel('th_asset_id'); ?></div>
+					<div class="controls"><?php echo $this->form->getInput('th_asset_id'); ?></div>
 				</div>
 				<div class="control-group">
 					<div class="control-label"><?php echo $this->form->getLabel('room_desc'); ?></div>

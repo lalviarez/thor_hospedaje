@@ -10,7 +10,7 @@
 			size="40" label="TH_ROOM_FIELD_ROOM_LABEL"
 			description="TH_ROOM_FIELD_ROOM_DESC" required="true" />
 		
-        	<field name="asset_id" type="assets" extension="com_thorhospedaje"
+        	<field name="th_asset_id" type="assets" extension="com_thorhospedaje"
 			label="TH_ROOM_FIELD_ASSET_LABEL" description="TH_ROOM_FIELD_ASSET_DESC"
 			class="inputbox" required="true" /> 	
 

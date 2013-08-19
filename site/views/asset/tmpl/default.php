@@ -13,6 +13,7 @@ JHtml::addIncludePath(JPATH_COMPONENT.'/helpers');
 JHtml::_('behavior.framework');
 JHtml::_('bootstrap.framework');
 $document = JFactory::getDocument();
+/*
 $document->addStyleSheet('media/com_thorhospedaje/css/th_assets.css');
 $document->addScript('media/com_thorhospedaje/js/jquery.ThreeDots.min.js');
 $document->addScriptDeclaration('
@@ -28,56 +29,20 @@ jQuery(document).ready(function(){
     
 	jQuery(".ellipsis").ThreeDots();
 }); 
-');
+');*/
 
+/*
 $rowCount = (int) $this->params->get('state-rowcount', 2);
 $itemRow = (int) $this->params->get('state-itemrow', 2);;
 $itemWidth = (int) $this->params->get('state-itemwidth', 47);
-$itemMenu = (int) $this->params->get('state-itemMenu', 0);
+$itemMenu = (int) $this->params->get('state-itemMenu', 0);*/
 ?>
 
 <?php /* Falta agregar y probar el uso de la clase que el usuario pasa por parametro */ ?>
-<div class="mod_th_assets">
-	<div class="row-fluid">
-		<p><?php echo nl2br($this->item->state_desc); ?></p>
-	</div>
-	<?php
-	$count = 0;
-	$list = $this->item->assets;
-	for ($i = $count;  $i < count($list); $i++):
-		if (isset($list[$count])): 
-	?>		<div class="row-fluid">
-			<?php
-			for ($j = 0; $j < $itemRow; $j++):
-				if (isset($list[$count])):
-					$item = $list[$count];
-			?>
-			<!-- LJAH: Se debe adaptar para el uso del Itemid-->
-			<a href="<?php echo JRoute::_('index.php?view=asset&id='. $item->id);?>">
-			
-			<div class="asset-item" style="width: <?php echo $itemWidth; ?>%;">
-				<div id="th-asset-image-<?php echo $count;?>" class="asset-image">
-					<img src="<?php echo $item->image?>">
-				</div>
-				<div id="th-asset-text-<?php echo $count;?>" class="asset-text">
-					<h1><?php echo $item->asset_name; ?></h1>
-					<div class="ellipsis"><span class="ellipsis_text"><?php echo $item->asset_desc; ?></span></div>
-				</div>
-			</div></a>
-			<?php
-					$count++;
-				endif;
-			endfor;
-			?>
-			</div>
-		<?php
-		endif;
-		?>
-	<?php 
-	endfor; 
-	?>
+<div>
+<p>Hola Mundo!</p>
 </div>
-<?php echo $this->pagination->getListFooter(); ?>
+<?php //echo $this->pagination->getListFooter(); ?>
 
 
 

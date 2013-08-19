@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<metadata>
+	<layout title="COM_THORHOSPEDAJE_ASSET_VIEW_DEFAULT_TITLE">
+		<!-- <help
+			key = "JHELP_MENUS_MENU_ITEM_CONTACT_SINGLE_CONTACT"
+		/> -->
+		<message>
+			<![CDATA[COM_THORHOSPEDAJE_ASSET_VIEW_DEFAULT_DESC]]>
+		</message>
+	</layout>
+	
+	<!-- Add fields to the request variables for the layout. -->
+	<fields name="request">
+		<fieldset name="request"
+			addfieldpath="/administrator/components/com_thorhospedaje/models/fields"
+		>
+			<field name="id"
+				type="modal_assets"
+				description="TH_ASSET_SELECT_ASSET_DESC"
+				label="TH_ASSET_SELECT_ASSET_LABEL"
+				required="true"
+			/>
+		</fieldset>
+	</fields>
+</metadata>

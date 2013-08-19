@@ -51,14 +51,14 @@ class ThorHospedajeModelRooms extends JModelList
 		$query = $db->getQuery(true);
 
 		// Select some fields
-		$query->select('r.id as room_id,r.room_name,r.asset_id,r.state,r.access,r.language, r.ordering as ordering');
+		$query->select('r.id,r.room_name,r.th_asset_id,r.state,r.access,r.language, r.ordering as ordering');
 
 		// From the states table
 		$query->from('#__th_rooms'.' AS r');
 
 		// Join over the asset
-		$query->select('a.asset_name as asset_name,a.id');
-		$query->join('LEFT', $db->quoteName('#__th_assets').' AS a ON a.id = r.id');  
+		$query->select('a.asset_name');
+		$query->join('LEFT', $db->quoteName('#__th_assets').' AS a ON a.id = r.th_asset_id');  
 
 		
        		// Join over the language

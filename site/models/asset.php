@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @version		$Id: state.php 2013-08-16
+ * @version		$Id: asset.php 2013-08-18
  * @copyright	Copyright (C) 2013 Leonardo Alviarez - Edén Arreaza. All Rights Reserved.
  * @license		GNU General Public License version 3, or later
  * @note		Note : All ini files need to be saved as UTF-8 - No BOM
@@ -16,10 +16,10 @@ jimport('joomla.application.component.modellist');
 /**
  * State Model
  */
-class ThorHospedajeModelState extends JModelItem
+class ThorHospedajeModelAsset extends JModelItem
 {
 	
-	protected $view_item = 'state';
+	protected $view_item = 'asset';
 
 	protected $_item = null;
 
@@ -28,7 +28,7 @@ class ThorHospedajeModelState extends JModelItem
 	 *
 	 * @var		string
 	 */
-	protected $_context = 'com_thorhospedaje.state';
+	protected $_context = 'com_thorhospedaje.asset';
 	
 	/**
 	 * Method to auto-populate the model state.
@@ -61,22 +61,22 @@ class ThorHospedajeModelState extends JModelItem
 
 		$this->setState('filter.language', $app->getLanguageFilter());
 		
-		// Load state from the request.
+		// Load asset from the request.
 		$pk = $app->input->getInt('id');
-		$this->setState('state.id', $pk);
+		$this->setState('asset.id', $pk);
 		
 		// Filter by state, only published
 		$this->setState('filter.state', 1);
 	}
 	
 	/**
-	 * Method to get state data
+	 * Method to get asset data
 	 * @param array
 	 * @return mixed Object or null
 	 */
 	public function &getItem($pk = null)
 	{
-		$pk = (!empty($pk)) ? $pk : (int) $this->getState('state.id');
+		$pk = (!empty($pk)) ? $pk : (int) $this->getState('asset.id');
 
 		if ($this->_item === null)
 		{
@@ -92,7 +92,7 @@ class ThorHospedajeModelState extends JModelItem
 				// Query for Country
 				// Select field to query
 				$query->select($this->getState('list.select', 'a.*'));
-				$query->from($db->quoteName('#__th_states').' AS a');
+				$query->from($db->quoteName('#__th_assets').' AS a');
 				
 				// Filter by state
 				$state = $this->getState('filter.state');
@@ -113,11 +113,11 @@ class ThorHospedajeModelState extends JModelItem
 				$query->where('a.id = ' . (int) $pk);
 
 				$db->setQuery($query);
-				$state = $db->loadObject();
+				$asset = $db->loadObject();
 				
-				if (empty($state))
+				if (empty($asset))
 				{
-					return JError::raiseError(404, JText::_('TH_STATE_ERROR_STATE_NOT_FOUND'));
+					return JError::raiseError(404, JText::_('TH_ASSET_ERROR_ASSET_NOT_FOUND'));
 				}
 				// End query for Country	
 			/*	
@@ -164,10 +164,14 @@ class ThorHospedajeModelState extends JModelItem
 */
 
 				// Convert parameter fields to objects.
-				$registry = new JRegistry;
-				$registry->loadString($state->params);
-				$state->params = clone $this->getState('params');
-				$state->params->merge($registry);
+				/*
+				 *LJAH: No hay parametros en esta tabla todavia
+				 * debe agregarse el campo y descomentar esta rutina 
+				 * */
+				/*$registry = new JRegistry;
+				$registry->loadString($asset->params);
+				$asset->params = clone $this->getState('params');
+				$asset->params->merge($registry);*/
 /*
 				$registry = new JRegistry;
 				$registry->loadString($data->metadata);
@@ -218,7 +222,7 @@ class ThorHospedajeModelState extends JModelItem
 					}
 				}*/
 
-				$this->_item[$pk] = $state;
+				$this->_item[$pk] = $asset;
 			}
 			catch (Exception $e)
 			{

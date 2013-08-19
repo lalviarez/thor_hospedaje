@@ -105,7 +105,7 @@ if ($saveOrder)
 			<?php foreach($this->items as $i => $item):
 			$ordering  = ($listOrder == 'ordering');
 			?>
-			<tr class="row<?php echo $i % 2; ?>" sortable-group-id="<?php echo $item->country_id;?>">
+			<tr class="row<?php echo $i % 2; ?>">
                 	<td class="order nowrap center hidden-phone">
 					<?php //if ($canChange) :
 						$disableClassName = '';
@@ -126,10 +126,10 @@ if ($saveOrder)
 					<?php /*endif;*/ ?>
 				</td>     			
 				<td>
-					<?php echo JHtml::_('grid.id', $i, $item->room_id); ?>
+					<?php echo JHtml::_('grid.id', $i, $item->id); ?>
 				</td>
 				<td>
-					<a href="<?php echo JRoute::_('index.php?option=com_thorhospedaje&task=room.edit&id='.$item->room_id);?>" title="<?php echo $this->escape($item->room_name); ?>">
+					<a href="<?php echo JRoute::_('index.php?option=com_thorhospedaje&task=room.edit&id='.$item->id);?>" title="<?php echo $this->escape($item->room_name); ?>">
 					<?php echo $this->escape(str_replace(JURI::root(), '', $item->room_name)); ?></a>
 				</td>
 				<td>
@@ -151,7 +151,7 @@ if ($saveOrder)
 						<?php endif;?>
 				</td>
 				<td>
-					<?php echo $item->room_id; ?>
+					<?php echo $item->id; ?>
 				</td>
 			</tr>
 			<?php endforeach; ?>
