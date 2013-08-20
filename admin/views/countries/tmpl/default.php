@@ -59,21 +59,38 @@ if ($saveOrder)
 <?php endif;?>
 
 <div id="filter-bar" class="btn-toolbar">
+	<div class="filter-search btn-group pull-left">
+		<label for="filter_search" class="element-invisible"><?php echo JText::_('TH_COUNTRIES_FILTER_SEARCH_DESC'); ?></label>
+		<input type="text" name="filter_search" placeholder="<?php echo JText::_('TH_COUNTRIES_FILTER_SEARCH_DESC'); ?>" id="filter_search" value="<?php echo $this->escape($this->state->get('filter.search')); ?>" title="<?php echo JText::_('COM_CONTENT_FILTER_SEARCH_DESC'); ?>" />
+	</div>
+	<div class="btn-group pull-left hidden-phone">
+		<button class="btn tip hasTooltip" type="submit" title="<?php echo JText::_('JSEARCH_FILTER_SUBMIT'); ?>"><i class="icon-search"></i></button>
+		<button class="btn tip hasTooltip" type="button" onclick="document.id('filter_search').value='';this.form.submit();" title="<?php echo JText::_('JSEARCH_FILTER_CLEAR'); ?>"><i class="icon-remove"></i></button>
+	</div>
 	<div class="btn-group pull-right hidden-phone">
 		<label for="limit" class="element-invisible"><?php echo JText::_('JFIELD_PLG_SEARCH_SEARCHLIMIT_DESC');?></label>
 		<?php echo $this->pagination->getLimitBox(); ?>
 	</div>
+	<div class="btn-group pull-right hidden-phone">	
+		<select name="filter_language" class="input-medium" onchange="this.form.submit()">
+			<option value=""><?php echo JText::_('JOPTION_SELECT_LANGUAGE');?></option>
+			<?php echo JHtml::_('select.options', JHtml::_('contentlanguage.existing', true, true), 'value', 'text', $this->state->get('filter.language'));?>
+		</select>
+	</div>
+	<div class="btn-group pull-right hidden-phone">
+		<select name="filter_access" class="input-medium" onchange="this.form.submit()">
+			<option value=""><?php echo JText::_('JOPTION_SELECT_ACCESS');?></option>
+			<?php echo JHtml::_('select.options', JHtml::_('access.assetgroups'), 'value', 'text', $this->state->get('filter.access'));?>
+		</select>
+	</div>
+	<div class="btn-group pull-right hidden-phone">
+		<select name="filter_published" class="input-medium" onchange="this.form.submit()">
+				<option value=""><?php echo JText::_('JOPTION_SELECT_PUBLISHED');?></option>
+				<?php echo JHtml::_('select.options', JHtml::_('jgrid.publishedOptions'), 'value', 'text', $this->state->get('filter.published'), true);?>
+			</select>
+	</div>
 </div>		
-
-
-<div class="filter-search btn-group pull-left">
-				<label for="filter_search" class="element-invisible"><?php echo JText::_('COM_CONTENT_FILTER_SEARCH_DESC'); ?></label>
-				<input type="text" name="filter_search" placeholder="<?php echo JText::_('COM_CONTENT_FILTER_SEARCH_DESC'); ?>" id="filter_search" value="<?php echo $this->escape($this->state->get('filter.search')); ?>" title="<?php echo JText::_('COM_CONTENT_FILTER_SEARCH_DESC'); ?>" />
-			</div>
-			<div class="btn-group pull-left hidden-phone">
-				<button class="btn tip hasTooltip" type="submit" title="<?php echo JText::_('JSEARCH_FILTER_SUBMIT'); ?>"><i class="icon-search"></i></button>
-				<button class="btn tip hasTooltip" type="button" onclick="document.id('filter_search').value='';this.form.submit();" title="<?php echo JText::_('JSEARCH_FILTER_CLEAR'); ?>"><i class="icon-remove"></i></button>
-			</div>
+<div class="clearfix"> </div>
 
 <table class="table table-striped" id="countryList">
 			<thead>
