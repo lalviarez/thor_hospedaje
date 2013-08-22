@@ -59,8 +59,8 @@ jQuery(document).ready(function($) {
 					prevPageLinkText:          '&lsaquo; Prev',
 					enableHistory:             false,
 					autoStart:                 false,
-					syncTransitions:           true,
-					defaultTransitionDuration: 900,
+					syncTransitions:           false,
+					defaultTransitionDuration: 1800,
 					onSlideChange:             function(prevIndex, nextIndex) {
 						// 'this' refers to the gallery, which is an extension of $('#thumbs')
 						this.find('ul.thumbs').children()
@@ -83,11 +83,23 @@ $rowCount = (int) $this->params->get('state-rowcount', 2);
 $itemRow = (int) $this->params->get('state-itemrow', 2);;
 $itemWidth = (int) $this->params->get('state-itemwidth', 47);
 $itemMenu = (int) $this->params->get('state-itemMenu', 0);*/
+$assetImages[] = $this->item->image;
+$assetImages[] = $this->item->image1;
+$assetImages[] = $this->item->image2;
+$assetImages[] = $this->item->image3;
+$assetImages[] = $this->item->image4;
+$assetImages[] = $this->item->image5;
+$assetImages[] = $this->item->image6;
+$assetImages[] = $this->item->image7;
+$assetImages[] = $this->item->image8;
+$assetImages[] = $this->item->image9;
+
 ?>
 
 <?php /* Falta agregar y probar el uso de la clase que el usuario pasa por parametro */ ?>
 <div class="mod_th_asset">
-	<h2><?php echo $this->item->asset_name; ?></h2>
+	<h1><?php echo $this->item->asset_name; ?></h1>
+	<hr />
 	<div class="row-fluid">
 		<div id="gallery" class="content span8">
 			<!-- <div id="controls" class="controls"></div> -->
@@ -102,9 +114,12 @@ $itemMenu = (int) $this->params->get('state-itemMenu', 0);*/
 
 		<div id="thumbs" class="navigation span4">
 				<ul class="thumbs noscript">
+				<?php
+				foreach($assetImages as $i => $image):
+				?>	
 					<li>
-						<a class="thumb" name="leaf" href="<?php echo $this->item->image;?>" title="Title #0">
-							<img class="mini" src="<?php echo $this->item->image;?>" alt="Title #0" />
+						<a class="thumb" name="leaf" href="<?php echo $image;?>" title="">
+							<img src="<?php echo $image;?>" alt="" />
 						</a>
 						<div class="caption">
 							<div class="download">
@@ -114,44 +129,71 @@ $itemMenu = (int) $this->params->get('state-itemMenu', 0);*/
 							<div class="image-desc">Description</div> 
 						</div>
 					</li>
+				<?php
+				endforeach;
+				?>					
 				</ul>
 		</div>
 	</div>
-</div>
-
-
-
-
-<!--
-<div>
-<h2><?php echo $this->item->asset_name; ?></h2>
-<div class="row-fluid">
-<div style="float: left;">
-<p>Acá van las fotografías</p>
-<address>Acá va la dirección</address>
-<address>Acá va el teléfono</address>
-<p>Acá van las redes sociales</p>
-</div>
-<div style="float: right;">
-<p>Acá va el mapa de google</p>
-<p>Acá va el clima promedio en la zona</p>
-</div>
-</div>
-<div class="row-fluid">
-<h5>Descripción</h5>
-<p><?php echo $this->item->asset_desc; ?></p>
-</div>
-<div class="row-fluid">
-<h5>Servicios</h5>
-</div>
-<div class="row-fluid">
-<h5>Tipo de Habitaciones</h5>
-</div>
-<div class="row-fluid">
-<h5>Condiciones de la posada</h5>
-</div>
-</div>-->
-<?php //echo $this->pagination->getListFooter(); ?>
+	<div class="row-fluid">
+		<h3>Contactos</h3>
+		<hr />
+		<div class="span2">
+			<address>
+				<dl>
+					<dt>País:</dt>
+					<dd>Acá va la información</dd>
+					<dt>Estado/Región:</dt>
+					<dd>Acá va la información</dd>
+					<dt>Dirección:</dt>
+					<dd>Acá va la información</dd>
+					<dt>Teléfono:</dt>
+					<dd>Acá va la información</dd>
+					<dt>Correo electrónico:</dt>
+					<dd>Acá va la información</dd>				
+				</dl>
+			</address>
+		</div>
+	</div>
+	<div class="row-fluid">
+		<h3>Descripción</h3>
+		<hr />
+		<p><?php echo $this->item->asset_desc;?></p>
+	</div>
+	<div class="row-fluid rooms">
+		<h3>Habitaciones</h3>
+		<hr />
+		<?php
+		if (isset($this->item->rooms) && ($this->item->rooms)):
+			foreach($this->item->rooms as $i => $room):
+		?>
+		<div class="row-fluid">
+			<div class="span2">
+				<h4><?php echo $room->room_name;?></h4>
+			</div>
+			<div class="span3">
+				<ul>
+					<li><strong>Costo por día:&nbsp; </strong><?php echo $room->room_cost;?></li>
+					<li><strong>Nº de adultos:&nbsp; </strong><?php echo $room->number_adult;?></li>
+					<li><strong>Nº de niños:&nbsp; </strong><?php echo $room->number_children;?></li>
+				</ul>
+				<a href="#">Ver más</a>
+			</div>
+			<div class="span3">
+				<ul>
+					<li><strong>Total de habitaciones:&nbsp; </strong>info</li>
+					<li><strong>Habitaciones disponibles:&nbsp; </strong>info</li>
+				</ul>
+			</div>
+		</div>
+		<?php
+			endforeach;
+		endif;
+		?>
+	</div>
+	
+</div> <!-- mod_th_asset -->
+<?php echo $this->pagination->getListFooter(); ?>
 
 
 

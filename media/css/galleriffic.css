@@ -65,7 +65,7 @@ div.slideshow span.image-wrapper {
 	 * position: absolute; */
 	top: 0;
 	left: 0;
-	max-width: 70%;
+	max-width: 80%;
 	margin-left: auto;
 	margin-right: auto;
 }
@@ -89,6 +89,7 @@ div.slideshow a.advance-link:hover, div.slideshow a.advance-link:active, div.sli
 div.slideshow img {
 	vertical-align: middle;
 	border: 1px solid #ccc;
+	box-shadow: 0 0 10px #999999;
 }
 div.download {
 	float: right;
@@ -131,6 +132,7 @@ ul.thumbs li {
 	margin: 5px 10px 5px 0;*/
 	margin: 1px 2px 1px 0;
 	list-style: none;
+	width: 33%;
 }
 a.thumb {
 	padding: 2px;
@@ -177,10 +179,4 @@ div.pagination span.current {
 div.pagination span.ellipsis {
 	border: none;
 	padding: 5px 0 3px 2px;
-}
-
-/*****/
-img.mini{
-	width:50%;
-	height: auto;
 }

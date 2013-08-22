@@ -6,3 +6,22 @@
 	padding-left: 0 !important;
 	padding-right: 0 !important;
 }
+
+.mod_th_asset h1, h2, h3{
+	margin: 1%;
+}
+
+.mod_th_asset hr{
+	margin: 0px;
+	border-width: 2px 0;
+}
+
+.mod_th_asset .navigation{
+	margin-bottom: 0px;
+	border-top: none;
+	border-bottom: none;
+}
+
+.mod_th_asset rooms{
+
+}

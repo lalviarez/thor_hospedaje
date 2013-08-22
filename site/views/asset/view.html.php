@@ -39,41 +39,42 @@ class ThorHospedajeViewAsset extends JViewLegacy
 		$this->state	= $this->get('State');
 		//$this->params = JComponentHelper::getParams('com_thorhospedaje');
 
-		/*if ($this->item)
+		if ($this->item)
 		{
 			// If we found an item, merge the item parameters
-			$this->params->merge($this->item->params);
+			//$this->params->merge($this->item->params);
 			//$this->params = $this->item->params;
 			
 			// Get States Model data
-			$assetsModel = JModelLegacy::getInstance('Assets', 'ThorHospedajeModel', array('ignore_request' => true));
-			$assetsModel->setState('list.select', 'a.*');
+			$roomsModel = JModelLegacy::getInstance('Rooms', 'ThorHospedajeModel', array('ignore_request' => true));
+			$roomsModel->setState('list.select', 'a.*');
 		
 			// Filter by state of publicated
-			$assetsModel->setState('filter.state', 1);
+			$roomsModel->setState('filter.state', 1);
 
 			// Filter by language
-			$assetsModel->setState('filter.language', $app->getLanguageFilter());
+			$roomsModel->setState('filter.language', $app->getLanguageFilter());
 			
 			// Filter by State
-			$state_id	= $this->item->id;
-			$assetsModel->setState('filter.state_id', $state_id);
+			$th_asset_id = $this->item->id;
+			$roomsModel->setState('filter.th_asset_id', $th_asset_id);
 			
 			// Ordering
-			$assetsModel->setState('list.ordering', 'ordering');
-			$assetsModel->setState('list.direction','asc');
+			$roomsModel->setState('list.ordering', 'ordering');
+			$roomsModel->setState('list.direction','asc');
 			
 			// Set the limits for pagination
 			$limitstart = $app->input->get('limitstart', 0, 'uint');
-			$assetsModel->setState('list.start', $limitstart);
+			$roomsModel->setState('list.start', $limitstart);
 			
 			// Se calculan los elementos a traer en cada consulta
-			$countItems = ((int) $this->params->get('state-rowcount', 2)) * ((int) $this->params->get('state-rowcount', 2));
-			$assetsModel->setState('list.limit', $countItems);
+			//$countItems = ((int) $this->params->get('state-rowcount', 2)) * ((int) $this->params->get('state-rowcount', 2));
+			$countItems = 5;
+			$roomsModel->setState('list.limit', $countItems);
 
-			$this->item->assets = $assetsModel->getItems();
-			$this->pagination = $assetsModel->getPagination();
-		}*/
+			$this->item->rooms = $roomsModel->getItems();
+			$this->pagination = $roomsModel->getPagination();
+		}
 		
         // Check for errors.
 		if (count($errors = $this->get('Errors'))) 
