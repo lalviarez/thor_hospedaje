@@ -77,9 +77,32 @@ jQuery(document).ready(function($) {
 			});
 ");
 
+if (isset($this->item->rooms) && ($this->item->rooms))
+{
+	$countRooms = count($this->item->rooms);
+	$script = "jQuery(document).ready(function($) {\n";
+	for ($i=0; $i < $countRooms; $i++)
+	{
+		$script .= sprintf("$('#more_%s').click(function(e){\n
+					e.preventDefault();\n
+					if ($('#room_desc_%s').css('display') == 'none')\n
+					{\n
+						$('#room_desc_%s').css('display','block');\n
+					}\n
+					else\n
+					{\n
+						$('#room_desc_%s').css('display','none');\n
+					}\n
+				});\n",$i,$i,$i,$i);
+	}
+	$script .= "});";
+}
+$document->addScriptDeclaration($script);
+/*
 $document->addScriptDeclaration("
 jQuery(document).ready(function($) {
-				$('#more_1').click(function(){
+				$('#more_1').click(function(e){
+					e.preventDefault();
 					if ($('#room_desc_1').css('display') == 'none')
 					{
 						$('#room_desc_1').css('display','block');
@@ -90,7 +113,7 @@ jQuery(document).ready(function($) {
 					}
 				});
 			});
-");
+");*/
 
 /*
 $rowCount = (int) $this->params->get('state-rowcount', 2);
@@ -150,32 +173,32 @@ $assetImages[] = $this->item->image9;
 		</div>
 	</div>
 	<div class="row-fluid">
-		<h3>Contactos</h3>
+		<h3><?php echo JText::_('TH_ASSET_FIELD_CONTACS_LABEL'); ?></h3>
 		<hr />
 		<div class="span2">
 			<address>
 				<dl>
-					<dt>País:</dt>
+					<dt><?php echo JText::_('TH_ASSET_FIELD_COUNTRY_LABEL'); ?>:</dt>
 					<dd><?php echo $this->item->country->country;?></dd>
-					<dt>Estado/Región:</dt>
+					<dt><?php echo JText::_('TH_ASSET_FIELD_STATE_LABEL'); ?>:</dt>
 					<dd><?php echo $this->item->state->state_name;?></dd>
-					<dt>Dirección:</dt>
+					<dt><?php echo JText::_('TH_ASSET_FIELD_ADDRESS_LABEL'); ?>:</dt>
 					<dd>Acá va la información</dd>
-					<dt>Teléfono:</dt>
+					<dt><?php echo JText::_('TH_ASSET_FIELD_PHONE_LABEL'); ?>:</dt>
 					<dd>Acá va la información</dd>
-					<dt>Correo electrónico:</dt>
+					<dt><?php echo JText::_('TH_ASSET_FIELD_EMAIL_LABEL'); ?>:</dt>
 					<dd>Acá va la información</dd>				
 				</dl>
 			</address>
 		</div>
 	</div>
 	<div class="row-fluid">
-		<h3>Descripción</h3>
+		<h3><?php echo JText::_('TH_ASSET_FIELD_DESCRIPTION_LABEL'); ?></h3>
 		<hr />
 		<p><?php echo $this->item->asset_desc;?></p>
 	</div>
 	<div class="row-fluid rooms">
-		<h3>Habitaciones</h3>
+		<h3><?php echo JText::_('TH_ASSET_FIELD_ROOMS_LABEL'); ?></h3>
 		<hr />
 		<?php
 		if (isset($this->item->rooms) && ($this->item->rooms)):
@@ -183,22 +206,19 @@ $assetImages[] = $this->item->image9;
 				($i%2 === 0) ? $class = "even" : $class = "odd";
 		?>
 		<div class="row-fluid room <?php echo $class; ?>">
+			<div class="span1"> </div>
 			<div class="span2">
 				<h4><?php echo $room->room_name;?></h4>
 			</div>
 			<div class="span3">
 				<ul>
-					<li><strong>Costo por día:&nbsp; </strong><?php echo $room->room_cost;?></li>
 					<li><strong>Nº de adultos:&nbsp; </strong><?php echo $room->number_adult;?></li>
 					<li><strong>Nº de niños:&nbsp; </strong><?php echo $room->number_children;?></li>
 				</ul>
-				<a href="#" id="more_<?php echo $i;?>">Ver más</a>
+				<a href="javascript:;" id="more_<?php echo $i;?>">Ver más</a>
 			</div>
-			<div class="span3">
-				<ul>
-					<li><strong>Total de habitaciones:&nbsp; </strong>info</li>
-					<li><strong>Habitaciones disponibles:&nbsp; </strong>info</li>
-				</ul>
+			<div class="span3" style="text-align:center;">
+				<span class="cost"><?php echo $room->room_cost;?></span>
 			</div>
 			<div class="span12 description" id="room_desc_<?php echo $i;?>">
 				<?php echo $room->room_desc;?>

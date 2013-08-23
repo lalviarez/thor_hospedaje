@@ -36,6 +36,12 @@
 	display: none;
 }
 
+.mod_th_asset .rooms .room .cost{
+	font-size: 3em;
+	text-align: center;
+	vertical-align: middle;
+}
+
 .mod_th_asset .rooms .even{
 	background: #F9F9F9;
 }
