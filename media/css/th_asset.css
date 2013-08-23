@@ -22,6 +22,24 @@
 	border-bottom: none;
 }
 
-.mod_th_asset rooms{
+.mod_th_asset .rooms{
 
+}
+
+.mod_th_asset .rooms .room{
+	margin-top: 1%;
+	border-bottom: 2px solid #EEEEEE;
+	padding: 1%;
+}
+
+.mod_th_asset .rooms .room .description{
+	display: none;
+}
+
+.mod_th_asset .rooms .even{
+	background: #F9F9F9;
+}
+
+.mod_th_asset .rooms .odd{
+	background: none;
 }

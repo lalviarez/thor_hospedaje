@@ -55,7 +55,7 @@ class ThorHospedajeViewAsset extends JViewLegacy
 			// Filter by language
 			$roomsModel->setState('filter.language', $app->getLanguageFilter());
 			
-			// Filter by State
+			// Filter by asset
 			$th_asset_id = $this->item->id;
 			$roomsModel->setState('filter.th_asset_id', $th_asset_id);
 			
@@ -74,6 +74,36 @@ class ThorHospedajeViewAsset extends JViewLegacy
 
 			$this->item->rooms = $roomsModel->getItems();
 			$this->pagination = $roomsModel->getPagination();
+			
+			/* Select country */
+			$countryModel = JModelLegacy::getInstance('Country', 'ThorHospedajeModel', array('ignore_request' => true));
+			$countryModel->setState('list.select', 'a.country');
+		
+			// Filter by state of publicated
+			$countryModel->setState('filter.state', 1);
+
+			// Filter by language
+			$countryModel->setState('filter.language', $app->getLanguageFilter());
+			
+			// Filter by State
+			$country_id = $this->item->country_id;
+			$countryModel->setState('country.id', $country_id);
+			$this->item->country = $countryModel->getItem();
+			
+			/* Select state */
+			$stateModel = JModelLegacy::getInstance('State', 'ThorHospedajeModel', array('ignore_request' => true));
+			$stateModel->setState('list.select', 'a.state_name');
+		
+			// Filter by state of publicated
+			$stateModel->setState('filter.state', 1);
+
+			// Filter by language
+			$stateModel->setState('filter.language', $app->getLanguageFilter());
+			
+			// Filter by State
+			$state_id = $this->item->state_id;
+			$stateModel->setState('state.id', $state_id);
+			$this->item->state = $stateModel->getItem();
 		}
 		
         // Check for errors.

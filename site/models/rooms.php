@@ -125,7 +125,7 @@ class ThorHospedajeModelRooms extends JModelList
 		
 		// Add the list ordering clause.
 		$query->order($db->escape($this->getState('list.ordering', 'a.ordering')).' '.$db->escape($this->getState('list.direction', 'ASC')));
-		echo $query;
+
 		return $query;
 	}
 	

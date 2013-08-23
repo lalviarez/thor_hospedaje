@@ -169,10 +169,13 @@ class ThorHospedajeModelCountry extends JModelItem
 */
 
 				// Convert parameter fields to objects.
-				$registry = new JRegistry;
-				$registry->loadString($country->params);
-				$country->params = clone $this->getState('params');
-				$country->params->merge($registry);
+				if (isset($country->params) && ($country->params))
+				{
+					$registry = new JRegistry;
+					$registry->loadString($country->params);
+					$country->params = clone $this->getState('params');
+					$country->params->merge($registry);
+				}
 /*
 				$registry = new JRegistry;
 				$registry->loadString($data->metadata);

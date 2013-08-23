@@ -77,6 +77,20 @@ jQuery(document).ready(function($) {
 			});
 ");
 
+$document->addScriptDeclaration("
+jQuery(document).ready(function($) {
+				$('#more_1').click(function(){
+					if ($('#room_desc_1').css('display') == 'none')
+					{
+						$('#room_desc_1').css('display','block');
+					}
+					else
+					{
+						$('#room_desc_1').css('display','none');
+					}
+				});
+			});
+");
 
 /*
 $rowCount = (int) $this->params->get('state-rowcount', 2);
@@ -142,9 +156,9 @@ $assetImages[] = $this->item->image9;
 			<address>
 				<dl>
 					<dt>País:</dt>
-					<dd>Acá va la información</dd>
+					<dd><?php echo $this->item->country->country;?></dd>
 					<dt>Estado/Región:</dt>
-					<dd>Acá va la información</dd>
+					<dd><?php echo $this->item->state->state_name;?></dd>
 					<dt>Dirección:</dt>
 					<dd>Acá va la información</dd>
 					<dt>Teléfono:</dt>
@@ -166,8 +180,9 @@ $assetImages[] = $this->item->image9;
 		<?php
 		if (isset($this->item->rooms) && ($this->item->rooms)):
 			foreach($this->item->rooms as $i => $room):
+				($i%2 === 0) ? $class = "even" : $class = "odd";
 		?>
-		<div class="row-fluid">
+		<div class="row-fluid room <?php echo $class; ?>">
 			<div class="span2">
 				<h4><?php echo $room->room_name;?></h4>
 			</div>
@@ -177,13 +192,16 @@ $assetImages[] = $this->item->image9;
 					<li><strong>Nº de adultos:&nbsp; </strong><?php echo $room->number_adult;?></li>
 					<li><strong>Nº de niños:&nbsp; </strong><?php echo $room->number_children;?></li>
 				</ul>
-				<a href="#">Ver más</a>
+				<a href="#" id="more_<?php echo $i;?>">Ver más</a>
 			</div>
 			<div class="span3">
 				<ul>
 					<li><strong>Total de habitaciones:&nbsp; </strong>info</li>
 					<li><strong>Habitaciones disponibles:&nbsp; </strong>info</li>
 				</ul>
+			</div>
+			<div class="span12 description" id="room_desc_<?php echo $i;?>">
+				<?php echo $room->room_desc;?>
 			</div>
 		</div>
 		<?php
