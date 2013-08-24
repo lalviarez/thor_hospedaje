@@ -46,6 +46,13 @@ class ThorHospedajeTableAsset extends JTable
 			$array['params'] = (string) $registry;
 		}
 
+		if (isset($array['contact_data']) && is_array($array['contact_data']))
+		{
+			$registry = new JRegistry;
+			$registry->loadArray($array['contact_data']);
+			$array['contact_data'] = (string) $registry;
+		}
+		
 		return parent::bind($array, $ignore);
 	}  
     

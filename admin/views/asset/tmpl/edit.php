@@ -41,6 +41,12 @@ jQuery(document).ready(function($){
 			<li class="active"><a href="#details" data-toggle="tab"><?php echo empty($this->item->id) ? JText::_('TH_ASSET_NEW_ASSET') : JText::sprintf('TH_ASSET_EDIT_ASSET', $this->item->id); ?></a></li>
 			<li><a href="#publishing" data-toggle="tab"><?php echo JText::_('JGLOBAL_FIELDSET_PUBLISHING');?></a></li>
 			<?php
+			$fieldSets = $this->form->getFieldsets('contact_data');
+			foreach ($fieldSets as $name => $fieldSet) :
+			?>
+			<li><a href="#contact_data-<?php echo $name;?>" data-toggle="tab"><?php echo JText::_($fieldSet->label);?></a></li>
+			<?php endforeach; ?>
+			<?php
 			$fieldSets = $this->form->getFieldsets('params');
 			foreach ($fieldSets as $name => $fieldSet) :
 			?>
@@ -132,6 +138,7 @@ jQuery(document).ready(function($){
 					<div class="controls"><?php echo $this->form->getInput('modified_date'); ?></div>
 				</div>
 			</div>
+			<?php echo $this->loadTemplate('contact_data'); ?>
 			<?php echo $this->loadTemplate('params'); ?>
 			<input type="hidden" name="task" value="asset.edit" />
 			<?php echo JHtml::_('form.token'); ?>

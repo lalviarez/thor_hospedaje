@@ -87,13 +87,15 @@ if (isset($this->item->rooms) && ($this->item->rooms))
 					e.preventDefault();\n
 					if ($('#room_desc_%s').css('display') == 'none')\n
 					{\n
+						$('#more_%s').html('%s');
 						$('#room_desc_%s').css('display','block');\n
 					}\n
 					else\n
 					{\n
 						$('#room_desc_%s').css('display','none');\n
+						$('#more_%s').html('%s');
 					}\n
-				});\n",$i,$i,$i,$i);
+				});\n",$i,$i,$i,JText::_('TH_ASSET_FIELD_VIEW_LESS_LABEL'),$i,$i,$i,JText::_('TH_ASSET_FIELD_VIEW_MORE_LABEL'));
 	}
 	$script .= "});";
 }
@@ -212,10 +214,10 @@ $assetImages[] = $this->item->image9;
 			</div>
 			<div class="span3">
 				<ul>
-					<li><strong>Nº de adultos:&nbsp; </strong><?php echo $room->number_adult;?></li>
-					<li><strong>Nº de niños:&nbsp; </strong><?php echo $room->number_children;?></li>
+					<li><strong><?php echo JText::_('TH_ASSET_FIELD_N_ADULTS_LABEL'); ?>:&nbsp; </strong><?php echo $room->number_adult;?></li>
+					<li><strong><?php echo JText::_('TH_ASSET_FIELD_N_CHILDRENS_LABEL'); ?>:&nbsp; </strong><?php echo $room->number_children;?></li>
 				</ul>
-				<a href="javascript:;" id="more_<?php echo $i;?>">Ver más</a>
+				<a href="javascript:;" id="more_<?php echo $i;?>"><?php echo JText::_('TH_ASSET_FIELD_VIEW_MORE_LABEL'); ?></a>
 			</div>
 			<div class="span3" style="text-align:center;">
 				<span class="cost"><?php echo $room->room_cost;?></span>
