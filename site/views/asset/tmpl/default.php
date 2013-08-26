@@ -185,13 +185,39 @@ $assetImages[] = $this->item->image9;
 					<dt><?php echo JText::_('TH_ASSET_FIELD_STATE_LABEL'); ?>:</dt>
 					<dd><?php echo $this->item->state->state_name;?></dd>
 					<dt><?php echo JText::_('TH_ASSET_FIELD_ADDRESS_LABEL'); ?>:</dt>
-					<dd>Acá va la información</dd>
+					<dd><?php echo $this->item->contact_data->get('asset-address','');?></dd>
 					<dt><?php echo JText::_('TH_ASSET_FIELD_PHONE_LABEL'); ?>:</dt>
-					<dd>Acá va la información</dd>
-					<dt><?php echo JText::_('TH_ASSET_FIELD_EMAIL_LABEL'); ?>:</dt>
-					<dd>Acá va la información</dd>				
+					<dd><?php echo $this->item->contact_data->get('asset-phone','');?></dd>
+					<!-- <dt><?php echo JText::_('TH_ASSET_FIELD_EMAIL_LABEL'); ?>:</dt>
+					<dd><?php echo $this->item->contact_data->get('asset-email','');?></dd>				 -->
 				</dl>
 			</address>
+			<span class="social">
+				<?php if ($this->item->contact_data->get('asset-email','') != ''):
+				?>
+				<a href="mailto:<?php echo $this->item->contact_data->get('asset-email','');?>">
+					<img src="media/com_thorhospedaje/images/email.png" alt="" />
+				</a>
+				<?php 
+				endif;
+				?>
+				<?php if ($this->item->contact_data->get('asset-facebook','') != ''):
+				?>
+				<a target="_blank" href="<?php echo $this->item->contact_data->get('asset-facebook','');?>">
+					<img src="media/com_thorhospedaje/images/facebook.png" alt="" />
+				</a>
+				<?php 
+				endif;
+				?>
+				<?php if ($this->item->contact_data->get('asset-twitter','') != ''):
+				?>
+				<a target="_blank" href="<?php echo $this->item->contact_data->get('asset-twitter','');?>">
+					<img src="media/com_thorhospedaje/images/twitter.png" alt="" />
+				</a>
+				<?php 
+				endif;
+				?>
+			</span>
 		</div>
 	</div>
 	<div class="row-fluid">

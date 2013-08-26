@@ -46,6 +46,7 @@
 	<media folder="media" destination="com_thorhospedaje">
         <folder>css</folder>
         <folder>js</folder>
+        <folder>images</folder>
     </media>
 	<administration>
 		<menu>TH_MENU</menu>

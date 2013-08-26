@@ -168,6 +168,10 @@ class ThorHospedajeModelAsset extends JModelItem
 				$registry->loadString($asset->params);
 				$asset->params = clone $this->getState('params');
 				$asset->params->merge($registry);
+				
+				$registry = new JRegistry;
+				$registry->loadString($asset->contact_data);
+				$asset->contact_data = $registry;
 /*
 				$registry = new JRegistry;
 				$registry->loadString($data->metadata);

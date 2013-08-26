@@ -49,3 +49,18 @@
 .mod_th_asset .rooms .odd{
 	background: none;
 }
+
+.mod_th_asset .social a:hover{
+	text-decoration: none;
+}
+
+.mod_th_asset .social a img{
+	width: 36px;
+	height: 36px;
+}
+
+.mod_th_asset .social a img:hover{
+	box-shadow: 0 0 10px #999999;
+	width: 36px;
+	height: 36px;
+}
