@@ -155,7 +155,7 @@ class ThorHospedajeModelAvailabilityRooms extends JModelList
 
 		/* Se obtienen los tipos de habitaciones de la posada
 		 * */
-		$query->select('a.*'));
+		$query->select('a.*');
 		$query->from($db->quoteName('#__th_rooms').' AS a');
 		
 		// Filter by state
@@ -174,9 +174,13 @@ class ThorHospedajeModelAvailabilityRooms extends JModelList
 		/* Se recorren los tipos de habitaciones para saber si tienen
 		 * reservaciones según las fechas pasadas por parámetro 
 		 * */
-		$query->clear();
 		foreach($rooms_types as $room_type)
 		{
+			// Se convierte la cadena con lo números de habitaciones en un
+			// arreglo
+			$room_type->
+			$query->clear();
+			
 			
 		}
 		/**** Fin recorrer tipos de habitaciones de la posada ****/
