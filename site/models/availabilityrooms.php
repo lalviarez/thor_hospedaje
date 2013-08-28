@@ -148,7 +148,7 @@ class ThorHospedajeModelAvailabilityRooms extends JModelList
 		return $items;
 	}
 	
-	public function getAvailabilityRoom($th_asset_id, $checkin = NULL, $checkout = NULL)
+	public function getListAvailabilityRooms($th_asset_id, $checkin = NULL, $checkout = NULL)
 	{
 		$db = $this->getDbo();
 		$query = $db->getQuery(true);
@@ -178,7 +178,8 @@ class ThorHospedajeModelAvailabilityRooms extends JModelList
 		{
 			// Se convierte la cadena con lo números de habitaciones en un
 			// arreglo
-			$room_type->
+			$rooms = explode(",",$room_type->rooms_number);
+			
 			$query->clear();
 			
 			
