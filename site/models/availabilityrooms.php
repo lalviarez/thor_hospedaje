@@ -186,4 +186,14 @@ class ThorHospedajeModelAvailabilityRooms extends JModelList
 		}
 		/**** Fin recorrer tipos de habitaciones de la posada ****/
 	}
+	
+	protected function _checkAvailabilityRoom($th_asset_id, $room_number, $checkin = NULL, $checkout = NULL)
+	{
+		$db = $this->getDbo();
+		$query = $db->getQuery(true);
+		
+		$query->select('a.*');
+		$query->from($db->quoteName('#__th_reservations').' AS a');
+		$query->where('a.th_asset_id = ' . (int) $th_asset_id);
+	}
 }
