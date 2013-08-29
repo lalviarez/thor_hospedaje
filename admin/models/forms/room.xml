@@ -10,9 +10,9 @@
 			size="40" label="TH_ROOM_FIELD_ROOM_LABEL"
 			description="TH_ROOM_FIELD_ROOM_DESC" required="true" />
 		
-        	<field name="th_asset_id" type="assets" extension="com_thorhospedaje"
-			label="TH_ROOM_FIELD_ASSET_LABEL" description="TH_ROOM_FIELD_ASSET_DESC"
-			class="inputbox" required="true" /> 	
+        	<field name="th_asset_id" type="modal_assets"	description="TH_ASSET_SELECT_ASSET_DESC"
+				label="TH_ASSET_SELECT_ASSET_LABEL"
+				required="true"	/>
 
 		<field name="room_desc" type="textarea"
 			label="JGLOBAL_DESCRIPTION" description="TH_ROOM_FIELD_DESCRIPTION_DESC"
