@@ -63,20 +63,52 @@ class ThorHospedajeModelCountries extends JModelList
 		$query->select('ag.title AS access_level');
 		$query->join('LEFT', '#__viewlevels AS ag ON ag.id = a.access');
 
+
+		// Filter by search in title
+		$search = $this->getState('filter.search');
+		if (!empty($search))
+		{
+			if (stripos($search, 'id:') === 0)
+			{
+				$query->where('a.id = '.(int) substr($search, 3));
+			} else {
+				$search = $db->Quote('%'.$db->escape($search, true).'%');
+				$query->where('(a.country LIKE '.$search.')');
+			}
+		}
+		
+		// Filter by published state
+		$published = $this->getState('filter.published');
+		if (is_numeric($published))
+		{
+			$query->where('a.state = '.(int) $published);
+		} elseif ($published === '')
+		{
+			$query->where('(a.state IN (0, 1))');
+		}
+		
+
 		// Filter by access level.
 		if ($access = $this->getState('filter.access'))
 		{
 			$query->where('a.access = '.(int) $access);
 		}
+	
+		// Filter on the language.
+		if ($language = $this->getState('filter.language'))
+		{
+			$query->where('a.language = ' . $db->quote($language));
+		}
+
 		// Add the list ordering clause.
 		$orderCol	= $this->state->get('list.ordering', 'ordering');
 		$orderDirn	= $this->state->get('list.direction', 'ASC');
              
 
-		/*if ($orderCol == 'ordering')
+		if ($orderCol == 'ordering')
 		{
 			$orderCol='a.ordering';
-		}*/
+		}
 		
 		$query->order($db->escape($orderCol.' '.$orderDirn));
 		
@@ -93,31 +125,33 @@ class ThorHospedajeModelCountries extends JModelList
 	 */
 	protected function populateState($ordering = null, $direction = null)
 	{
-		$app = JFactory::getApplication('administrator');
+		$app = JFactory::getApplication();
+		
+		// Adjust the context to support modal layouts.
+		if ($layout = $app->input->get('layout'))
+		{
+			$this->context .= '.'.$layout;
+		}
 
 		// Load the filter state.
-		//$search = $this->getUserStateFromRequest($this->context.'.filter.search', 'filter_search');
-		//$this->setState('filter.search', $search);
+		$search = $this->getUserStateFromRequest($this->context.'.filter.search', 'filter_search');
+		$this->setState('filter.search', $search);
+		
+		$published = $this->getUserStateFromRequest($this->context.'.filter.published', 'filter_published', '');
+		$this->setState('filter.published', $published);
+		
+		$access= $this->getUserStateFromRequest($this->context.'.filter.access', 'filter_access', '', 'string');
+		$this->setState('filter.access', $access);
 
-		//$state = $this->getUserStateFromRequest($this->context.'.filter.state', 'filter_state', '', 'string');
-		//$this->setState('filter.state', $state);
-
-		//$categoryId = $this->getUserStateFromRequest($this->context.'.filter.category_id', 'filter_category_id', '');
-		//$this->setState('filter.category_id', $categoryId);
-
-		//$clientId = $this->getUserStateFromRequest($this->context.'.filter.client_id', 'filter_client_id', '');
-		//$this->setState('filter.client_id', $clientId);
-
-		//$language = $this->getUserStateFromRequest($this->context.'.filter.language', 'filter_language', '');
-		//$this->setState('filter.language', $language);
+		$language = $this->getUserStateFromRequest($this->context.'.filter.language', 'filter_language', '');
+		$this->setState('filter.language', $language);
 
 		// Load the parameters.
-		/*$params = JComponentHelper::getParams('com_banners');
-		$this->setState('params', $params);*/
-		//$language = $this->getUserStateFromRequest($this->context.'.filter.language', 'filter_language', '');
-		//$this->setState('filter.language', $language);
+		$params = JComponentHelper::getParams('com_thorhospedaje');
+		$this->setState('params', $params);
+	
 
 		// List state information.
-		parent::populateState('a.ordering', 'asc');
+		parent::populateState('a.country', 'asc');
 	}	
 }
