@@ -187,13 +187,21 @@ class ThorHospedajeModelAvailabilityRooms extends JModelList
 		/**** Fin recorrer tipos de habitaciones de la posada ****/
 	}
 	
-	protected function _checkAvailabilityRoom($th_asset_id, $room_number, $checkin = NULL, $checkout = NULL)
+	protected function _checkAvailabilityRoom($th_asset_id, $room_type_id, $room_number, $checkin = NULL, $checkout = NULL)
 	{
 		$db = $this->getDbo();
 		$query = $db->getQuery(true);
 		
-		$query->select('a.*');
+		$query->select('b.room_number');
 		$query->from($db->quoteName('#__th_reservations').' AS a');
+		$query->from($db->quoteName('#__th_reservations_rooms').' AS b');
 		$query->where('a.th_asset_id = ' . (int) $th_asset_id);
+		$query->where('a.id = b.reservation_id');	
+		$query->where('b.room_id = ' . (int) $room_type_id);
+		$query->where('b.room_number = ' . (int) $room_number);
+		$query->where("not (date(".$checkin.") BETWEEN a.checkin AND a.checkout)")
+		$query->where("not (date(".$checkout.") BETWEEN a.checkin AND a.checkout)")
+		$query->where("not (a.checkin BETWEEN date(".$checkin.") AND date(".$checkout.")")
+		$query->where("not (a.checkout BETWEEN date(".$checkin.") AND date(".$checkout.")");
 	}
 }
