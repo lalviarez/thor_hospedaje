@@ -59,11 +59,39 @@ if ($saveOrder)
 <?php endif;?>
 
 <div id="filter-bar" class="btn-toolbar">
+	<div class="filter-search btn-group pull-left">
+		<label for="filter_search" class="element-invisible"><?php echo JText::_('TH_ROOMS_FILTER_SEARCH_DESC'); ?></label>
+		<input type="text" name="filter_search" placeholder="<?php echo JText::_('TH_ROOMS_FILTER_SEARCH_DESC'); ?>" id="filter_search" value="<?php echo $this->escape($this->state->get('filter.search')); ?>" title="<?php echo JText::_('COM_CONTENT_FILTER_SEARCH_DESC'); ?>" />
+	</div>
+	<div class="btn-group pull-left hidden-phone">
+		<button class="btn tip hasTooltip" type="submit" title="<?php echo JText::_('JSEARCH_FILTER_SUBMIT'); ?>"><i class="icon-search"></i></button>
+		<button class="btn tip hasTooltip" type="button" onclick="document.id('filter_search').value='';this.form.submit();" title="<?php echo JText::_('JSEARCH_FILTER_CLEAR'); ?>"><i class="icon-remove"></i></button>
+	</div>
 	<div class="btn-group pull-right hidden-phone">
 		<label for="limit" class="element-invisible"><?php echo JText::_('JFIELD_PLG_SEARCH_SEARCHLIMIT_DESC');?></label>
 		<?php echo $this->pagination->getLimitBox(); ?>
 	</div>
+	<div class="btn-group pull-right hidden-phone">	
+		<select name="filter_language" class="input-medium" onchange="this.form.submit()">
+			<option value=""><?php echo JText::_('JOPTION_SELECT_LANGUAGE');?></option>
+			<?php echo JHtml::_('select.options', JHtml::_('contentlanguage.existing', true, true), 'value', 'text', $this->state->get('filter.language'));?>
+		</select>
+	</div>
+	<div class="btn-group pull-right hidden-phone">
+		<select name="filter_access" class="input-medium" onchange="this.form.submit()">
+			<option value=""><?php echo JText::_('JOPTION_SELECT_ACCESS');?></option>
+			<?php echo JHtml::_('select.options', JHtml::_('access.assetgroups'), 'value', 'text', $this->state->get('filter.access'));?>
+		</select>
+	</div>
+	<div class="btn-group pull-right hidden-phone">
+		<select name="filter_published" class="input-medium" onchange="this.form.submit()">
+				<option value=""><?php echo JText::_('JOPTION_SELECT_PUBLISHED');?></option>
+				<?php echo JHtml::_('select.options', JHtml::_('jgrid.publishedOptions'), 'value', 'text', $this->state->get('filter.published'), true);?>
+			</select>
+	</div>
 </div>		
+<div class="clearfix"> </div>
+		
 <table class="table table-striped" id="roomList">
 			<thead>
 				<tr> 
@@ -78,19 +106,19 @@ if ($saveOrder)
 						<?php echo JHtml::_('grid.sort','TH_ROOMS_HEADING_ROOM','r.room_name',$listDirn, $listOrder); ?>
 					</th>
 					<th>
-						<?php echo JHtml::_('grid.sort','TH_ROOMS_HEADING_ASSET','a.country_id',$listDirn, $listOrder); ?>
+						<?php echo JHtml::_('grid.sort','TH_ROOMS_HEADING_ASSET','r.th_asset_id',$listDirn, $listOrder); ?>
 					</th>
 					<th width="1%" style="min-width:55px" class="nowrap center">
-						<?php echo JHtml::_('grid.sort', 'JSTATUS', 'a.state',$listDirn, $listOrder); ?>
+						<?php echo JHtml::_('grid.sort', 'JSTATUS', 'r.state',$listDirn, $listOrder); ?>
 					</th>
 					<th width="5%" class="nowrap hidden-phone">
-						<?php echo JHtml::_('grid.sort', 'JGRID_HEADING_ACCESS', 'a.access',$listDirn, $listOrder); ?>
+						<?php echo JHtml::_('grid.sort', 'JGRID_HEADING_ACCESS', 'r.access',$listDirn, $listOrder); ?>
 					</th>
 					<th width="5%" class="nowrap hidden-phone">
-						<?php echo JHtml::_('grid.sort', 'JGRID_HEADING_LANGUAGE', 'a.language',$listDirn, $listOrder); ?>
+						<?php echo JHtml::_('grid.sort', 'JGRID_HEADING_LANGUAGE', 'r.language',$listDirn, $listOrder); ?>
 					</th>
 					<th width="1%" class="nowrap center">
-						<?php echo JHtml::_('grid.sort', 'JGRID_HEADING_ID', 'a.id',$listDirn, $listOrder); ?>
+						<?php echo JHtml::_('grid.sort', 'JGRID_HEADING_ID', 'r.id',$listDirn, $listOrder); ?>
 					</th>
 				</tr>
 			</thead>
