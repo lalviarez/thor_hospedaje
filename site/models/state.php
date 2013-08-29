@@ -164,10 +164,13 @@ class ThorHospedajeModelState extends JModelItem
 */
 
 				// Convert parameter fields to objects.
-				$registry = new JRegistry;
-				$registry->loadString($state->params);
-				$state->params = clone $this->getState('params');
-				$state->params->merge($registry);
+				if (isset($state->params) && ($state->params))
+				{
+					$registry = new JRegistry;
+					$registry->loadString($state->params);
+					$state->params = clone $this->getState('params');
+					$state->params->merge($registry);
+				}
 /*
 				$registry = new JRegistry;
 				$registry->loadString($data->metadata);

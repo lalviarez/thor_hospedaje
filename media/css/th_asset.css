@@ -1,0 +1,66 @@
+.mod_th_asset{
+
+}
+
+.mod_th_asset .row-fluid{
+	padding-left: 0 !important;
+	padding-right: 0 !important;
+}
+
+.mod_th_asset h1, h2, h3{
+	margin: 1%;
+}
+
+.mod_th_asset hr{
+	margin: 0px;
+	border-width: 2px 0;
+}
+
+.mod_th_asset .navigation{
+	margin-bottom: 0px;
+	border-top: none;
+	border-bottom: none;
+}
+
+.mod_th_asset .rooms{
+
+}
+
+.mod_th_asset .rooms .room{
+	margin-top: 1%;
+	border-bottom: 2px solid #EEEEEE;
+	padding: 1%;
+}
+
+.mod_th_asset .rooms .room .description{
+	display: none;
+}
+
+.mod_th_asset .rooms .room .cost{
+	font-size: 2em;
+	text-align: center;
+	vertical-align: middle;
+}
+
+.mod_th_asset .rooms .even{
+	background: #F9F9F9;
+}
+
+.mod_th_asset .rooms .odd{
+	background: none;
+}
+
+.mod_th_asset .social a:hover{
+	text-decoration: none;
+}
+
+.mod_th_asset .social a img{
+	width: 36px;
+	height: 36px;
+}
+
+.mod_th_asset .social a img:hover{
+	box-shadow: 0 0 10px #999999;
+	width: 36px;
+	height: 36px;
+}

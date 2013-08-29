@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @version		$Id: countries.php 2013-07-11
+ * @version		$Id: rooms.php 2013-08-22
  * @copyright	Copyright (C) 2013 Leonardo Alviarez - Edén Arreaza. All Rights Reserved.
  * @license		GNU General Public License version 3, or later
  * @note		Note : All ini files need to be saved as UTF-8 - No BOM
@@ -14,24 +14,24 @@ defined('_JEXEC') or die('Restricted access');
 jimport('joomla.application.component.modellist');
 
 /**
- * Countries Model
+ * Assets Model
  */
-class ThorHospedajeModelCountries extends JModelList
+class ThorHospedajeModelRooms extends JModelList
 {
-	
 	/**
 	 * Model context string.
 	 *
 	 * @var		string
 	 */
-	public $_context = 'com_thorhospedaje.countries';
+	public $_context = 'com_thorhospedaje.rooms';
+	
 	/**
 	 * Method to auto-populate the model state.
 	 *
 	 * Note. Calling getState in this method will result in recursion.
 	 *
 	 * @return  void
-	 * @since   1.6 <- Hay que averiguar que es esto y dejarlo o eliminarlo
+	 * @since   1.6
 	 */
 	protected function populateState($ordering = 'ordering', $direction = 'ASC')
 	{
@@ -43,8 +43,8 @@ class ThorHospedajeModelCountries extends JModelList
 		$this->setState('params', $params);
 		
 		// Se calculan los elementos a traer en cada consulta
-		$value = ((int) $params->get('countries-rowcount', 2)) * ((int) $params->get('countries-rowcount', 2));
-		$this->setState('list.limit', $value);
+		/*$value = ((int) $params->get('states-rowcount', 2)) * ((int) $params->get('states-rowcount', 2));
+		$this->setState('list.limit', $value);*/
 
 		$value = $app->input->get('limitstart', 0, 'uint');
 		$this->setState('list.start', $value);
@@ -79,10 +79,11 @@ class ThorHospedajeModelCountries extends JModelList
 		// Create a new query object.
 		$db = JFactory::getDBO();
 		$query = $db->getQuery(true);
+		$app = JFactory::getApplication();
 		
 		// Select field to query
 		$query->select($this->getState('list.select', 'a.*'));
-		$query->from($db->quoteName('#__th_countries').' AS a');
+		$query->from($db->quoteName('#__th_rooms').' AS a');
 		
 		// Filter by state
 		$state = $this->getState('filter.state');
@@ -97,14 +98,39 @@ class ThorHospedajeModelCountries extends JModelList
 			$query->where('a.language in (' . $db->Quote(JFactory::getLanguage()->getTag()) . ',' . $db->Quote('*') . ')');
 		}	
 		
+		/*
+		 * LJAH: Esta rutina debe revisarse para mejorarla, posiblemente
+		 * haya codigo que no haga nada.
+		 **/
+		$th_asset_id = $this->getState('filter.th_asset_id', NULL);
+		if ($th_asset_id != NULL)
+		{
+			$app->setUserState('filter.th_asset_id', $th_asset_id);
+			$app->getUserState('filter.th_asset_id', NULL);
+		}
+		else
+		{
+			$app->getUserState('filter.th_asset_id', NULL);
+			$th_asset_id = $app->getUserState('filter.th_asset_id', NULL);
+		}
+		$query->where('a.th_asset_id = '. (int) $th_asset_id);
+		/* --- */
+		
+/*		if ($id_country === "%"){
+			$query->where('a.country_id LIKE '."'".$id_country."'");
+		}
+		else{
+			$query->where('a.country_id = '. (int) $id_country);
+		}*/
+		
 		// Add the list ordering clause.
 		$query->order($db->escape($this->getState('list.ordering', 'a.ordering')).' '.$db->escape($this->getState('list.direction', 'ASC')));
-		
+
 		return $query;
 	}
 	
 	/**
-	 * Method to get a list of countries.
+	 * Method to get a list of assets.
 	 *
 	 * Overriden to inject convert the attribs field into a JParameter object.
 	 *

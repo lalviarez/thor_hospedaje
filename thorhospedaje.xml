@@ -38,9 +38,15 @@
 		<folder>models</folder>
 		<folder>views</folder>		
 	</files>
+	<languages folder="site">
+		<language tag="es-ES">language/es-ES/es-ES.com_thorhospedaje.ini</language>
+		<language tag="en-GB">language/en-GB/en-GB.com_thorhospedaje.ini</language>
+		<language tag="pt-BR">language/pt-BR/pt-BR.com_thorhospedaje.ini</language>
+	</languages>
 	<media folder="media" destination="com_thorhospedaje">
         <folder>css</folder>
         <folder>js</folder>
+        <folder>images</folder>
     </media>
 	<administration>
 		<menu>TH_MENU</menu>

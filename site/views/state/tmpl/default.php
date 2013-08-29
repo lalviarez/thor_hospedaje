@@ -51,10 +51,19 @@ $itemMenu = (int) $this->params->get('state-itemMenu', 0);
 			for ($j = 0; $j < $itemRow; $j++):
 				if (isset($list[$count])):
 					$item = $list[$count];
+					$Itemid = $item->params->get('asset-itemMenu',0);
 			?>
-			<!-- LJAH: Se debe adaptar para el uso del Itemid-->
-			<a href="<?php echo JRoute::_('index.php?view=asset&id='. $item->id);?>">
-			
+					<?php 
+					if ($Itemid): 
+					?>
+						<a href="<?php echo JRoute::_('index.php?view=asset&id='. $item->id .'&Itemid='. $Itemid);?>">
+					<?php
+					else:
+					?>
+						<a href="<?php echo JRoute::_('index.php?view=asset&id='. $item->id);?>">
+					<?php
+					endif;
+					?>
 			<div class="asset-item" style="width: <?php echo $itemWidth; ?>%;">
 				<div id="th-asset-image-<?php echo $count;?>" class="asset-image">
 					<img src="<?php echo $item->image?>">

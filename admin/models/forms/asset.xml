@@ -137,5 +137,68 @@
 			class="inputbox span12 small">
 			<option value="*">JALL</option>
 		</field>
-	</fieldset>	
+	</fieldset>
+	
+	<fields name="contact_data">
+		<fieldset name="cdata" label="TH_ASSET_FIELD_DISPLAY_CONTACT_DATA">
+		
+		<field
+			name="asset-address"
+			type="textarea"
+			class="inputbox"
+			rows="3" 
+			cols="30"
+			default=""
+			required="true"
+			label="TH_ASSET_FIELD_ADDRESS_LABEL"
+			description="TH_ASSET_FIELD_ADDRESS_DESC" />
+		
+		<field
+			name="asset-phone"
+			type="text"
+			class="inputbox"
+			default=""
+			label="TH_ASSET_FIELD_PHONE_LABEL"
+			description="TH_ASSET_FIELD_PHONE_DESC" />
+			
+		<field
+			name="asset-email"
+			type="text"
+			class="inputbox validate-email"
+			default=""
+			label="TH_ASSET_FIELD_EMAIL_LABEL"
+			description="TH_ASSET_FIELD_EMAIL_DESC" />
+		
+		<field
+			name="asset-facebook"
+			type="text"
+			class="inputbox"
+			default=""
+			label="TH_ASSET_FIELD_FACEBOOK_LABEL"
+			description="TH_ASSET_FIELD_FACEBOOK_DESC" />
+		
+		<field
+			name="asset-twitter"
+			type="text"
+			class="inputbox"
+			default=""
+			label="TH_ASSET_FIELD_TWITTER_LABEL"
+			description="TH_ASSET_FIELD_TWITTER_DESC" />
+		</fieldset>
+	</fields>
+	
+	<fields name="params">
+		<fieldset name="jbasic" label="JGLOBAL_FIELDSET_DISPLAY_OPTIONS">
+		
+		<field
+			name="asset-itemMenu"
+			type="text"
+			class="inputbox validate-numeric"
+			default=""
+			required="true"
+			label="TH_ASSET_FIELD_ITEMMENU_LABEL"
+			description="TH_ASSET_FIELD_ITEMMENU_DESC" />
+					
+		</fieldset>
+    </fields>
 </form>

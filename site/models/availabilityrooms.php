@@ -14,9 +14,9 @@ defined('_JEXEC') or die('Restricted access');
 jimport('joomla.application.component.modellist');
 
 /**
- * Countries Model
+ * AvailabilityRooms Model
  */
-class ThorHospedajeModelCountries extends JModelList
+class ThorHospedajeModelAvailabilityRooms extends JModelList
 {
 	
 	/**
@@ -24,14 +24,14 @@ class ThorHospedajeModelCountries extends JModelList
 	 *
 	 * @var		string
 	 */
-	public $_context = 'com_thorhospedaje.countries';
+	public $_context = 'com_thorhospedaje.availabilityrooms';
 	/**
 	 * Method to auto-populate the model state.
 	 *
 	 * Note. Calling getState in this method will result in recursion.
 	 *
 	 * @return  void
-	 * @since   1.6 <- Hay que averiguar que es esto y dejarlo o eliminarlo
+	 * @since   1.6
 	 */
 	protected function populateState($ordering = 'ordering', $direction = 'ASC')
 	{
@@ -43,7 +43,7 @@ class ThorHospedajeModelCountries extends JModelList
 		$this->setState('params', $params);
 		
 		// Se calculan los elementos a traer en cada consulta
-		$value = ((int) $params->get('countries-rowcount', 2)) * ((int) $params->get('countries-rowcount', 2));
+		$value = 5;
 		$this->setState('list.limit', $value);
 
 		$value = $app->input->get('limitstart', 0, 'uint');
@@ -82,7 +82,7 @@ class ThorHospedajeModelCountries extends JModelList
 		
 		// Select field to query
 		$query->select($this->getState('list.select', 'a.*'));
-		$query->from($db->quoteName('#__th_countries').' AS a');
+		$query->from($db->quoteName('#__th_assets').' AS a');
 		
 		// Filter by state
 		$state = $this->getState('filter.state');
@@ -95,7 +95,17 @@ class ThorHospedajeModelCountries extends JModelList
 		if ($this->getState('filter.language'))
 		{
 			$query->where('a.language in (' . $db->Quote(JFactory::getLanguage()->getTag()) . ',' . $db->Quote('*') . ')');
-		}	
+		}
+		
+		// Seleccionando país
+		$query->select('b.country');
+		$query->from($db->quoteName('#__th_countries').' AS b');
+		$query->where('a.country_id = b.id');
+		
+		// Seleccionando estado
+		$query->select('c.state_name');
+		$query->from($db->quoteName('#__th_states').' AS c');
+		$query->where('a.state_id = c.id');
 		
 		// Add the list ordering clause.
 		$query->order($db->escape($this->getState('list.ordering', 'a.ordering')).' '.$db->escape($this->getState('list.direction', 'ASC')));
@@ -124,7 +134,7 @@ class ThorHospedajeModelCountries extends JModelList
 		$globalParams = JComponentHelper::getParams('com_content', true);*/
 
 		// Convert the parameter fields into objects.
-		foreach ($items as &$item)
+		/*foreach ($items as &$item)
 		{
 			if (isset($item->params))
 			{
@@ -133,8 +143,57 @@ class ThorHospedajeModelCountries extends JModelList
 				$item->params = clone $this->getState('params');
 				$item->params->merge($registry);
 			}
-		}
+		}*/
 
 		return $items;
+	}
+	
+	public function getListAvailabilityRooms($th_asset_id, $checkin = NULL, $checkout = NULL)
+	{
+		$db = $this->getDbo();
+		$query = $db->getQuery(true);
+
+		/* Se obtienen los tipos de habitaciones de la posada
+		 * */
+		$query->select('a.*');
+		$query->from($db->quoteName('#__th_rooms').' AS a');
+		
+		// Filter by state
+		$query->where('a.state = 1');
+		
+		//Filter for language
+		$query->where('a.language in (' . $db->Quote(JFactory::getLanguage()->getTag()) . ',' . $db->Quote('*') . ')');
+				
+		$query->where('a.th_asset_id = ' . (int) $th_asset_id);
+
+		$db->setQuery($query);
+		$rooms_types = $db->loadObject();
+		
+		/**** Fin obtener tipos de habitaciones de la posada ****/
+		
+		/* Se recorren los tipos de habitaciones para saber si tienen
+		 * reservaciones según las fechas pasadas por parámetro 
+		 * */
+		foreach($rooms_types as $room_type)
+		{
+			// Se convierte la cadena con lo números de habitaciones en un
+			// arreglo
+			$rooms = explode(",",$room_type->rooms_number);
+			
+			$query->clear();
+			
+			
+		}
+		/**** Fin recorrer tipos de habitaciones de la posada ****/
+	}
+	
+	protected function _checkAvailabilityRoom($th_asset_id, $room_number, $checkin = NULL, $checkout = NULL)
+	{
+		$db = $this->getDbo();
+		$query = $db->getQuery(true);
+		
+		$query->select('a.*');
+		$query->from($db->quoteName('#__th_reservations').' AS a');
+		$query->where('a.th_asset_id = ' . (int) $th_asset_id);
 	}
 }

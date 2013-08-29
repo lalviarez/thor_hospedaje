@@ -75,55 +75,17 @@ class ThorHospedajeModelAsset extends JModelAdmin
 	 * @return  mixed  Object on success, false on failure.
 	 * @since   1.6
 	 */
-	/*public function getItem()
+	public function getItem($pk = null)
 	{
-		// Create a new query object.
-		$db = JFactory::getDBO();
-		$query = $db->getQuery(true);
-
-		// Select some fields
-		$query->select('a.id,a.asset_name,a.state_id,a.state,a.access,a.language, a.ordering as ordering');
-
-		// From the states table
-		$query->from('#__th_assets'.' AS a');
-
-		// Join over the state
-		$query->select('s.state_name AS state_name,s.country_id');
-		$query->join('LEFT', $db->quoteName('#__th_states').' AS s ON s.id = a.state_id');  
-
-		// Join over the country
-		$query->select('c.country AS country_name');
-		$query->join('LEFT', $db->quoteName('#__th_countries').' AS c ON c.id = s.country_id');  
-
-       	// Join over the language
-		$query->select('l.title AS language_title');
-		$query->join('LEFT', $db->quoteName('#__languages').' AS l ON l.lang_code = a.language');  
-
-		// Join over the asset groups.
-		$query->select('ag.title AS access_level');
-		$query->join('LEFT', '#__viewlevels AS ag ON ag.id = a.access');
-
-		// Filter by access level.
-		if ($access = $this->getState('filter.access'))
+		if ($item = parent::getItem($pk))
 		{
-			$query->where('a.access = '.(int) $access);
+			// Convert the params field to an array.
+			$registry = new JRegistry;
+			$registry->loadString($item->contact_data);
+			$item->contact_data = $registry->toArray();
 		}
-		// Add the list ordering clause.
-		$orderCol	= $this->state->get('list.ordering', 'ordering');
-		$orderDirn	= $this->state->get('list.direction', 'ASC');
-             
-
-		if ($orderCol == 'ordering')
-		{
-			$orderCol='asset_name '.$orderDirn.', a.ordering';
-			
-			
-		}
-		
-		$query->order($db->escape($orderCol.' '.$orderDirn));
-		
-		return $query;
-	}*/
+		return $item;
+	}
 
 
 	/**
