@@ -18,12 +18,23 @@ JHtml::_('bootstrap.framework');
 
 <?php
 foreach($this->items as $item):
+if (isset($item->rooms_types)):
 ?>
 <div class="row-fluid">
 	<h2><?php echo $item->country;?></h2>
 	<h3><?php echo $item->state_name;?></h3>
 	<h4><?php echo $item->asset_name;?></h4>
+	<?php
+	
+		foreach($item->rooms_types as $room_type):
+	?>
+		<p><?php echo $room_type->room_name;?></p>
+		<p><?php print_r($room_type->availability_rooms);?></p>
+	<?php
+		endforeach;
+	?>
 </div>	
 <?php
+endif;
 endforeach;
 ?>
