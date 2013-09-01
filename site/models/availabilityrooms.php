@@ -177,21 +177,17 @@ class ThorHospedajeModelAvailabilityRooms extends JModelList
 		// Convert the parameter fields into objects.
 		
 		
-		// Hay que verificar que las fechas no sean inferiores a la actual
-		$checkin = $this->getState('checkin');
-		$checkout = $this->getState('checkout');
-		if ($checkin && $checkout)
-		{
+		
 			foreach ($items as &$item)
 			{
 				// $checkin y $checkout deben venir desde el formulario
-				$item->rooms_types = $this->getListAvailabilityRooms($item->id, $checkin, $checkout);
+				$item->rooms_types = $this->getListAvailabilityRooms($item->id);
 			}
-		}
+		
 		return $items;
 	}
 	
-	public function getListAvailabilityRooms($th_asset_id, $checkin = NULL, $checkout = NULL)
+	public function getListAvailabilityRooms($th_asset_id)
 	{
 		$db = $this->getDbo();
 		$query = $db->getQuery(true);
@@ -213,14 +209,14 @@ class ThorHospedajeModelAvailabilityRooms extends JModelList
 		$n_adults = $this->getState('n_adults');
 		if ($n_adults && is_numeric($n_adults))
 		{
-			$query->where('number_adult = ' . $n_adults);
+			$query->where('number_adult >= ' . $n_adults);
 		}
 
 		// Filtrar por número de niños
 		$n_childrens = $this->getState('n_childrens');
 		if ($n_childrens && is_numeric($n_childrens))
 		{
-			$query->where('number_children = ' . $n_childrens);
+			$query->where('number_children >= ' . $n_childrens);
 		}
 
 		$db->setQuery($query);
@@ -231,27 +227,35 @@ class ThorHospedajeModelAvailabilityRooms extends JModelList
 		/* Se recorren los tipos de habitaciones para saber si tienen
 		 * reservaciones según las fechas pasadas por parámetro 
 		 * */
-		foreach($rooms_types as &$room_type)
+		// Hay que verificar que las fechas no sean inferiores a la actual
+		$checkin = $this->getState('checkin');
+		$checkout = $this->getState('checkout');
+		if ($checkin && $checkout)
 		{
-			// Se convierte la cadena con los números de habitaciones en un
-			// arreglo
-			$rooms_number = explode(",",$room_type->rooms_number);
-			$availability_rooms = NULL;
-						
-			// Se verifica la disponibilidad de cada habitación
-			foreach ($rooms_number as $room_number)
+			foreach($rooms_types as &$room_type)
 			{
-				$availability = $this->_checkAvailabilityRoom($th_asset_id, $room_type->id, $room_number, $checkin, $checkout);
-				if ($availability) // No está disponible
+				// Se convierte la cadena con los números de habitaciones en un
+				// arreglo
+				$rooms_number = explode(",",$room_type->rooms_number);
+				$availability_rooms = NULL;
+				$no_availability_rooms = NULL;
+							
+				// Se verifica la disponibilidad de cada habitación
+				foreach ($rooms_number as $room_number)
 				{
-					$availability_rooms[$room_number]=0;
-				}
-				else // Está disponible
-				{
-					$availability_rooms[$room_number]=1;
-				}
-				$room_type->availability_rooms = $availability_rooms;
-			}			
+					$availability = $this->_checkAvailabilityRoom($th_asset_id, $room_type->id, $room_number, $checkin, $checkout);
+					if ($availability) // No está disponible
+					{
+						$no_availability_rooms[$room_number]=0;
+					}
+					else // Está disponible
+					{
+						$availability_rooms[$room_number]=1;
+					}
+					$room_type->availability_rooms = $availability_rooms;
+					$room_type->no_availability_rooms = $no_availability_rooms;
+				}			
+			}
 		}
 		/**** Fin recorrer tipos de habitaciones de la posada ****/
 		return count($rooms_types) ? $rooms_types : NULL;
