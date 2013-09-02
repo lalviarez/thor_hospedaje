@@ -15,6 +15,7 @@ JHtml::_('bootstrap.framework');
 JHtml::_('bootstrap.framework');
 //JHtml::_('jquery.ui');
 $document = JFactory::getDocument();
+$document->addStyleSheet('media/com_thorhospedaje/css/th_availabilityrooms.css');
 $document->addStyleSheet('media/com_thorhospedaje/css/jquery-themes/jquery-ui.min.css');
 $document->addStyleSheet(JURI::base().'media/jui/css/chosen.css');
 $document->addScript('media/com_thorhospedaje/js/jquery-ui.min.js');
@@ -207,35 +208,5 @@ jQuery(document).ready(function($) {
 </div>
 </form>
 
-<hr />
-<?php
-foreach($this->items as $item):
-?>
-<div class="row-fluid">
-	<h2><?php echo $item->country;?></h2>
-	<h3><?php echo $item->state_name;?></h3>
-	<h4><?php echo $item->asset_name;?></h4>
-	<?php
-	
-		foreach($item->rooms_types as $room_type):
-	?>
-		<?php
-		if (isset($room_type->availability_rooms)):
-		?>
-		<p><?php echo $room_type->room_name . " " . count($room_type->availability_rooms) . " disponibles";?></p>
-		<?php
-		elseif (isset($room_type->no_availability_rooms)):
-			continue;
-		else:
-		?>
-		<p><?php echo $room_type->room_name;?></p>
-		<?php
-		endif;
-		?>
-	<?php
-		endforeach;
-	?>
-</div>	
-<?php
-endforeach;
-?>
+<hr style="margin: 0px;	border-width: 2px 0;"/>
+<?php echo $this->loadTemplate('assets'); ?>

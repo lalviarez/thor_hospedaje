@@ -1,0 +1,130 @@
+.mod_th_availabilityrooms{
+	margin-top: 1%;
+	margin-bottom: 1%;
+
+}
+
+.mod_th_availabilityrooms .row-fluid{
+	padding-left: 0 !important;
+	padding-right: 0 !important;
+}
+
+.mod_th_availabilityrooms hr{
+	margin: 0px;
+	border-width: 2px 0;
+}
+
+.mod_th_availabilityrooms .even{
+	background: #F9F9F9;
+}
+
+.mod_th_availabilityrooms .odd{
+	background: none;
+}
+
+.mod_th_availabilityrooms .asset{
+	border-bottom: 2px solid #EEEEEE;
+	padding: 2px 1% 2px 2px !important;
+	line-height: normal;
+}
+
+.mod_th_availabilityrooms .asset img{
+	box-shadow: 0 0 5px #999999;
+}
+
+
+
+.mod_th_availabilityrooms .data-rooms{
+	margin-top: 1%;
+	/*margin-bottom: 1%;*/
+}
+.mod_th_availabilityrooms .data-rooms .data-room{
+	padding-right: 1% !important;
+}
+
+.mod_th_availabilityrooms .data-rooms .data-room p{
+	margin: 0px;
+}
+
+.mod_th_availabilityrooms .data-rooms .data-room [class*="span"]{
+	min-height: 0px;
+}
+
+.mod_th_availabilityrooms .data-rooms .data-room .availability{
+	text-align: right;
+}
+
+.mod_th_availabilityrooms .data-rooms .data-room .childadults{
+	text-align: right;
+}
+
+.mod_th_availabilityrooms .data-rooms .data-room .cost{
+	text-align: right;
+	text-weight: bold;
+}
+
+.mod_th_availabilityrooms .data-rooms .even{
+	/*background: #F9F9F9;*/
+	background: #F0F0F0;
+}
+
+
+.mod_th_availabilityrooms .data-rooms .odd{
+	background: none;
+}
+
+/*
+.mod_th_availabilityrooms .navigation{
+	margin-bottom: 0px;
+	border-top: none;
+	border-bottom: none;
+}
+
+.mod_th_availabilityrooms .rooms{
+
+}
+
+.mod_th_availabilityrooms .rooms .room{
+	margin-top: 1%;
+	border-bottom: 2px solid #EEEEEE;
+	padding: 1%;
+}
+
+.mod_th_availabilityrooms .rooms .room .description{
+	display: none;
+}
+
+.mod_th_availabilityrooms .rooms .room .cost{
+	font-size: 2em;
+	text-align: center;
+	vertical-align: middle;
+}
+
+.mod_th_availabilityrooms .social a:hover{
+	text-decoration: none;
+}
+
+.mod_th_availabilityrooms .social a img{
+	width: 36px;
+	height: 36px;
+}
+
+.mod_th_availabilityrooms .social a img:hover{
+	box-shadow: 0 0 10px #999999;
+	width: 36px;
+	height: 36px;
+}
+
+.mod_th_availabilityrooms .data-asset{
+	margin: 0px;
+
+}*/
+
+.mod_th_availabilityrooms .data-asset > h4{
+	margin: 0px;
+}
+
+.mod_th_availabilityrooms .data-asset > p{
+	margin: 0px;
+	font-style: italic;
+}
