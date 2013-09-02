@@ -178,11 +178,17 @@ class ThorHospedajeModelAvailabilityRooms extends JModelList
 		
 		
 		
-			foreach ($items as &$item)
+		foreach ($items as &$item)
+		{
+			$item->rooms_types = $this->getListAvailabilityRooms($item->id);
+			if (isset($item->params))
 			{
-				// $checkin y $checkout deben venir desde el formulario
-				$item->rooms_types = $this->getListAvailabilityRooms($item->id);
+				$registry = new JRegistry;
+				$registry->loadString($item->params);
+				$item->params = clone $this->getState('params');
+				$item->params->merge($registry);
 			}
+		}
 		
 		return $items;
 	}
