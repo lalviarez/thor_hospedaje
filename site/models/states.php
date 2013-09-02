@@ -114,6 +114,16 @@ class ThorHospedajeModelStates extends JModelList
 			$id_country = $app->getUserState('filter.id_country', NULL);
 		}
 		$query->where('a.country_id = '. (int) $id_country);
+		
+		
+		/*
+		 * Tal vez esta sea la consulta correcta, se debe verificar
+		if ($id_country != NULL)
+		{
+			$query->where('a.country_id = '. (int) $id_country);
+		}
+		* */
+		
 		/* --- */
 		
 		

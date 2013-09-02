@@ -67,10 +67,26 @@ jQuery(document).ready(function($) {
 	});
 	
 	$('#country_id').bind('change',function(){
-		$('#state_id').load('index.php?option=com_thorhospedaje&task=states.statesAjax&id_country='+$('#country_id').val(),function(){
+		var country_id = $('#country_id').val();
+		if (country_id == '')
+		{
+			country_id='-1'
+		}
+		$('#state_id').load('index.php?option=com_thorhospedaje&task=states.statesAjax&id_country='+country_id,function(){
 			$('#state_id').val('').trigger('liszt:updated');
 			$('#th_asset_id').empty();
-			$('#th_asset_id').html('<option value=\"0\"></option>');
+			$('#th_asset_id').html('<option value=\"\"></option>');
+			$('#th_asset_id').val('').trigger('liszt:updated');
+		});
+	});
+	
+	$('#state_id').bind('change',function(){
+		var state_id = $('#state_id').val();
+		if (state_id == '')
+		{
+			state_id='-1'
+		}
+		$('#th_asset_id').load('index.php?option=com_thorhospedaje&task=assets.assetsAjax&id_state='+state_id,function(){
 			$('#th_asset_id').val('').trigger('liszt:updated');
 		});
 	});
@@ -88,7 +104,7 @@ jQuery(document).ready(function($) {
 	<div class="control-label"><label for="country_id" title=""><?php echo JText::_('TH_AR_FIELD_COUNTRY_LABEL'); ?></label></div>
 	<div class="controls">
 	<select name="country_id" id="country_id" data-no_results_text="<?php echo JText::_('TH_AR_FIELD_COUNTRY_NO_RESULTS_TEXT'); ?>" data-placeholder="<?php echo JText::_('TH_AR_FIELD_COUNTRY_PLACEHOLDER'); ?>">
-		<option value="0"></option>
+		<option value=""></option>
 		<?php
 		foreach($this->countries as $country):
 		?>
