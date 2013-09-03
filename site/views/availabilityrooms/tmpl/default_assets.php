@@ -7,12 +7,20 @@
  */
 
 defined('_JEXEC') or die;
+$app = JFactory::getApplication('site');
+$country_id = $app->input->get('country_id', NULL);
+$state_id = $app->input->get('state_id', NULL);
+$th_asset_id = $app->input->get('th_asset_id', NULL);
+$checkin = $app->input->get('checkin', NULL);
+$checkout = $app->input->get('checkout', NULL);
+$n_adults = $app->input->get('n_adults', NULL);
+$n_childrens = $app->input->get('n_childrens', NULL);
 ?>
 <div class="mod_th_availabilityrooms">
 <?php
 foreach($this->items as $i => $item):
 	($i%2 === 0) ? $class = "even" : $class = "odd";
-	//$Itemid = $item->params->get('asset-itemMenu',0);
+	$Itemid = $item->params->get('asset-itemMenu',0);
 	//es necesario traerse los parámetros de los alojamientos
 ?>
 <div class="row-fluid asset <?php echo $class; ?>">
@@ -22,7 +30,8 @@ foreach($this->items as $i => $item):
 	
 	<div class="span10">
 		<div class="row-fluid data-asset">			
-			<h4><a href="<?php echo JRoute::_('index.php?view=asset&id='. $item->id .'&Itemid='. $Itemid);?>"><?php echo $item->asset_name;?></a></h4>
+			<h4><a href="<?php echo JRoute::_('index.php?view=asset&id='. $item->id .'&Itemid='. $Itemid .'&checkin='. $checkin .'&checkout='. $checkout);?>">
+			<?php echo $item->asset_name;?></a></h4>
 			<p><?php echo $item->state_name;?>, <?php echo $item->country;?></p>			
 		</div>
 		
@@ -41,6 +50,10 @@ foreach($this->items as $i => $item):
 				?>
 					<p class="availability"><?php echo count($room_type->availability_rooms) . " " . JText::_('TH_AR_FIELD_AVAILABILITY_LABEL');?></p>
 				<?php
+				else:
+				?>
+					<p>&nbsp;</p>
+				<?php
 				endif;
 				?>
 			</div>
@@ -56,7 +69,7 @@ foreach($this->items as $i => $item):
 		if ($i == 2):
 		?>
 			<div class="row-fluid">
-				<a href="<?php echo JRoute::_('index.php?view=asset&id='. $item->id .'&Itemid='. $Itemid);?>">Hay más</a>
+				<a href="<?php echo JRoute::_('index.php?view=asset&id='. $item->id .'&Itemid='. $Itemid .'&checkin='. $checkin .'&checkout='. $checkout);?>"><?php echo JText::_('TH_AR_FIELD_MORE_LABEL');?></a>
 			</div>
 		
 		<?php

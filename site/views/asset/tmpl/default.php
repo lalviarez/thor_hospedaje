@@ -17,8 +17,10 @@ $document = JFactory::getDocument();
 $document->addStyleSheet('media/com_thorhospedaje/css/th_asset.css');
 //$document->addStyleSheet('media/com_thorhospedaje/css/basic.css');
 $document->addStyleSheet('media/com_thorhospedaje/css/galleriffic.css');
+$document->addStyleSheet(JURI::base().'media/jui/css/chosen.css');
 $document->addScript('media/com_thorhospedaje/js/jquery.galleriffic.js');
 $document->addScript('media/com_thorhospedaje/js/jquery.opacityrollover.js');
+$document->addScript(JURI::base().'media/jui/js/chosen.jquery.js');
 
 $document->addScriptDeclaration("
 jQuery(document).ready(function($) {
@@ -74,7 +76,12 @@ jQuery(document).ready(function($) {
 						this.fadeTo('fast', 1.0);
 					}
 				});
-			});
+				
+				$('#rooms_numbers').chosen({
+					disable_search_threshold: 10,
+					allow_single_deselect: true,
+				});
+});
 ");
 
 if (isset($this->item->rooms) && ($this->item->rooms))
@@ -234,7 +241,7 @@ $assetImages[] = $this->item->image9;
 				($i%2 === 0) ? $class = "even" : $class = "odd";
 		?>
 		<div class="row-fluid room <?php echo $class; ?>">
-			<div class="span1"> </div>
+			<div class="span2"> </div>
 			<div class="span2">
 				<h4><?php echo $room->room_name;?></h4>
 			</div>
@@ -245,7 +252,22 @@ $assetImages[] = $this->item->image9;
 				</ul>
 				<a href="javascript:;" id="more_<?php echo $i;?>"><?php echo JText::_('TH_ASSET_FIELD_VIEW_MORE_LABEL'); ?></a>
 			</div>
-			<div class="span3" style="text-align:center;">
+			<div class="span3">
+				<div class="control-label"><label for="country_id" title=""><?php echo JText::_('Escoja su habitación'); ?></label></div>
+				<div class="controls">
+				<select multiple="" name="rooms_numbers" id="rooms_numbers" data-no_results_text="<?php echo JText::_('TH_AR_FIELD_COUNTRY_NO_RESULTS_TEXT'); ?>" data-placeholder="<?php echo JText::_('TH_AR_FIELD_COUNTRY_PLACEHOLDER'); ?>">
+					<option value=""></option>
+					<?php
+					//foreach($this->countries as $country):
+					?>
+					<option value="<?php //echo $country->id;?>"><?php //echo $country->country;?></option>
+					<?php
+					//endforeach;
+					?>
+				</select>
+				</div>
+			</div>
+			<div class="span2" style="text-align:center;">
 				<span class="cost"><?php echo $room->room_cost;?></span>
 			</div>
 			<div class="span12 description" id="room_desc_<?php echo $i;?>">
