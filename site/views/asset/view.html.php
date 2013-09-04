@@ -37,7 +37,7 @@ class ThorHospedajeViewAsset extends JViewLegacy
 		// Get data from the model
 		$this->item		= $this->get('Item');
 		$this->state	= $this->get('State');
-		//$this->params = JComponentHelper::getParams('com_thorhospedaje');
+		$this->params = JComponentHelper::getParams('com_thorhospedaje');
 
 		if ($this->item)
 		{
@@ -45,37 +45,10 @@ class ThorHospedajeViewAsset extends JViewLegacy
 			//$this->params->merge($this->item->params);
 			//$this->params = $this->item->params;
 			
-			// Get States Model data
-			$roomsModel = JModelLegacy::getInstance('Rooms', 'ThorHospedajeModel', array('ignore_request' => true));
-			$roomsModel->setState('list.select', 'a.*');
-		
-			// Filter by state of publicated
-			$roomsModel->setState('filter.state', 1);
-
-			// Filter by language
-			$roomsModel->setState('filter.language', $app->getLanguageFilter());
-			
-			// Filter by asset
-			$th_asset_id = $this->item->id;
-			$roomsModel->setState('filter.th_asset_id', $th_asset_id);
-			
-			// Ordering
-			$roomsModel->setState('list.ordering', 'ordering');
-			$roomsModel->setState('list.direction','asc');
-			
-			// Set the limits for pagination
-			$limitstart = $app->input->get('limitstart', 0, 'uint');
-			$roomsModel->setState('list.start', $limitstart);
-			
-			// Se calculan los elementos a traer en cada consulta
-			//$countItems = ((int) $this->params->get('state-rowcount', 2)) * ((int) $this->params->get('state-rowcount', 2));
-			$countItems = 5;
-			$roomsModel->setState('list.limit', $countItems);
-
-			$this->item->rooms = $roomsModel->getItems();
-			$this->pagination = $roomsModel->getPagination();
-			
-			/* Select country */
+						
+			/* 
+			 * Select country 
+			 * */
 			$countryModel = JModelLegacy::getInstance('Country', 'ThorHospedajeModel', array('ignore_request' => true));
 			$countryModel->setState('list.select', 'a.country');
 		
@@ -85,12 +58,14 @@ class ThorHospedajeViewAsset extends JViewLegacy
 			// Filter by language
 			$countryModel->setState('filter.language', $app->getLanguageFilter());
 			
-			// Filter by State
+			// Filter by Country
 			$country_id = $this->item->country_id;
 			$countryModel->setState('country.id', $country_id);
 			$this->item->country = $countryModel->getItem();
 			
-			/* Select state */
+			/* 
+			 * Select state 
+			 * */
 			$stateModel = JModelLegacy::getInstance('State', 'ThorHospedajeModel', array('ignore_request' => true));
 			$stateModel->setState('list.select', 'a.state_name');
 		
@@ -104,6 +79,69 @@ class ThorHospedajeViewAsset extends JViewLegacy
 			$state_id = $this->item->state_id;
 			$stateModel->setState('state.id', $state_id);
 			$this->item->state = $stateModel->getItem();
+			
+			
+			/* 
+			 * Get AvailabilityRooms Model data
+			 * */
+			$roomsModel = JModelLegacy::getInstance('AvailabilityRooms', 'ThorHospedajeModel', array('ignore_request' => true));
+			$roomsModel->setState('list.select', 'a.*');
+		
+			
+			// Filter by state of publicated
+			$roomsModel->setState('params', $this->params);
+			
+			// Filter by state of publicated
+			$roomsModel->setState('filter.state', 1);
+
+			// Filter by language
+			$roomsModel->setState('filter.language', $app->getLanguageFilter());
+			
+			// Filter by Country
+			$country_id = $this->item->country_id;
+			$roomsModel->setState('country_id', $country_id);
+			
+			// Filter by State
+			$state_id = $this->item->state_id;
+			$roomsModel->setState('state_id', $state_id);
+			
+			// Filter by asset
+			$th_asset_id = $this->item->id;
+			$roomsModel->setState('th_asset_id', $th_asset_id);
+			
+			// Filtrando por fecha de entrada
+			$roomsModel->setState('checkin', $app->input->get('checkin', NULL));
+			
+			// Filtrando por fecha de salida
+			$roomsModel->setState('checkout', $app->input->get('checkout', NULL));
+			
+			// Filtrando por cantidad de adultos
+			$roomsModel->setState('n_adults', $app->input->get('n_adults', NULL));
+			
+			// Filtrando por cantidad de niños
+			$roomsModel->setState('n_childrens', $app->input->get('n_childrens', NULL));
+			
+			// Ordering
+			$roomsModel->setState('list.ordering', 'ordering');
+			$roomsModel->setState('list.direction','asc');
+			
+			// Set the limits for pagination
+			$limitstart = $app->input->get('limitstart', 0, 'uint');
+			$roomsModel->setState('list.start', $limitstart);
+			
+			// Se calculan los elementos a traer en cada consulta
+			//$countItems = ((int) $this->params->get('state-rowcount', 2)) * ((int) $this->params->get('state-rowcount', 2));
+			$countItems = 5;
+			$roomsModel->setState('list.limit', $countItems);
+			
+			$asset_rooms = $roomsModel->getItems();
+			if (isset($asset_rooms[0]->rooms_types) && ($asset_rooms[0]->rooms_types))
+			{
+				$this->item->rooms = $asset_rooms[0]->rooms_types;
+			}
+			$this->pagination = $roomsModel->getPagination();
+			
+			
 		}
 		
         // Check for errors.

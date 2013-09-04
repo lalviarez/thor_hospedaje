@@ -86,7 +86,7 @@ class ThorHospedajeModelAvailabilityRooms extends JModelList
 		// Obteniendo cantidad de adultos
 		$this->setState('n_adults', $app->input->get('n_adults', NULL));
 		
-		// Obteniendo fecha de salida
+		// Obteniendo cantidad de niños
 		$this->setState('n_childrens', $app->input->get('n_childrens', NULL));
 	}
 	

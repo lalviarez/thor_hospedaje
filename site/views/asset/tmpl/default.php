@@ -105,8 +105,9 @@ if (isset($this->item->rooms) && ($this->item->rooms))
 				});\n",$i,$i,$i,JText::_('TH_ASSET_FIELD_VIEW_LESS_LABEL'),$i,$i,$i,JText::_('TH_ASSET_FIELD_VIEW_MORE_LABEL'));
 	}
 	$script .= "});";
+	$document->addScriptDeclaration($script);
 }
-$document->addScriptDeclaration($script);
+
 /*
 $document->addScriptDeclaration("
 jQuery(document).ready(function($) {
@@ -181,107 +182,8 @@ $assetImages[] = $this->item->image9;
 				</ul>
 		</div>
 	</div>
-	<div class="row-fluid">
-		<h3><?php echo JText::_('TH_ASSET_FIELD_CONTACS_LABEL'); ?></h3>
-		<hr />
-		<div class="span2">
-			<address>
-				<dl>
-					<dt><?php echo JText::_('TH_ASSET_FIELD_COUNTRY_LABEL'); ?>:</dt>
-					<dd><?php echo $this->item->country->country;?></dd>
-					<dt><?php echo JText::_('TH_ASSET_FIELD_STATE_LABEL'); ?>:</dt>
-					<dd><?php echo $this->item->state->state_name;?></dd>
-					<dt><?php echo JText::_('TH_ASSET_FIELD_ADDRESS_LABEL'); ?>:</dt>
-					<dd><?php echo $this->item->contact_data->get('asset-address','');?></dd>
-					<dt><?php echo JText::_('TH_ASSET_FIELD_PHONE_LABEL'); ?>:</dt>
-					<dd><?php echo $this->item->contact_data->get('asset-phone','');?></dd>
-					<!-- <dt><?php echo JText::_('TH_ASSET_FIELD_EMAIL_LABEL'); ?>:</dt>
-					<dd><?php echo $this->item->contact_data->get('asset-email','');?></dd>				 -->
-				</dl>
-			</address>
-			<span class="social">
-				<?php if ($this->item->contact_data->get('asset-email','') != ''):
-				?>
-				<a href="mailto:<?php echo $this->item->contact_data->get('asset-email','');?>">
-					<img src="media/com_thorhospedaje/images/email.png" alt="" />
-				</a>
-				<?php 
-				endif;
-				?>
-				<?php if ($this->item->contact_data->get('asset-facebook','') != ''):
-				?>
-				<a target="_blank" href="<?php echo $this->item->contact_data->get('asset-facebook','');?>">
-					<img src="media/com_thorhospedaje/images/facebook.png" alt="" />
-				</a>
-				<?php 
-				endif;
-				?>
-				<?php if ($this->item->contact_data->get('asset-twitter','') != ''):
-				?>
-				<a target="_blank" href="<?php echo $this->item->contact_data->get('asset-twitter','');?>">
-					<img src="media/com_thorhospedaje/images/twitter.png" alt="" />
-				</a>
-				<?php 
-				endif;
-				?>
-			</span>
-		</div>
-	</div>
-	<div class="row-fluid">
-		<h3><?php echo JText::_('TH_ASSET_FIELD_DESCRIPTION_LABEL'); ?></h3>
-		<hr />
-		<p><?php echo $this->item->asset_desc;?></p>
-	</div>
-	<div class="row-fluid rooms">
-		<h3><?php echo JText::_('TH_ASSET_FIELD_ROOMS_LABEL'); ?></h3>
-		<hr />
-		<?php
-		if (isset($this->item->rooms) && ($this->item->rooms)):
-			foreach($this->item->rooms as $i => $room):
-				($i%2 === 0) ? $class = "even" : $class = "odd";
-		?>
-		<div class="row-fluid room <?php echo $class; ?>">
-			<div class="span2"> </div>
-			<div class="span2">
-				<h4><?php echo $room->room_name;?></h4>
-			</div>
-			<div class="span3">
-				<ul>
-					<li><strong><?php echo JText::_('TH_ASSET_FIELD_N_ADULTS_LABEL'); ?>:&nbsp; </strong><?php echo $room->number_adult;?></li>
-					<li><strong><?php echo JText::_('TH_ASSET_FIELD_N_CHILDRENS_LABEL'); ?>:&nbsp; </strong><?php echo $room->number_children;?></li>
-				</ul>
-				<a href="javascript:;" id="more_<?php echo $i;?>"><?php echo JText::_('TH_ASSET_FIELD_VIEW_MORE_LABEL'); ?></a>
-			</div>
-			<div class="span3">
-				<div class="control-label"><label for="country_id" title=""><?php echo JText::_('Escoja su habitación'); ?></label></div>
-				<div class="controls">
-				<select multiple="" name="rooms_numbers" id="rooms_numbers" data-no_results_text="<?php echo JText::_('TH_AR_FIELD_COUNTRY_NO_RESULTS_TEXT'); ?>" data-placeholder="<?php echo JText::_('TH_AR_FIELD_COUNTRY_PLACEHOLDER'); ?>">
-					<option value=""></option>
-					<?php
-					//foreach($this->countries as $country):
-					?>
-					<option value="<?php //echo $country->id;?>"><?php //echo $country->country;?></option>
-					<?php
-					//endforeach;
-					?>
-				</select>
-				</div>
-			</div>
-			<div class="span2" style="text-align:center;">
-				<span class="cost"><?php echo $room->room_cost;?></span>
-			</div>
-			<div class="span12 description" id="room_desc_<?php echo $i;?>">
-				<?php echo $room->room_desc;?>
-			</div>
-		</div>
-		<?php
-			endforeach;
-		endif;
-		?>
-	</div>
-	
-</div> <!-- mod_th_asset -->
-<?php echo $this->pagination->getListFooter(); ?>
-
+	<?php echo $this->loadTemplate('contact'); ?>
+	<?php echo $this->loadTemplate('description'); ?>
+	<?php echo $this->loadTemplate('rooms'); ?>
 
 

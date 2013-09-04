@@ -23,21 +23,44 @@
 }
 
 .mod_th_asset .rooms{
+	
+}
 
+.mod_th_asset .rooms .row-fluid{
+	margin-left: 5%;
+	margin-right: 5%;
 }
 
 .mod_th_asset .rooms .room{
 	margin-top: 1%;
 	border-bottom: 2px solid #EEEEEE;
-	padding: 1%;
+	padding: 2px !important;
 }
+
+.mod_th_asset .rooms .room img{
+	width: 35%;
+	box-shadow: 0 0 3px #999999;
+	float: left;
+	margin-right: 5%;	
+}
+
+.mod_th_asset .rooms .room h4{
+	margin: 0px;
+	color: #0088CC;
+}
+
+.mod_th_asset .rooms .room p{
+	margin: 0px;
+	font-style: italic;
+}
+
 
 .mod_th_asset .rooms .room .description{
 	display: none;
 }
 
 .mod_th_asset .rooms .room .cost{
-	font-size: 2em;
+	font-size: 1.5em;
 	text-align: center;
 	vertical-align: middle;
 }
