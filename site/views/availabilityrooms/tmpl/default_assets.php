@@ -37,47 +37,53 @@ foreach($this->items as $i => $item):
 		
 		<div class="data-rooms">
 		<?php
-		foreach($item->rooms_types as $i => $room_type):
-			($i%2 === 0) ? $class = "even" : $class = "odd";
+		if (isset($item->rooms_types) && $item->rooms_types):
 		?>
-		<div class="row-fluid data-room <?php echo $class; ?>">
-			<div class="span3">
-				<p><?php echo $room_type->room_name;?></p>
+			<?php
+			foreach($item->rooms_types as $i => $room_type):
+				($i%2 === 0) ? $class = "even" : $class = "odd";
+			?>
+			<div class="row-fluid data-room <?php echo $class; ?>">
+				<div class="span3">
+					<p><?php echo $room_type->room_name;?></p>
+				</div>
+				<div class="span3">
+					<?php
+					if (isset($room_type->availability_rooms)):
+					?>
+						<p class="availability"><?php echo count($room_type->availability_rooms) . " " . JText::_('TH_AR_FIELD_AVAILABILITY_LABEL');?></p>
+					<?php
+					else:
+					?>
+						<p>&nbsp;</p>
+					<?php
+					endif;
+					?>
+				</div>
+				<div class="span3">
+					<p class="childadults"><?php echo $room_type->number_adult . " " . JText::_('TH_AR_FIELD_ADULTS_LABEL');?>
+					 <?php echo $room_type->number_children . " " . JText::_('TH_AR_FIELD_CHILDRENS_LABEL');?></p>
+				</div>
+				<div class="span3">
+					<p class="cost"><?php echo $room_type->room_cost;?></p>
+				</div>				
 			</div>
-			<div class="span3">
-				<?php
-				if (isset($room_type->availability_rooms)):
-				?>
-					<p class="availability"><?php echo count($room_type->availability_rooms) . " " . JText::_('TH_AR_FIELD_AVAILABILITY_LABEL');?></p>
-				<?php
-				else:
-				?>
-					<p>&nbsp;</p>
-				<?php
-				endif;
-				?>
-			</div>
-			<div class="span3">
-				<p class="childadults"><?php echo $room_type->number_adult . " " . JText::_('TH_AR_FIELD_ADULTS_LABEL');?>
-				 <?php echo $room_type->number_children . " " . JText::_('TH_AR_FIELD_CHILDRENS_LABEL');?></p>
-			</div>
-			<div class="span3">
-				<p class="cost"><?php echo $room_type->room_cost;?></p>
-			</div>				
-		</div>
-		<?php 
-		if ($i == 2):
-		?>
-			<div class="row-fluid">
-				<a href="<?php echo JRoute::_('index.php?view=asset&id='. $item->id .'&Itemid='. $Itemid .'&checkin='. $checkin .'&checkout='. $checkout);?>"><?php echo JText::_('TH_AR_FIELD_MORE_LABEL');?></a>
-			</div>
-		
+			<?php 
+			if ($i == 2):
+			?>
+				<div class="row-fluid">
+					<a href="<?php echo JRoute::_('index.php?view=asset&id='. $item->id .'&Itemid='. $Itemid .'&checkin='. $checkin .'&checkout='. $checkout);?>"><?php echo JText::_('TH_AR_FIELD_MORE_LABEL');?></a>
+				</div>
+			
+			<?php
+				break;
+			endif;
+			?>
+			<?php
+			endforeach;
+			?>
 		<?php
-			break;
 		endif;
-		?>
-		<?php
-		endforeach;
 		?>
 		</div>
 	</div>

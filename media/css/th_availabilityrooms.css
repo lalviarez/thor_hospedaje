@@ -1,5 +1,5 @@
 .mod_th_availabilityrooms{
-	margin-top: 1%;
+	/*margin-top: 1%;*/
 	margin-bottom: 1%;
 
 }
@@ -26,6 +26,7 @@
 	border-bottom: 2px solid #EEEEEE;
 	padding: 2px 1% 2px 2px !important;
 	line-height: normal;
+	margin-top: 1%;
 }
 
 .mod_th_availabilityrooms .asset img{

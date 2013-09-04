@@ -8,15 +8,20 @@
 
 defined('_JEXEC') or die;
 $document = JFactory::getDocument();
+jimport('thorhospedaje.currency_converter.currency_converter');
+$currency = JRequest::getVar('currency');
+$exchange_rate=THCurrencyconverter::get_exchange_rate($currency);
 
 ?>
 	<div class="row-fluid rooms">
 		<h3><?php echo JText::_('TH_ASSET_FIELD_ROOMS_LABEL'); ?></h3>
 		<hr />
+		<?php
+		if (isset($this->item->rooms) && ($this->item->rooms)):
+		?>
 		<div class="row-fluid"><button id="reservation" name="reservation" class="btn btn-primary" style="float: right;" type="submit">
 			<i class="icon-checkmark"></i> Reservar	</button></div>
 		<?php
-		if (isset($this->item->rooms) && ($this->item->rooms)):
 			foreach($this->item->rooms as $i => $room):
 				($i%2 === 0) ? $class = "even" : $class = "odd";
 		?>
@@ -63,7 +68,7 @@ $document = JFactory::getDocument();
 				?>
 			</div>
 			<div class="span3" style="text-align: center; padding-top:2%;">
-				<span class="cost"><?php echo $room->room_cost;?></span>
+				<span class="cost"><?php echo THCurrencyconverter::print_cost($room->room_cost, $exchange_rate, $currency);?></span>
 			</div>
 			<div class="span12 description" id="room_desc_<?php echo $i;?>">
 				<?php echo $room->room_desc;?>

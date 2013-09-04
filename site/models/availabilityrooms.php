@@ -180,6 +180,7 @@ class ThorHospedajeModelAvailabilityRooms extends JModelList
 		
 		foreach ($items as &$item)
 		{
+			
 			$item->rooms_types = $this->getListAvailabilityRooms($item->id);
 			if (isset($item->params))
 			{
@@ -188,6 +189,14 @@ class ThorHospedajeModelAvailabilityRooms extends JModelList
 				$item->params = clone $this->getState('params');
 				$item->params->merge($registry);
 			}
+			
+			/*
+			 * Esto podría traer un problema con la paginación
+			 * */
+			/*if (!isset($item->rooms_types) || !$item->rooms_types)
+			{
+				unset($item);
+			}*/
 		}
 		
 		return $items;
