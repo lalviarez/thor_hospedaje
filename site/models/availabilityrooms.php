@@ -67,6 +67,27 @@ class ThorHospedajeModelAvailabilityRooms extends JModelList
 		
 		// Filter by state, only published
 		$this->setState('filter.state', 1);
+		
+		// Obteniendo id de país
+		$this->setState('country_id', $app->input->get('country_id', NULL));
+		
+		// Obteniendo id de estado / región
+		$this->setState('state_id', $app->input->get('state_id', NULL));
+		
+		// Obteniendo id de posada
+		$this->setState('th_asset_id', $app->input->get('th_asset_id', NULL));
+		
+		// Obteniendo fecha de entrada
+		$this->setState('checkin', $app->input->get('checkin', NULL));
+		
+		// Obteniendo fecha de salida
+		$this->setState('checkout', $app->input->get('checkout', NULL));
+		
+		// Obteniendo cantidad de adultos
+		$this->setState('n_adults', $app->input->get('n_adults', NULL));
+		
+		// Obteniendo cantidad de niños
+		$this->setState('n_childrens', $app->input->get('n_childrens', NULL));
 	}
 	
 	/**
@@ -97,15 +118,35 @@ class ThorHospedajeModelAvailabilityRooms extends JModelList
 			$query->where('a.language in (' . $db->Quote(JFactory::getLanguage()->getTag()) . ',' . $db->Quote('*') . ')');
 		}
 		
-		// Seleccionando país
+		//Filtrando por País
+		$country_id = $this->getState('country_id');
+		if ($country_id && is_numeric($country_id))
+		{
+			$query->where('a.country_id = ' . $country_id);
+		}
+		
+		//Filtrando por Estado
+		$state_id = $this->getState('state_id');
+		if ($state_id && is_numeric($state_id))
+		{
+			$query->where('a.state_id = ' . $state_id);
+		}
+		
+		//Filtrando por Posada
+		$th_asset_id = $this->getState('th_asset_id');
+		if ($th_asset_id && is_numeric($th_asset_id))
+		{
+			$query->where('a.id = ' . $th_asset_id);
+		}
+		// Seleccionando nombre de país
 		$query->select('b.country');
 		$query->from($db->quoteName('#__th_countries').' AS b');
 		$query->where('a.country_id = b.id');
 		
-		// Seleccionando estado
+		// Seleccionando nombre de estado estado
 		$query->select('c.state_name');
 		$query->from($db->quoteName('#__th_states').' AS c');
-		$query->where('a.state_id = c.id');
+		$query->where('a.state_id = c.id');		
 		
 		// Add the list ordering clause.
 		$query->order($db->escape($this->getState('list.ordering', 'a.ordering')).' '.$db->escape($this->getState('list.direction', 'ASC')));
@@ -134,8 +175,13 @@ class ThorHospedajeModelAvailabilityRooms extends JModelList
 		$globalParams = JComponentHelper::getParams('com_content', true);*/
 
 		// Convert the parameter fields into objects.
-		/*foreach ($items as &$item)
+		
+		
+		
+		foreach ($items as &$item)
 		{
+			
+			$item->rooms_types = $this->getListAvailabilityRooms($item->id);
 			if (isset($item->params))
 			{
 				$registry = new JRegistry;
@@ -143,12 +189,20 @@ class ThorHospedajeModelAvailabilityRooms extends JModelList
 				$item->params = clone $this->getState('params');
 				$item->params->merge($registry);
 			}
-		}*/
-
+			
+			/*
+			 * Esto podría traer un problema con la paginación
+			 * */
+			/*if (!isset($item->rooms_types) || !$item->rooms_types)
+			{
+				unset($item);
+			}*/
+		}
+		
 		return $items;
 	}
 	
-	public function getListAvailabilityRooms($th_asset_id, $checkin = NULL, $checkout = NULL)
+	public function getListAvailabilityRooms($th_asset_id)
 	{
 		$db = $this->getDbo();
 		$query = $db->getQuery(true);
@@ -165,35 +219,89 @@ class ThorHospedajeModelAvailabilityRooms extends JModelList
 		$query->where('a.language in (' . $db->Quote(JFactory::getLanguage()->getTag()) . ',' . $db->Quote('*') . ')');
 				
 		$query->where('a.th_asset_id = ' . (int) $th_asset_id);
+		
+		// Filtrar por número de adultos
+		$n_adults = $this->getState('n_adults');
+		if ($n_adults && is_numeric($n_adults))
+		{
+			$query->where('number_adult >= ' . $n_adults);
+		}
+
+		// Filtrar por número de niños
+		$n_childrens = $this->getState('n_childrens');
+		if ($n_childrens && is_numeric($n_childrens))
+		{
+			$query->where('number_children >= ' . $n_childrens);
+		}
 
 		$db->setQuery($query);
-		$rooms_types = $db->loadObject();
+		$rooms_types = $db->loadObjectList();
 		
 		/**** Fin obtener tipos de habitaciones de la posada ****/
 		
 		/* Se recorren los tipos de habitaciones para saber si tienen
 		 * reservaciones según las fechas pasadas por parámetro 
 		 * */
-		foreach($rooms_types as $room_type)
+		// Hay que verificar que las fechas no sean inferiores a la actual
+		$checkin = $this->getState('checkin');
+		$checkout = $this->getState('checkout');
+		if ($checkin && $checkout)
 		{
-			// Se convierte la cadena con lo números de habitaciones en un
-			// arreglo
-			$rooms = explode(",",$room_type->rooms_number);
-			
-			$query->clear();
-			
-			
+			foreach($rooms_types as &$room_type)
+			{
+				// Se convierte la cadena con los números de habitaciones en un
+				// arreglo
+				$rooms_number = explode(",",$room_type->rooms_number);
+				$availability_rooms = NULL;
+				$no_availability_rooms = NULL;
+							
+				// Se verifica la disponibilidad de cada habitación
+				foreach ($rooms_number as $room_number)
+				{
+					$availability = $this->_checkAvailabilityRoom($th_asset_id, $room_type->id, $room_number, $checkin, $checkout);
+					if ($availability) // No está disponible
+					{
+						$no_availability_rooms[$room_number]=0;
+					}
+					else // Está disponible
+					{
+						$availability_rooms[$room_number]=1;
+					}
+					$room_type->availability_rooms = $availability_rooms;
+					$room_type->no_availability_rooms = $no_availability_rooms;
+				}			
+			}
 		}
 		/**** Fin recorrer tipos de habitaciones de la posada ****/
+		return count($rooms_types) ? $rooms_types : NULL;
 	}
 	
-	protected function _checkAvailabilityRoom($th_asset_id, $room_number, $checkin = NULL, $checkout = NULL)
+	protected function _checkAvailabilityRoom($th_asset_id, $room_type_id, $room_number, $checkin = NULL, $checkout = NULL)
 	{
 		$db = $this->getDbo();
 		$query = $db->getQuery(true);
 		
-		$query->select('a.*');
+		
+		$query->select('b.room_number');
 		$query->from($db->quoteName('#__th_reservations').' AS a');
+		$query->from($db->quoteName('#__th_reservations_rooms').' AS b');
 		$query->where('a.th_asset_id = ' . (int) $th_asset_id);
+		$query->where('a.id = b.reservation_id');	
+		$query->where('b.room_id = ' . (int) $room_type_id);
+		$query->where('b.room_number = ' . (int) $room_number);
+		$query->where("((date('".$checkin."') BETWEEN a.checkin AND a.checkout)" . "OR (date('".$checkout."') BETWEEN a.checkin AND a.checkout)"
+						. "OR (a.checkin BETWEEN date('".$checkin."') AND date('".$checkout."'))" 
+						. "OR (a.checkout BETWEEN date('".$checkin."') AND date('".$checkout."')))");
+		$db->setQuery($query);
+		$availability = $db->loadObject();
+		
+		if (isset($availability->room_number) && $availability->room_number)
+		{
+			return $availability->room_number;
+		}
+		else
+		{
+			return NULL;
+		}
 	}
 }
