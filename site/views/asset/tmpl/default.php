@@ -12,6 +12,9 @@ defined('_JEXEC') or die;
 JHtml::addIncludePath(JPATH_COMPONENT.'/helpers');
 JHtml::_('behavior.framework');
 JHtml::_('bootstrap.framework');
+// Import libraries
+jimport('thorhospedaje.currency_converter.currency_converter');
+
 $document = JFactory::getDocument();
 
 $document->addStyleSheet('media/com_thorhospedaje/css/th_asset.css');
@@ -133,13 +136,9 @@ $assetImages[] = $this->item->image7;
 $assetImages[] = $this->item->image8;
 $assetImages[] = $this->item->image9;
 
-$moneda = JRequest::getVar('moneda');
-$tasa=1;
-if(isset($moneda)){
+$currency = JRequest::getVar('currency');
+$exchange_rate=THCurrencyconverter::get_exchange_rate($currency);
 	
-	$tasa=file_get_contents('http://finance.yahoo.com/d/quotes.csv?e=.csv&f=l1&s=USD'.$moneda.'=X');
-	
-}
 
 ?>
 
@@ -255,7 +254,9 @@ if(isset($moneda)){
 			</div>
 			<div class="span3" style="text-align:center;">
 				
-				<span class="cost"><?php echo $room->room_cost * $tasa;?></span>
+				<span class="cost">
+				<?php echo THCurrencyconverter::print_cost($room->room_cost, $exchange_rate, $currency);?>
+				</span>					
 			</div>
 			<div class="span12 description" id="room_desc_<?php echo $i;?>">
 				<?php echo $room->room_desc;?>
