@@ -47,9 +47,7 @@
         <folder>css</folder>
         <folder>js</folder>
         <folder>images</folder>
-	</media>
-	<libraries folder="libraries" destination="com_thorhospedaje">
-	</libraries>
+    </media>
 	<administration>
 		<menu>TH_MENU</menu>
 		<submenu>
