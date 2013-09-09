@@ -12,14 +12,24 @@ jimport('thorhospedaje.currency_converter.currency_converter');
 $currency = JRequest::getVar('currency');
 $exchange_rate=THCurrencyconverter::get_exchange_rate($currency);
 
+$app = JFactory::getApplication('site');
+$country_id = $app->input->get('country_id', NULL);
+$state_id = $app->input->get('state_id', NULL);
+$th_asset_id = $app->input->get('id', NULL);
+$checkin = $app->input->get('checkin', NULL);
+$checkout = $app->input->get('checkout', NULL);
+$n_adults = $app->input->get('n_adults', NULL);
+$n_childrens = $app->input->get('n_childrens', NULL);
+
 ?>
+<form id="reservation-form" class="" method="GET" action="<?php echo JRoute::_($this->baseurl . '/index.php');?>">
 	<div class="row-fluid rooms">
 		<h3><?php echo JText::_('TH_ASSET_FIELD_ROOMS_LABEL'); ?></h3>
 		<hr />
 		<?php
 		if (isset($this->item->rooms) && ($this->item->rooms)):
 		?>
-		<div class="row-fluid"><button id="reservation" name="reservation" class="btn btn-primary" style="float: right;" type="submit">
+		<div class="row-fluid"><button id="reservation" name="bookin" class="btn btn-primary" style="float: right;" type="submit">
 			<i class="icon-checkmark"></i> Reservar	</button></div>
 		<?php
 			foreach($this->item->rooms as $i => $room):
@@ -79,9 +89,17 @@ $exchange_rate=THCurrencyconverter::get_exchange_rate($currency);
 		endif;
 		?>
 	</div>
-	
+	<input type="hidden" name="option" value="com_thorhospedaje">
+	<input type="hidden" name="view" value="reservation">
+	<input type="hidden" name="country_id" value="<?php echo $country_id;?>">
+	<input type="hidden" name="state_id" value="<?php echo $state_id;?>">
+	<input type="hidden" name="th_asset_id" value="<?php echo $th_asset_id; ?>">
+	<input type="hidden" name="checkin" value="<?php echo $checkin; ?>">
+	<input type="hidden" name="checkout" value="<?php echo $checkout; ?>">
+	<input type="hidden" name="n_adults" value="<?php echo $n_adults; ?>">
+	<input type="hidden" name="n_childrens" value="<?php echo $n_childrens; ?>">
+	</form>
 </div> <!-- mod_th_asset -->
 <?php echo $this->pagination->getListFooter(); ?>
-
 
 
