@@ -48,17 +48,17 @@ $n_childrens = $app->input->get('n_childrens', NULL);
 				if (isset($room->availability_rooms) && $room->availability_rooms):
 					
 					$script = sprintf("jQuery(document).ready(function($) {\n
-										$('#rooms_numbers_%s').chosen({\n
+										$('#room_data_%s').chosen({\n
 										disable_search_threshold: 10,\n
 										allow_single_deselect: true,\n
 										});\n
-										});",$i);
+										});",$room->id);
 										
 					$document->addScriptDeclaration($script);					
 				?>
 					<!-- <div class="control-label"><label for="country_id" title=""><?php echo JText::_('Escoja su habitación'); ?></label></div> -->
 					<div class="">
-					<select multiple="" name="rooms_numbers_<?php echo $i; ?>" id="rooms_numbers_<?php echo $i; ?>" data-no_results_text="<?php echo JText::_('TH_ASSET_FIELD_ROOMS_NUMBERS_NO_RESULTS_TEXT'); ?>" data-placeholder="<?php echo JText::_('TH_ASSEt_FIELD_ROOMS_NUMBERS_PLACEHOLDER'); ?>">
+					<select multiple="" name="room_data[<?php echo $room->id; ?>][room_numbers][]" id="room_data_<?php echo $room->id; ?>" data-no_results_text="<?php echo JText::_('TH_ASSET_FIELD_ROOMS_NUMBERS_NO_RESULTS_TEXT'); ?>" data-placeholder="<?php echo JText::_('TH_ASSEt_FIELD_ROOMS_NUMBERS_PLACEHOLDER'); ?>">
 						<option value=""></option>
 						<?php
 						foreach($room->availability_rooms as $room_number => $availability):
