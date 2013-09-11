@@ -120,10 +120,12 @@ jQuery(document).ready(function($) {
 </div>
 <hr />
 <?php echo $this->loadTemplate('client'); ?>
-<div class="row-fluid">
+<!-- <div class="row-fluid">
 	<h3><?php echo JText::_('TH_RESERVATION_CONFIRMATION_LABEL'); ?></h3>
 </div>
 <hr />
-<?php echo $this->loadTemplate('confirmation'); ?>
+<?php echo $this->loadTemplate('confirmation'); ?> -->
+<div class="row-fluid"><button id="reservation" name="reservation" class="btn btn-primary" style="float: right;" type="submit">
+			<i class="icon-checkmark"></i> Reservar	</button></div>
 </form>
 </div>

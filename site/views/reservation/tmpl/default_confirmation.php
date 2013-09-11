@@ -23,5 +23,4 @@ $n_childrens = $app->input->get('n_childrens', NULL);
 	<tr><td class="total">Total</td><td class="total-cost">Precio Total</td></tr>
 	</table>
 </div>
-<div class="row-fluid"><button id="reservation" name="reservation" class="btn btn-primary" style="float: right;" type="submit">
-			<i class="icon-checkmark"></i> Reservar	</button></div>
+

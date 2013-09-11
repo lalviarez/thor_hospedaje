@@ -131,27 +131,49 @@
 }
 
 .mod_th_reservation .confirmation-table{
-	width: 100%;
+	width: 90%;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 .mod_th_reservation .confirmation-table .item{
-	width: 80%;
-	align-text: left;
+	width: 40%;
+	text-align: left;
+	vertical-align: middle;
+}
+
+.mod_th_reservation .confirmation-table .n_adults{
+	width: 25%;
+	text-align: left;
+	vertical-align: middle;
+}
+
+.mod_th_reservation .confirmation-table .n_childrens{
+	width: 25%;
+	text-align: left;
+	vertical-align: middle;
 }
 
 .mod_th_reservation .confirmation-table .cost{
-	width: 20%;
-	align-text: right;
+	width: 15%;
+	text-align: right;
+	vertical-align: middle;
 }
 
 .mod_th_reservation .confirmation-table .total{
-	width: 70%;
+	width: 15%;
 	align-text: left;
 	font-weight: bold;
+	background: #F9F9F9;
+	text-align: right;
+	vertical-align: middle;
 }
 
 .mod_th_reservation .confirmation-table .total-cost{
-	width: 30%;
+	width: 15%;
 	align-text: right;
 	font-weight: bold;
+	background: #F9F9F9;
+	text-align: right;
+	vertical-align: middle;
 }
