@@ -19,7 +19,7 @@ jimport('joomla.application.component.modellist');
 class ThorHospedajeModelReservation extends JModelItem
 {
 	
-	protected $view_item = 'asset';
+	protected $view_item = 'reservation';
 
 	protected $_item = null;
 
@@ -53,10 +53,10 @@ class ThorHospedajeModelReservation extends JModelItem
 		$pk			= (!empty($data['id'])) ? $data['id'] : (int)$this->getState($this->getName().'.id');
 		$isNew		= true;
 		$app = JFactory::getApplication();
-		$roomTypePricesMapping = $app->getUserState($this->context.'.room_type_prices_mapping', NULL);
+		//$roomTypePricesMapping = $app->getUserState($this->context.'.room_type_prices_mapping', NULL);
 
 		// Include the content plugins for the on save events.
-		JPluginHelper::importPlugin('extension');
+		//JPluginHelper::importPlugin('extension');
 
 		// Load the row if saving an existing record.
 		if ($pk > 0)
@@ -83,11 +83,11 @@ class ThorHospedajeModelReservation extends JModelItem
 		}
 
 		// Trigger the onContentBeforeSave event.
-		$result = $dispatcher->trigger($this->event_before_save, array($data, $table, $isNew, $this));
+		/*$result = $dispatcher->trigger($this->event_before_save, array($data, $table, $isNew, $this));
 		if (in_array(false, $result, true))
         {
 			return false;
-		}
+		}*/
 
 		// Store the data.
 		if (!$table->store())
@@ -101,7 +101,7 @@ class ThorHospedajeModelReservation extends JModelItem
 		$cache->clean();
 
 		// Trigger the onContentAfterSave event.
-		$this->setState($this->getName().'.room_type_prices_mapping', $roomTypePricesMapping);
+		/*$this->setState($this->getName().'.room_type_prices_mapping', $roomTypePricesMapping);
 		$result = $dispatcher->trigger($this->event_after_save, array($data, $table, $isNew, $this));
 		if (in_array(false, $result, true))
         {
@@ -112,7 +112,7 @@ class ThorHospedajeModelReservation extends JModelItem
 		if (isset($table->$pkName))
         {
 			$this->setState($this->getName().'.id', $table->$pkName);
-		}
+		}*/
 		$this->setState($this->getName().'.new', $isNew);
 
 		return true;
