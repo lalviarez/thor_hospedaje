@@ -199,14 +199,14 @@
 			label="TH_ASSET_FIELD_ITEMMENU_LABEL"
 			description="TH_ASSET_FIELD_ITEMMENU_DESC" />
 			
-		<field name="latitude" 
+		<field name="asset-latitude" 
 			   type="text"
 			   class="inputbox validate-numeric" 
 			   size="30"
 			   label="TH_ASSET_FIELD_LATITUDE_LABEL" 
 			   description="TH_ASSET_FIELD_LATITUDE_DESC"  />		
 		
-		<field name="longitude" 
+		<field name="asset-longitude" 
 			   type="text"
 			   class="inputbox validate-numeric" 
 			   size="30"

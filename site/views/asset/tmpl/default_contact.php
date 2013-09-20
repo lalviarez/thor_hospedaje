@@ -1,12 +1,30 @@
 <?php
 /**
- * @version		$Id: default.php 2013-08-16
+ * @version		$Id: default_contact.php 2013-08-16
  * @copyright	Copyright (C) 2013 Leonardo Alviarez - Edén Arreaza. All Rights Reserved.
  * @license		GNU General Public License version 3, or later
  * @note		Note : All ini files need to be saved as UTF-8 - No BOM
  */
 
 defined('_JEXEC') or die;
+$document = JFactory::getDocument();
+$document->addScript('http://maps.google.com/maps/api/js?sensor=false');
+$document->addScript('media/com_thorhospedaje/js/jquery.gmap.js');
+$latitude=$this->item->params->get('asset-latitude','');
+$longitude=$this->item->params->get('asset-longitude','');
+
+$document->addScriptDeclaration("
+jQuery(document).ready(function() {
+	        jQuery('#map').gMap({ markers: [{
+                               latitude: ".$latitude.", 
+                               longitude: ".$longitude.",
+                               html: 'Estación del Norte'
+                             }], 
+                   			zoom: 13,
+                  
+  							});
+			});
+");
 
 ?>
 	<div class="row-fluid">
@@ -53,6 +71,11 @@ defined('_JEXEC') or die;
 				endif;
 				?>
 			</span>
+		</div>
+		<div class="span4">
+			<div id="map" style="width: 100%; height: 300px; border: 1px solid #777; 
+			overflow: hidden; margin: 0 auto;">
+			</div>
 		</div>
 	</div>
 
