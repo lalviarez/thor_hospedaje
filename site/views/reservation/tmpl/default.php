@@ -20,7 +20,7 @@ $document->addStyleSheet('media/com_thorhospedaje/css/jquery-themes/jquery-ui.mi
 $document->addStyleSheet(JURI::base().'media/jui/css/chosen.css');
 $document->addScript('media/com_thorhospedaje/js/jquery-ui.min.js');
 $document->addScript(JURI::base().'media/jui/js/chosen.jquery.js');
-$document->addScriptDeclaration("
+/*$document->addScriptDeclaration("
 jQuery(document).ready(function($) {
 	$('#checkin').datepicker({
 		numberOfMonths: 2,
@@ -92,12 +92,15 @@ jQuery(document).ready(function($) {
 		});
 	});
 });
-");
+");*/
 ?>
 <div class="mod_th_reservation">
-<form action="" method="GET" class="form-inline">
-<input type="hidden" name="option" value="com_thorhospedaje">
-<input type="hidden" name="view" value="reservation">
+<form action="<?php echo JRoute::_("index.php?option=com_thorhospedaje&task=reservation.save");?>" method="POST" class="form-inline">
+<!-- <input type="hidden" name="option" value="com_thorhospedaje">
+<input type="hidden" name="view" value="reservation"> -->
+<input type="hidden" name="jform['th_asset_id']" value="<?php echo $this->item->id;?>">
+<input type="hidden" name="jform['checkin']" value="<?php echo $this->item->checkin;?>">
+<input type="hidden" name="jform['checkout']" value="<?php echo $this->item->checkout;?>">
 
 
 <div class="row-fluid">

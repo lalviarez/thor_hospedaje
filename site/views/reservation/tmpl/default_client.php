@@ -17,19 +17,19 @@ $n_adults = $app->input->get('n_adults', NULL);
 $n_childrens = $app->input->get('n_childrens', NULL);
 ?>
 <div class="row-fluid">
-<div class="control-group">
-	<div class="span3">
+<div class="span3">
+	
 		<div class="control-label"><label title="" for="client-name"><?php echo JText::_('TH_RESERVATION_CLIENT_NAME_LABEL'); ?></label></div>
 		<div class="controls">
 			<div class="input-append">
-				<input type="text" class="input" size="10" placeholder="<?php echo JText::_('TH_RESERVATION_CLIENT_NAME_LABEL'); ?>" value="" id="client-name" name="client-name" title="">
+				<input type="text" class="input" size="10" placeholder="<?php echo JText::_('TH_RESERVATION_CLIENT_NAME_LABEL'); ?>" value="" id="client-name" name="jform[client_data][client-name]" title="">
 			</div>
 		</div>
 		
 		<div class="control-label"><label title="" for="client-id"><?php echo JText::_('TH_RESERVATION_CLIENT_ID_LABEL'); ?></label></div>
 		<div class="controls">
 			<div class="input-append">
-				<input type="text" class="input" size="10" placeholder="<?php echo JText::_('TH_RESERVATION_CLIENT_ID_LABEL'); ?>" value="" id="client-id" name="client-id" title="">
+				<input type="text" class="input" size="10" placeholder="<?php echo JText::_('TH_RESERVATION_CLIENT_ID_LABEL'); ?>" value="" id="client-id" name="jform[client_data][client-id]" title="">
 			</div>
 		</div>
 		
@@ -53,14 +53,13 @@ $n_childrens = $app->input->get('n_childrens', NULL);
 				<input type="text" class="input" size="10" placeholder="<?php echo JText::_('TH_RESERVATION_CLIENT_ZIP_LABEL'); ?>" value="" id="client-zip" name="client-zip" title="">
 			</div>
 		</div>	
-	</div>
+</div>
 	
-	<div class="span3">
+<div class="span3">
 		<div class="control-label"><label title="" for="client-address"><?php echo JText::_('TH_RESERVATION_CLIENT_ADDRESS_LABEL'); ?></label></div>
 		<div class="controls">
 			<div class="input-append">
-				<textarea rows="3" cols="30" placeholder="<?php echo JText::_('TH_RESERVATION_CLIENT_ADDRESS_LABEL'); ?>" id="client-address" name="client-address" title="">
-				</textarea>
+				<textarea rows="3" cols="30" placeholder="<?php echo JText::_('TH_RESERVATION_CLIENT_ADDRESS_LABEL'); ?>" id="client-address" name="client-address" title=""></textarea>
 			</div>
 		</div>
 		
@@ -77,6 +76,6 @@ $n_childrens = $app->input->get('n_childrens', NULL);
 				<input type="text" class="input" size="10" placeholder="<?php echo JText::_('TH_RESERVATION_CLIENT_CITY_LABEL'); ?>" value="" id="client-city" name="client-city" title="">
 			</div>
 		</div>
-	</div>	
-</div>
+</div>	
+
 </div>

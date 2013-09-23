@@ -8,6 +8,8 @@
 
 defined('_JEXEC') or die;
 
+JTable::addIncludePath(JPATH_COMPONENT_ADMINISTRATOR.'/tables');
+
 $controller	= JControllerLegacy::getInstance('ThorHospedaje');
 $controller->execute(JFactory::getApplication()->input->get('task'));
 $controller->redirect();

@@ -13,6 +13,8 @@ defined('_JEXEC') or die('Restricted access');
 // import the Joomla modellist library
 jimport('joomla.application.component.modellist');
 
+JTable::addIncludePath(JPATH_COMPONENT_ADMINISTRATOR.'/tables');
+
 /**
  * Reservation Model
  */
@@ -59,6 +61,9 @@ class ThorHospedajeModelReservation extends JModelItem
 		//JPluginHelper::importPlugin('extension');
 
 		// Load the row if saving an existing record.
+		/*echo "Hola 2";
+		print_r($data);
+		exit(0);*/
 		if ($pk > 0)
         {
 			$table->load($pk);
@@ -90,6 +95,9 @@ class ThorHospedajeModelReservation extends JModelItem
 		}*/
 
 		// Store the data.
+		/*echo "Hola 2";
+		print_r($table);
+		exit(0);*/
 		if (!$table->store())
         {
 			$this->setError($table->getError());

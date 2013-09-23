@@ -14,7 +14,7 @@ defined('_JEXEC') or die('Restricted access');
 jimport('joomla.database.table');
  
 /**
- * Asset Table class
+ * reservations Table class
  */
 class ThorHospedajeTableReservation extends JTable
 {
@@ -45,11 +45,18 @@ class ThorHospedajeTableReservation extends JTable
 			$registry->loadArray($array['client_data']);
 			$array['client_data'] = (string) $registry;
 		}
+		
+		echo "<p>Ojo esta página se debe quitar en /admin/tables/reservation.php</p>";
+		echo "<br />";
+		print_r($array);
+		echo "<br />";
+		print_r($this);
+		exit(0);
 		return parent::bind($array, $ignore);
 	}  
     
     /**
-	 * Overload the store method for the states table.
+	 * Overload the store method for the reservations table.
 	 *
 	 * @param   boolean	Toggle whether null values should be updated.
 	 * @return  boolean  True on success, false on failure.
@@ -99,6 +106,15 @@ class ThorHospedajeTableReservation extends JTable
 			return false;
 		}*/
 		// Attempt to store the user data.
+		echo "<p>Ojo esta página se debe quitar en /admin/tables/reservation.php</p>";
+		echo "<br />";
+		print_r($this);
+		echo $this->checkin;
+		echo "<br />";
+		echo $this->checkout;
+		echo "<br />";
+		echo $this->th_asset_id;
+		exit(0);
 		return parent::store($updateNulls);
 	}
  

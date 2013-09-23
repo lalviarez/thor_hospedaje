@@ -14,6 +14,8 @@ defined('_JEXEC') or die('Restricted access');
  */
 class ThorHospedajeControllerReservation extends JControllerLegacy
 {
+	protected $reservationData = array();
+	
 	/**
 	 * Proxy for getModel.
 	 * @since	1.6
@@ -34,11 +36,16 @@ class ThorHospedajeControllerReservation extends JControllerLegacy
 	public function save()
 	{
 		$model = $this->getModel();
-		$resTable = JTable::getInstance('Reservation', 'SolidresTable');
+		$resTable = JTable::getInstance('Reservation', 'ThorHospedajeTable');
 
 		// Get the data from user state and build a correct array that is ready to be stored
 		//$this->prepareSavingData();
-
+		//$app = JFactory::getApplication();
+		$this->reservationData = $this->input->post->get('jform', array(), 'array');
+		//$app->input->get('client-name');
+		//echo "Hola ". $this->reservationData;
+		/*print_r($this->reservationData);
+		exit(0);*/
 		if(!$model->save($this->reservationData))
 		{
 			// Fail, turn back and correct
