@@ -47,7 +47,7 @@ $room_data = $app->input->get('room_data', NULL, 'ARRAY');
 					<tr class="<?php echo $class;?>">
 						<td class="item"><?php echo $room->room_name . " (" . $room_number . ")";?></td>
 						<td class="n_adults"><?php echo JText::_('TH_ASSET_FIELD_N_ADULTS_LABEL'); ?>
-							<select class="input-mini" name="room_type[<?php echo $room->id; ?>][room_number][number_adults]" id="n_adults_<?php echo $room_number; ?>" data-no_results_text="<?php echo JText::_('TH_AR_FIELD_N_ADULTS_NO_RESULTS_TEXT'); ?>" data-placeholder="<?php echo JText::_('TH_AR_FIELD_N_ADULTS_PLACEHOLDER'); ?>">
+							<select class="input-mini" name="jform[room_type][<?php echo $room->id; ?>][<?php echo $room_number; ?>][number_adults]" id="n_adults_<?php echo $room_number; ?>" data-no_results_text="<?php echo JText::_('TH_AR_FIELD_N_ADULTS_NO_RESULTS_TEXT'); ?>" data-placeholder="<?php echo JText::_('TH_AR_FIELD_N_ADULTS_PLACEHOLDER'); ?>">
 								<!--<option value=""></option>-->
 								<?php
 								for($j=1; $j <= $room->number_adult; $j++):
@@ -58,7 +58,7 @@ $room_data = $app->input->get('room_data', NULL, 'ARRAY');
 								?>
 							</select></td>
 						<td class="n_childrens"><?php echo JText::_('TH_ASSET_FIELD_N_CHILDRENS_LABEL'); ?>
-							<select class="input-mini" name="room_type[<?php echo $room->id; ?>][room_number][number_childrens]" id="n_childrens_<?php echo $room_number; ?>" data-no_results_text="<?php echo JText::_('TH_AR_FIELD_N_ADULTS_NO_RESULTS_TEXT'); ?>" data-placeholder="<?php echo JText::_('TH_AR_FIELD_N_ADULTS_PLACEHOLDER'); ?>">
+							<select class="input-mini" name="jform[room_type][<?php echo $room->id; ?>][<?php echo $room_number; ?>][number_childrens]" id="n_childrens_<?php echo $room_number; ?>" data-no_results_text="<?php echo JText::_('TH_AR_FIELD_N_ADULTS_NO_RESULTS_TEXT'); ?>" data-placeholder="<?php echo JText::_('TH_AR_FIELD_N_ADULTS_PLACEHOLDER'); ?>">
 								<option value="0">0</option>
 								<?php
 								for($j=1; $j <= $room->number_children; $j++):

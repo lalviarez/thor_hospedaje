@@ -13,7 +13,7 @@ defined('_JEXEC') or die('Restricted access');
 // import the Joomla modellist library
 jimport('joomla.application.component.modellist');
 
-JTable::addIncludePath(JPATH_COMPONENT_ADMINISTRATOR.'/tables');
+//JTable::addIncludePath(JPATH_COMPONENT_ADMINISTRATOR.'/tables');
 
 /**
  * Reservation Model
@@ -52,6 +52,7 @@ class ThorHospedajeModelReservation extends JModelItem
 	{
 		$dispatcher = JDispatcher::getInstance();
 		$table		= $this->getTable();
+		$reservationRoomTable = JTable::getInstance('ReservationRoom', 'ThorHospedajeTable');
 		$pk			= (!empty($data['id'])) ? $data['id'] : (int)$this->getState($this->getName().'.id');
 		$isNew		= true;
 		$app = JFactory::getApplication();
@@ -103,7 +104,21 @@ class ThorHospedajeModelReservation extends JModelItem
 			$this->setError($table->getError());
 			return false;
 		}
-
+		
+		foreach($data['room_type'] as $k, $roomNumbers)
+		{
+			
+			foreach($roomNumbers as $v, $roomNumber)
+			{
+				$dataRoom = array();
+				$dataRoom['room_id'] = $k;
+				$dataRoom['room_number'] = $v;
+				$dataRoom['number_adult'] = $roomNumber['number_adults'];
+				$dataRoom['number_children'] = $roomNumber['number_childrens'];
+			}
+		}
+		/*print_r($data['room_type']);
+		exit(0);*/
 		// Clean the cache.
 		$cache = JFactory::getCache($this->option);
 		$cache->clean();

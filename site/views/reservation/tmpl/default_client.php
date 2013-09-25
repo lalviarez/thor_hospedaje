@@ -36,21 +36,21 @@ $n_childrens = $app->input->get('n_childrens', NULL);
 		<div class="control-label"><label title="" for="client-email"><?php echo JText::_('TH_RESERVATION_CLIENT_EMAIL_LABEL'); ?></label></div>
 		<div class="controls">
 			<div class="input-append">
-				<input type="text" class="input" size="10" placeholder="<?php echo JText::_('TH_RESERVATION_CLIENT_EMAIL_LABEL'); ?>" value="" id="client-email" name="client-email" title="">
+				<input type="text" class="input" size="10" placeholder="<?php echo JText::_('TH_RESERVATION_CLIENT_EMAIL_LABEL'); ?>" value="" id="client-email" name="jform[client_data][client-email]" title="">
 			</div>
 		</div>
 		
 		<div class="control-label"><label title="" for="client-phone"><?php echo JText::_('TH_RESERVATION_CLIENT_PHONE_LABEL'); ?></label></div>
 		<div class="controls">
 			<div class="input-append">
-				<input type="text" class="input" size="10" placeholder="<?php echo JText::_('TH_RESERVATION_CLIENT_PHONE_LABEL'); ?>" value="" id="client-phone" name="client-phone" title="">
+				<input type="text" class="input" size="10" placeholder="<?php echo JText::_('TH_RESERVATION_CLIENT_PHONE_LABEL'); ?>" value="" id="client-phone" name="jform[client_data][client-phone]" title="">
 			</div>
 		</div>
 		
 		<div class="control-label"><label title="" for="client-zip"><?php echo JText::_('TH_RESERVATION_CLIENT_ZIP_LABEL'); ?></label></div>
 		<div class="controls">
 			<div class="input-append">
-				<input type="text" class="input" size="10" placeholder="<?php echo JText::_('TH_RESERVATION_CLIENT_ZIP_LABEL'); ?>" value="" id="client-zip" name="client-zip" title="">
+				<input type="text" class="input" size="10" placeholder="<?php echo JText::_('TH_RESERVATION_CLIENT_ZIP_LABEL'); ?>" value="" id="client-zip" name="jform[client_data][client-zip]" title="">
 			</div>
 		</div>	
 </div>
@@ -59,21 +59,21 @@ $n_childrens = $app->input->get('n_childrens', NULL);
 		<div class="control-label"><label title="" for="client-address"><?php echo JText::_('TH_RESERVATION_CLIENT_ADDRESS_LABEL'); ?></label></div>
 		<div class="controls">
 			<div class="input-append">
-				<textarea rows="3" cols="30" placeholder="<?php echo JText::_('TH_RESERVATION_CLIENT_ADDRESS_LABEL'); ?>" id="client-address" name="client-address" title=""></textarea>
+				<textarea rows="3" cols="30" placeholder="<?php echo JText::_('TH_RESERVATION_CLIENT_ADDRESS_LABEL'); ?>" id="client-address" name="jform[client_data][client-address]" title=""></textarea>
 			</div>
 		</div>
 		
 		<div class="control-label"><label title="" for="client-country"><?php echo JText::_('TH_RESERVATION_CLIENT_COUNTRY_LABEL'); ?></label></div>
 		<div class="controls">
 			<div class="input-append">
-				<input type="text" class="input" size="10" placeholder="<?php echo JText::_('TH_RESERVATION_CLIENT_COUNTRY_LABEL'); ?>" value="" id="client-country" name="client-country" title="">
+				<input type="text" class="input" size="10" placeholder="<?php echo JText::_('TH_RESERVATION_CLIENT_COUNTRY_LABEL'); ?>" value="" id="client-country" name="jform[client_data][client-country]" title="">
 			</div>
 		</div>
 		
 		<div class="control-label"><label title="" for="client-city"><?php echo JText::_('TH_RESERVATION_CLIENT_CITY_LABEL'); ?></label></div>
 		<div class="controls">
 			<div class="input-append">
-				<input type="text" class="input" size="10" placeholder="<?php echo JText::_('TH_RESERVATION_CLIENT_CITY_LABEL'); ?>" value="" id="client-city" name="client-city" title="">
+				<input type="text" class="input" size="10" placeholder="<?php echo JText::_('TH_RESERVATION_CLIENT_CITY_LABEL'); ?>" value="" id="client-city" name="jform[client_data][client-city]" title="">
 			</div>
 		</div>
 </div>	

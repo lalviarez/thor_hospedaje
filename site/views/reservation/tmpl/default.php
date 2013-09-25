@@ -98,9 +98,9 @@ jQuery(document).ready(function($) {
 <form action="<?php echo JRoute::_("index.php?option=com_thorhospedaje&task=reservation.save");?>" method="POST" class="form-inline">
 <!-- <input type="hidden" name="option" value="com_thorhospedaje">
 <input type="hidden" name="view" value="reservation"> -->
-<input type="hidden" name="jform['th_asset_id']" value="<?php echo $this->item->id;?>">
-<input type="hidden" name="jform['checkin']" value="<?php echo $this->item->checkin;?>">
-<input type="hidden" name="jform['checkout']" value="<?php echo $this->item->checkout;?>">
+<input type="hidden" name="jform[th_asset_id]" value="<?php echo $this->item->id;?>">
+<input type="hidden" name="jform[checkin]" value="<?php echo $this->item->checkin;?>">
+<input type="hidden" name="jform[checkout]" value="<?php echo $this->item->checkout;?>">
 
 
 <div class="row-fluid">

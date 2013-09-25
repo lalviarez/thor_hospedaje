@@ -1,6 +1,6 @@
 <?php
 /**
- * @version		$Id: asset.php 2013-07-29
+ * @version		$Id: reservationroom.php 2013-09-24
  * @copyright	Copyright (C) 2013 Leonardo Alviarez - Edén Arreaza. All Rights Reserved.
  * @license		GNU General Public License version 3, or later
  * @note		Note : All ini files need to be saved as UTF-8 - No BOM
@@ -14,9 +14,9 @@ defined('_JEXEC') or die('Restricted access');
 jimport('joomla.database.table');
  
 /**
- * reservations Table class
+ * Reservations_rooms Table class
  */
-class ThorHospedajeTableReservation extends JTable
+class ThorHospedajeTableReservationRoom extends JTable
 {
 	/**
 	 * Constructor
@@ -25,7 +25,7 @@ class ThorHospedajeTableReservation extends JTable
 	 */
 	function __construct(&$db) 
 	{
-			parent::__construct('#__th_reservations', 'id', $db);
+			parent::__construct('#__th_reservations_rooms', 'id', $db);
 	}        
    
     
