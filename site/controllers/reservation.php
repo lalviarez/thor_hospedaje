@@ -49,7 +49,7 @@ class ThorHospedajeControllerReservation extends JControllerLegacy
 		if(!$model->save($this->reservationData))
 		{
 			// Fail, turn back and correct
-			$msg = JText::_('SR_RESERVATION_SAVE_ERROR');
+			$msg = JText::_('RESERVATION_SAVE_ERROR');
 			$this->setRedirect($this->reservationData['returnurl'], $msg);
 		}
 		else

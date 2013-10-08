@@ -52,10 +52,16 @@ class ThorHospedajeModelReservation extends JModelItem
 	{
 		$dispatcher = JDispatcher::getInstance();
 		$table		= $this->getTable();
-		$reservationRoomTable = JTable::getInstance('ReservationRoom', 'ThorHospedajeTable');
 		$pk			= (!empty($data['id'])) ? $data['id'] : (int)$this->getState($this->getName().'.id');
 		$isNew		= true;
 		$app = JFactory::getApplication();
+		/*
+		 * ¡ALERTA!
+		 * En este método es necesario verificar si las habitaciones si 
+		 * están disponibles para reservar.
+		 * 
+		 * */
+		
 		//$roomTypePricesMapping = $app->getUserState($this->context.'.room_type_prices_mapping', NULL);
 
 		// Include the content plugins for the on save events.
@@ -105,20 +111,27 @@ class ThorHospedajeModelReservation extends JModelItem
 			return false;
 		}
 		
-		foreach($data['room_type'] as $k, $roomNumbers)
+		/*
+		 * Guardando los datos de las habitaciones
+		 * 
+		 * */
+		foreach($data['room_type'] as $k => $roomNumbers)
 		{
 			
-			foreach($roomNumbers as $v, $roomNumber)
+			foreach($roomNumbers as $v => $roomNumber)
 			{
 				$dataRoom = array();
 				$dataRoom['room_id'] = $k;
 				$dataRoom['room_number'] = $v;
 				$dataRoom['number_adult'] = $roomNumber['number_adults'];
 				$dataRoom['number_children'] = $roomNumber['number_childrens'];
+				$dataRoom['reservation_id'] = $table->id;
+				/*print_r($dataRoom);
+				echo "</ br>";*/
+				$reservationRoomTable = JTable::getInstance('ReservationRoom', 'ThorHospedajeTable');
+				$reservationRoomTable->save($dataRoom);
 			}
 		}
-		/*print_r($data['room_type']);
-		exit(0);*/
 		// Clean the cache.
 		$cache = JFactory::getCache($this->option);
 		$cache->clean();

@@ -39,12 +39,12 @@ class ThorHospedajeTableReservationRoom extends JTable
 	 */
 	public function bind($array, $ignore = '')
 	{
-		if (isset($array['client_data']) && is_array($array['client_data']))
+		/*if (isset($array['client_data']) && is_array($array['client_data']))
 		{
 			$registry = new JRegistry;
 			$registry->loadArray($array['client_data']);
 			$array['client_data'] = (string) $registry;
-		}
+		}*/
 		
 		/*echo "<p>Ojo esta página se debe quitar en /admin/tables/reservation.php</p>";
 		echo "<br />";
