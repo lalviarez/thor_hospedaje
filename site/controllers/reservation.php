@@ -59,9 +59,45 @@ class ThorHospedajeControllerReservation extends JControllerLegacy
 			$resTable->load($savedReservationId);
 			$this->app->setUserState($this->context.'.savedReservationId', $savedReservationId);
 			$this->app->setUserState($this->context.'.code', $resTable->code);
-			$this->app->setUserState($this->context.'.customeremail', $this->reservationData['customer_email']);
+			$this->app->setUserState($this->context.'.customeremail', $this->reservationData['customer_email']);*/
 
-			$this->finalize();*/
+			$this->finalize();
 		}
+	}
+	
+	/**
+	 * Finalize the reservation process
+	 *
+	 * @since  0.3.0
+	 *
+	 * @return void
+	 */
+	protected function finalize()
+	{
+		/*$msg = $this->sendEmail();
+
+		if (!is_string($msg))
+		{
+			$msg = NULL;
+		}
+
+		// Done, we do not need these data, wipe them !!!
+		$this->app->setUserState($this->context . '.room', NULL);
+		$this->app->setUserState($this->context . '.extra', NULL);
+		$this->app->setUserState($this->context . '.guest', NULL);
+		$this->app->setUserState($this->context . '.payment', NULL);
+		$this->app->setUserState($this->context . '.discount', NULL);
+		$this->app->setUserState($this->context . '.coupon', NULL);
+		$this->app->setUserState($this->context . '.token', NULL);
+		$this->app->setUserState($this->context . '.cost', NULL);
+		$this->app->setUserState($this->context . '.room_type_prices_mapping', NULL);
+		$this->app->setUserState($this->context . '.get_express_checkout_response', NULL);
+		$this->app->setUserState($this->context . '.selected_room_types', NULL);
+		$this->app->setUserState($this->context . '.reservation_asset_id', NULL);
+		$this->app->setUserState($this->context . '.get_express_checkout_response', NULL);*/
+
+		$msg = JText::sprintf('TH_RESERVATION_COMPLETE');
+		$link = JRoute::_('index.php?option=com_thorhospedaje&view=reservation&layout=reservation_done', false);
+		$this->setRedirect($link, $msg);
 	}
 }
