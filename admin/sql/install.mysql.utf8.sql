@@ -64,6 +64,7 @@ CREATE TABLE IF NOT EXISTS `#__th_assets` (
   `access` int(11) NOT NULL DEFAULT '1',
   `language` varchar(7) NOT NULL DEFAULT '' COMMENT 'Lenguaje del bien registrado',
   `ordering` int(11) unsigned NOT NULL DEFAULT '0' COMMENT 'Orden de los registros',
+  `contact_data` text NOT NULL DEFAULT '',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
@@ -72,7 +73,7 @@ DROP TABLE IF EXISTS `#__th_rooms`;
 CREATE TABLE IF NOT EXISTS `#__th_rooms` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Id de la habitacion ',
   `cid` int(11) unsigned NOT NULL DEFAULT '0',
-  `asset_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Id de la posada y/o hotel asociada a la habitacion',
+  `th_asset_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Id de la posada y/o hotel asociada a la habitacion',
   `room_name` varchar(50) NOT NULL COMMENT 'Nombre de la habitacion',
   `room_desc` text COMMENT 'Descripcion de la habitacion',
   `room_cost` int(10) unsigned COMMENT 'Costo de la habitacion',

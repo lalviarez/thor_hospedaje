@@ -30,7 +30,7 @@ foreach($this->items as $i => $item):
 	
 	<div class="span10">
 		<div class="row-fluid data-asset">			
-			<h4><a href="<?php echo JRoute::_('index.php?view=asset&id='. $item->id .'&Itemid='. $Itemid .'&checkin='. $checkin .'&checkout='. $checkout .'&n_adults='. $n_adults .'&n_childrens='. $n_childrens);?>">
+			<h4><a href="<?php echo JRoute::_('index.php?option=com_thorhospedaje&view=asset&id='. $item->id .'&Itemid='. $Itemid .'&checkin='. $checkin .'&checkout='. $checkout .'&n_adults='. $n_adults .'&n_childrens='. $n_childrens);?>">
 			<?php echo $item->asset_name;?></a></h4>
 			<p><?php echo $item->state_name;?>, <?php echo $item->country;?></p>			
 		</div>
