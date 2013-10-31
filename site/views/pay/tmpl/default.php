@@ -25,25 +25,19 @@ $document->addScript(JURI::base().'media/jui/js/chosen.jquery.js');
 <div class="mod_th_pay">
 <form action="<?php echo JRoute::_("");?>" method="POST" class="form-inline">
 <div class="row-fluid">
-	<h1><?php echo JText::_('TH_RESERVATION_LABEL'); ?></h1>
+	<h1><?php echo JText::_('TH_PAY_LABEL'); ?></h1>
 </div>
 <hr />
-<div class="row-fluid data-reservation">
-	<h4><?php echo $this->item->asset_name; ?></h4>
-	<p><?php echo $this->item->state_name; ?>, <?php echo $this->item->country; ?></p>
-	<p><strong><?php echo JText::_('TH_RESERVATION_CHECKIN_LABEL'); ?>: &nbsp;</strong><?php echo $this->item->checkin; ?></p>
-	<p><strong><?php echo JText::_('TH_RESERVATION_CHECkOUT_LABEL'); ?>: &nbsp;</strong><?php echo $this->item->checkout; ?></p>
-</div>
 <div class="row-fluid">
-	<h3><?php echo JText::_('TH_RESERVATION_ROOMS_LABEL'); ?></h3>
-</div>
-<hr />
-<?php echo $this->loadTemplate('rooms'); ?>
-<div class="row-fluid">
-	<h3><?php echo JText::_('TH_RESERVATION_CLIENT_LABEL'); ?></h3>
+	<h3><?php echo JText::_('TH_PAY_CLIENT_LABEL'); ?></h3>
 </div>
 <hr />
 <?php echo $this->loadTemplate('client'); ?>
+<div class="row-fluid">
+	<h3><?php echo JText::_('TH_PAY_METHOD_LABEL'); ?></h3>
+</div>
+<hr />
+<?php echo $this->loadTemplate('paymethod'); ?>
 <!-- <div class="row-fluid">
 	<h3><?php echo JText::_('TH_RESERVATION_CONFIRMATION_LABEL'); ?></h3>
 </div>

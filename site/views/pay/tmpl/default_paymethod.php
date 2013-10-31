@@ -1,6 +1,6 @@
 <?php
 /**
- * @version		$Id: edit_assets.php 2013-09-02
+ * @version		$Id: default_paymethod.php 2013-10-31
  * @copyright	Copyright (C) 2013 Leonardo Alviarez - Edén Arreaza. All Rights Reserved.
  * @license		GNU General Public License version 3, or later
  * @note		Note : All ini files need to be saved as UTF-8 - No BOM
@@ -17,6 +17,8 @@ $n_adults = $app->input->get('n_adults', NULL);
 $n_childrens = $app->input->get('n_childrens', NULL);
 ?>
 <div class="row-fluid">
+	<p>* Se deben mostrar los logos de tarjetas para seleccionar el pago</p>
+	<p>* Se deben mostrar los "productos" a comprar, se traen de una vista anterior</p>
 	<table class="confirmation-table">
 	<tr><td class="item">Habitación uno</td><td class="cost">Precio</td></tr>
 	<tr><td class="item">Habitación dos</td><td class="cost">Precio</td></tr>
