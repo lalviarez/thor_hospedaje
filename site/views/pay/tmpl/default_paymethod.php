@@ -17,12 +17,18 @@ $n_adults = $app->input->get('n_adults', NULL);
 $n_childrens = $app->input->get('n_childrens', NULL);
 ?>
 <div class="row-fluid">
+	<p><?php echo JText::_('TH_PAY_MESSAGE_PAYMETHOD_LABEL'); ?>.</p>
+	<input type="radio" value="1" id="pay_method" name="jform[pay_method]" title=""> Visa Electron
+	<input type="radio" value="2" id="pay_method" name="jform[pay_method]" title=""> Visa
+	<input type="radio" value="3" id="pay_method" name="jform[pay_method]" title=""> Mastercard
+	<input type="radio" value="4" id="pay_method" name="jform[pay_method]" title=""> Diners Club
+	<input type="radio" value="5" id="pay_method" name="jform[pay_method]" title=""> American Express
+	<input type="radio" value="6" id="pay_method" name="jform[pay_method]" title=""> Elo
+	<input type="radio" value="7" id="pay_method" name="jform[pay_method]" title=""> Discover
+	<input type="radio" value="8" id="pay_method" name="jform[pay_method]" title=""> JCB
+	<input type="radio" value="9" id="pay_method" name="jform[pay_method]" title=""> Aura
+	
 	<p>* Se deben mostrar los logos de tarjetas para seleccionar el pago</p>
 	<p>* Se deben mostrar los "productos" a comprar, se traen de una vista anterior</p>
-	<table class="confirmation-table">
-	<tr><td class="item">Habitación uno</td><td class="cost">Precio</td></tr>
-	<tr><td class="item">Habitación dos</td><td class="cost">Precio</td></tr>
-	<tr><td class="total">Total</td><td class="total-cost">Precio Total</td></tr>
-	</table>
 </div>
 
