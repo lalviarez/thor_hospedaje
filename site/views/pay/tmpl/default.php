@@ -21,6 +21,12 @@ $document->addStyleSheet(JURI::base().'media/jui/css/chosen.css');
 $document->addScript('media/com_thorhospedaje/js/jquery-ui.min.js');
 $document->addScript(JURI::base().'media/jui/js/chosen.jquery.js');
 
+jimport( 'joomla.application.module.helper' );
+jimport( 'joomla.html.parameter' );
+$module = &JModuleHelper::getModule('mod_itpsubscribe');
+//$moduleParams = new JParameter($module->params);
+
+print_r( $module );
 ?>
 <div class="mod_th_pay">
 <form action="<?php echo JRoute::_("");?>" method="POST" class="form-inline">
