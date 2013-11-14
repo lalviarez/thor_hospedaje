@@ -1,0 +1,192 @@
+.mod_th_posadero{
+	/*margin-top: 1%;*/
+	margin-bottom: 1%;
+
+}
+
+.mod_th_posadero .row-fluid{
+	padding-left: 0 !important;
+	padding-right: 0 !important;
+}
+
+.mod_th_posadero .box h2{
+	margin: 12px 0 0 0;
+}
+
+.mod_th_posadero .box .hr{
+	margin: 0px;
+	height: 5px;
+	background-color: transparent;
+	background-image: linear-gradient(to right, rgb(68, 139, 169) 0%, rgba(2, 255, 255, 0) 100%);
+}
+
+.mod_th_posadero .box{
+	background-color: lightgrey;
+	border: 1px solid;
+	border-radius: 10px;
+	margin-bottom: 3%;
+}
+
+.mod_th_reservation .even{
+	background: #F9F9F9;
+}
+
+.mod_th_reservation .odd{
+	background: none;
+}
+
+.mod_th_reservation .asset{
+	border-bottom: 2px solid #EEEEEE;
+	padding: 2px 1% 2px 2px !important;
+	line-height: normal;
+	margin-top: 1%;
+}
+
+.mod_th_reservation .asset img{
+	box-shadow: 0 0 5px #999999;
+}
+
+
+
+.mod_th_reservation .data-rooms{
+	margin-top: 1%;
+	/*margin-bottom: 1%;*/
+}
+.mod_th_reservation .data-rooms .data-room{
+	padding-right: 1% !important;
+}
+
+.mod_th_reservation .data-rooms .data-room p{
+	margin: 0px;
+}
+
+.mod_th_reservation .data-rooms .data-room [class*="span"]{
+	min-height: 0px;
+}
+
+.mod_th_reservation .data-rooms .data-room .availability{
+	text-align: right;
+}
+
+.mod_th_reservation .data-rooms .data-room .childadults{
+	text-align: right;
+}
+
+.mod_th_reservation .data-rooms .data-room .cost{
+	text-align: right;
+	text-weight: bold;
+}
+
+.mod_th_reservation .data-rooms .even{
+	/*background: #F9F9F9;*/
+	background: #F0F0F0;
+}
+
+
+.mod_th_reservation .data-rooms .odd{
+	background: none;
+}
+
+/*
+.mod_th_reservation .navigation{
+	margin-bottom: 0px;
+	border-top: none;
+	border-bottom: none;
+}
+
+.mod_th_reservation .rooms{
+
+}
+
+.mod_th_reservation .rooms .room{
+	margin-top: 1%;
+	border-bottom: 2px solid #EEEEEE;
+	padding: 1%;
+}
+
+.mod_th_reservation .rooms .room .description{
+	display: none;
+}
+
+.mod_th_reservation .rooms .room .cost{
+	font-size: 2em;
+	text-align: center;
+	vertical-align: middle;
+}
+
+.mod_th_reservation .social a:hover{
+	text-decoration: none;
+}
+
+.mod_th_reservation .social a img{
+	width: 36px;
+	height: 36px;
+}
+
+.mod_th_reservation .social a img:hover{
+	box-shadow: 0 0 10px #999999;
+	width: 36px;
+	height: 36px;
+}
+
+.mod_th_reservation .data-asset{
+	margin: 0px;
+
+}*/
+
+.mod_th_reservation .data-reservation > h4{
+	margin: 0px;
+}
+
+.mod_th_reservation .data-reservation > p{
+	margin: 0px;
+	font-style: italic;
+}
+
+.mod_th_reservation .confirmation-table{
+	width: 90%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.mod_th_reservation .confirmation-table .item{
+	width: 40%;
+	text-align: left;
+	vertical-align: middle;
+}
+
+.mod_th_reservation .confirmation-table .n_adults{
+	width: 25%;
+	text-align: left;
+	vertical-align: middle;
+}
+
+.mod_th_reservation .confirmation-table .n_childrens{
+	width: 25%;
+	text-align: left;
+	vertical-align: middle;
+}
+
+.mod_th_reservation .confirmation-table .cost{
+	width: 15%;
+	text-align: right;
+	vertical-align: middle;
+}
+
+.mod_th_reservation .confirmation-table .total{
+	width: 15%;
+	align-text: left;
+	font-weight: bold;
+	background: #F9F9F9;
+	text-align: right;
+	vertical-align: middle;
+}
+
+.mod_th_reservation .confirmation-table .total-cost{
+	width: 15%;
+	align-text: right;
+	font-weight: bold;
+	background: #F9F9F9;
+	text-align: right;
+	vertical-align: middle;
+}
