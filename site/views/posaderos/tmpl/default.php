@@ -23,13 +23,15 @@ $document->addScript(JURI::base().'media/jui/js/chosen.jquery.js');
 ?>
 <div class="mod_th_posadero">
 <div class="span3">
-<img src="media/com_thorhospedaje/images/posaderos/te_ofrecemos.png" />
+	<br><br><br /><br />
+	<img style="width:80%;" src="media/com_thorhospedaje/images/posaderos/te_ofrecemos.png" />
 </div>
 
 <div class="span9">
-<div class="row-fluid">
-<img src="media/com_thorhospedaje/images/posaderos/ruta.png" />
-</div>
+	<br><br>
+	<div class="row-fluid">
+		<img src="media/com_thorhospedaje/images/posaderos/ruta_posadero.png" />
+	</div>
 
 
 <h2><?php echo JText::_('TH_POSADERO_MESSAGE_TITLE'); ?></h2>
@@ -70,32 +72,26 @@ $document->addScript(JURI::base().'media/jui/js/chosen.jquery.js');
 <!-- Dirección -->
 <?php echo $this->loadTemplate('address'); ?>
 
-<div class="row-fluid box">
-	<h2><?php echo JText::_('TH_POSADERO_TITLE_ADDRESS_ASSET'); ?></h2>
-	<div class="hr"></div>
-	
-</div>
 
-<div class="row-fluid box">
-	<h2><?php echo JText::_('TH_POSADERO_TITLE_ASSET'); ?></h2>
-	<div class="hr"></div>
-	
-</div>
 
+<!-- Hotel -->
+<?php echo $this->loadTemplate('asset'); ?>
+
+<!-- Hotel -->
+<?php echo $this->loadTemplate('conditions'); ?>
 
 <div class="row-fluid">
-	<h3><?php //echo JText::_('TH_POSADERO_CLIENT_LABEL'); ?></h3>
+	<div class="span6">
+		<a href="index.php/contrate-con-nosotros?id=14" target="_self">
+			<img style="width:60%; float: left;" src="media/com_thorhospedaje/images/comunes/atras.png" width="60%"/>
+		</a>
+	</div>
+	<div class="span6">
+		<a href="index.php?option=com_thorhospedaje&view=posaderos&layout=pay" target="_self">
+			<img style="width:60%; float: right;" src="media/com_thorhospedaje/images/comunes/siguiente.png" width="60%"/>
+		</a>
+	</div>
 </div>
-<hr />
-<?php //echo $this->loadTemplate('client'); ?>
-<div class="row-fluid">
-	<h3><?php //echo JText::_('TH_POSADERO_METHOD_LABEL'); ?></h3>
-</div>
-<hr />
-<?php //echo $this->loadTemplate('paymethod'); ?>
-
-<!-- <div class="row-fluid"><button id="reservation" name="reservation" class="btn btn-primary" style="float: right;" type="submit">
-			<i class="icon-checkmark"></i> Reservar	</button></div> -->
 </form>
 </div>
 </div>

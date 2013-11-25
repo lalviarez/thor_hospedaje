@@ -32,6 +32,17 @@
 	padding-top: 0 !important;
 }
 
+.mod_th_posadero .bandera{
+	display: block; 
+	width: 40%; 
+	margin: 0 auto 0 auto !important;
+}
+
+.mod_th_posadero .plan{
+	width: 18%; 
+	margin-right: 1.9%;
+}
+
 .mod_th_reservation .even{
 	background: #F9F9F9;
 }
