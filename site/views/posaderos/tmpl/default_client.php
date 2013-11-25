@@ -7,75 +7,64 @@
  */
 
 defined('_JEXEC') or die;
-$app = JFactory::getApplication('site');
-$country_id = $app->input->get('country_id', NULL);
-$state_id = $app->input->get('state_id', NULL);
-$th_asset_id = $app->input->get('th_asset_id', NULL);
-$checkin = $app->input->get('checkin', NULL);
-$checkout = $app->input->get('checkout', NULL);
-$n_adults = $app->input->get('n_adults', NULL);
-$n_childrens = $app->input->get('n_childrens', NULL);
 ?>
-<div class="row-fluid">
-<div class="span3">
-	
-		<div class="control-label"><label title="" for="client-name"><?php echo JText::_('TH_RESERVATION_CLIENT_NAME_LABEL'); ?></label></div>
+
+<div class="row-fluid box">
+	<h2><?php echo JText::_('TH_POSADERO_TITLE_DATA_CONTACT'); ?></h2>
+	<div class="hr"></div>
+	<div class="row-fluid">
+		<div class="span6">
+			<div class="control-label"><label title="" for="client-first-name"><?php echo JText::_('TH_POSADERO_CLIENT_FIRST_NAME_LABEL'); ?></label></div>
 		<div class="controls">
 			<div class="input-append">
-				<input type="text" class="input" size="10" placeholder="<?php echo JText::_('TH_RESERVATION_CLIENT_NAME_LABEL'); ?>" value="" id="client-name" name="jform[client_data][client-name]" title="">
+				<input type="text" class="input" size="10" placeholder="<?php echo JText::_('TH_POSADERO_CLIENT_FIRST_NAME_LABEL'); ?>" value="" id="client-first-name" name="jform[client-first-name]" title="">
 			</div>
 		</div>
-		
-		<div class="control-label"><label title="" for="client-id"><?php echo JText::_('TH_RESERVATION_CLIENT_ID_LABEL'); ?></label></div>
+		</div>
+		<div class="span6">
+			<div class="control-label"><label title="" for="client-last-name"><?php echo JText::_('TH_POSADERO_CLIENT_LAST_NAME_LABEL'); ?></label></div>
 		<div class="controls">
 			<div class="input-append">
-				<input type="text" class="input" size="10" placeholder="<?php echo JText::_('TH_RESERVATION_CLIENT_ID_LABEL'); ?>" value="" id="client-id" name="jform[client_data][client-id]" title="">
+				<input type="text" class="input" size="10" placeholder="<?php echo JText::_('TH_POSADERO_CLIENT_LAST_NAME_LABEL'); ?>" value="" id="client-last-name" name="jform[client-last-name]" title="">
 			</div>
 		</div>
-		
-		<div class="control-label"><label title="" for="client-email"><?php echo JText::_('TH_RESERVATION_CLIENT_EMAIL_LABEL'); ?></label></div>
+		</div>
+	</div>
+
+
+	<div class="row-fluid">
+		<div class="span6">
+			<div class="control-label"><label title="" for="client-email"><?php echo JText::_('TH_POSADERO_CLIENT_EMAIL_LABEL'); ?></label></div>
 		<div class="controls">
 			<div class="input-append">
-				<input type="text" class="input" size="10" placeholder="<?php echo JText::_('TH_RESERVATION_CLIENT_EMAIL_LABEL'); ?>" value="" id="client-email" name="jform[client_data][client-email]" title="">
+				<input type="text" class="input" size="10" placeholder="<?php echo JText::_('TH_POSADERO_CLIENT_EMAIL_LABEL'); ?>" value="" id="client-email" name="jform[client-email]" title="">
 			</div>
 		</div>
-		
-		<div class="control-label"><label title="" for="client-phone"><?php echo JText::_('TH_RESERVATION_CLIENT_PHONE_LABEL'); ?></label></div>
+		</div>
+		<div class="span6">
+			<div class="control-label"><label title="" for="client-phone-code"><?php echo JText::_('TH_POSADERO_CLIENT_PHONE_LABEL'); ?></label></div>
 		<div class="controls">
 			<div class="input-append">
-				<input type="text" class="input" size="10" placeholder="<?php echo JText::_('TH_RESERVATION_CLIENT_PHONE_LABEL'); ?>" value="" id="client-phone" name="jform[client_data][client-phone]" title="">
+				<select name="jform[client-phone-code]" id="client-phone-code" class="input-small">
+				<option value="">Venezuela</option>
+			</select>&nbsp;&nbsp;
+				<input type="text" class="input-small" size="10" placeholder="<?php echo JText::_('TH_POSADERO_CLIENT_PHONE_LABEL'); ?>" value="" id="client-phone" name="jform[client-phone]" title="">
 			</div>
 		</div>
-		
-		<div class="control-label"><label title="" for="client-zip"><?php echo JText::_('TH_RESERVATION_CLIENT_ZIP_LABEL'); ?></label></div>
+		</div>
+	</div>
+
+
+	<div class="row-fluid">
+		<div class="span6">
+			<div class="control-label"><label title="" for="client-email-confirm"><?php echo JText::_('TH_POSADERO_CLIENT_EMAIL_CONFIRM_LABEL'); ?></label></div>
 		<div class="controls">
 			<div class="input-append">
-				<input type="text" class="input" size="10" placeholder="<?php echo JText::_('TH_RESERVATION_CLIENT_ZIP_LABEL'); ?>" value="" id="client-zip" name="jform[client_data][client-zip]" title="">
-			</div>
-		</div>	
-</div>
-	
-<div class="span3">
-		<div class="control-label"><label title="" for="client-address"><?php echo JText::_('TH_RESERVATION_CLIENT_ADDRESS_LABEL'); ?></label></div>
-		<div class="controls">
-			<div class="input-append">
-				<textarea rows="3" cols="30" placeholder="<?php echo JText::_('TH_RESERVATION_CLIENT_ADDRESS_LABEL'); ?>" id="client-address" name="jform[client_data][client-address]" title=""></textarea>
+				<input type="text" class="input" size="10" placeholder="<?php echo JText::_('TH_POSADERO_CLIENT_EMAIL_CONFIRM_LABEL'); ?>" value="" id="client-email-confirm" name="jform[client-email-confirm]" title="">
 			</div>
 		</div>
-		
-		<div class="control-label"><label title="" for="client-country"><?php echo JText::_('TH_RESERVATION_CLIENT_COUNTRY_LABEL'); ?></label></div>
-		<div class="controls">
-			<div class="input-append">
-				<input type="text" class="input" size="10" placeholder="<?php echo JText::_('TH_RESERVATION_CLIENT_COUNTRY_LABEL'); ?>" value="" id="client-country" name="jform[client_data][client-country]" title="">
-			</div>
 		</div>
-		
-		<div class="control-label"><label title="" for="client-city"><?php echo JText::_('TH_RESERVATION_CLIENT_CITY_LABEL'); ?></label></div>
-		<div class="controls">
-			<div class="input-append">
-				<input type="text" class="input" size="10" placeholder="<?php echo JText::_('TH_RESERVATION_CLIENT_CITY_LABEL'); ?>" value="" id="client-city" name="jform[client_data][client-city]" title="">
-			</div>
-		</div>
-</div>	
+	</div>
 
 </div>
+

@@ -22,9 +22,16 @@ $document->addScript('media/com_thorhospedaje/js/jquery-ui.min.js');
 $document->addScript(JURI::base().'media/jui/js/chosen.jquery.js');
 ?>
 <div class="mod_th_posadero">
-<div class="span3"></div>
+<div class="span3">
+<img src="media/com_thorhospedaje/images/posaderos/te_ofrecemos.png" />
+</div>
 
 <div class="span9">
+<div class="row-fluid">
+<img src="media/com_thorhospedaje/images/posaderos/ruta.png" />
+</div>
+
+
 <h2><?php echo JText::_('TH_POSADERO_MESSAGE_TITLE'); ?></h2>
 <p><?php echo JText::_('TH_POSADERO_MESSAGE_P1'); ?></p>
 <p><?php echo JText::_('TH_POSADERO_MESSAGE_P2'); ?></p>
@@ -37,10 +44,11 @@ $document->addScript(JURI::base().'media/jui/js/chosen.jquery.js');
 <div class="row-fluid box">
 	<h2><?php echo JText::_('TH_POSADERO_TITLE_LANGUAGE'); ?></h2>
 	<div class="hr"></div>
+	<div class="row-fluid">
+	<div class="span6">
 	<div class="control-label"><label title="" for="client-language"><?php echo JText::_('TH_POSADERO_CLIENT_LANGUAGE_LABEL'); ?></label></div>
 	<div class="controls">
 		<div class="input-append">
-			<!-- <input type="text" class="input" size="10" placeholder="<?php echo JText::_('TH_POSADERO_CLIENT_LANGUAGE_LABEL'); ?>" value="" id="client-name" name="jform[client_data][client-name]" title=""> -->
 			<select name="client-language" id="client-language">
 				<option value=""><?php echo JText::_('TH_POSADERO_CLIENT_LANGUAGE_SELECT'); ?></option>
 				<option value="1"><?php echo JText::_('TH_POSADERO_CLIENT_LANGUAGE_PT'); ?></option>
@@ -49,13 +57,18 @@ $document->addScript(JURI::base().'media/jui/js/chosen.jquery.js');
 			</select>
 		</div>
 	</div>
+	</div>
+	<div class="span5">
+		<img src="media/com_thorhospedaje/images/posaderos/tip_ayuda_idioma.png" width="100%"/>
+	</div>
+	</div>
 </div>
 
-<div class="row-fluid box">
-	<h2><?php echo JText::_('TH_POSADERO_TITLE_DATA_CONTACT'); ?></h2>
-	<div class="hr"></div>
-	
-</div>
+<!-- Datos de cliente -->
+<?php echo $this->loadTemplate('client'); ?>
+
+<!-- Dirección -->
+<?php echo $this->loadTemplate('address'); ?>
 
 <div class="row-fluid box">
 	<h2><?php echo JText::_('TH_POSADERO_TITLE_ADDRESS_ASSET'); ?></h2>

@@ -17,14 +17,19 @@
 	margin: 0px;
 	height: 5px;
 	background-color: transparent;
-	background-image: linear-gradient(to right, rgb(68, 139, 169) 0%, rgba(2, 255, 255, 0) 100%);
+	background-image: linear-gradient(to right, #009fe3 0%, rgba(2, 255, 255, 0) 100%);
+	margin-bottom: 3%;
 }
 
 .mod_th_posadero .box{
-	background-color: lightgrey;
-	border: 1px solid;
+	background-color: #ffffff;
+	border: 1px solid #ffcc00;
 	border-radius: 10px;
 	margin-bottom: 3%;
+	padding-left: 1% !important;
+	padding-right: 1% !important;
+	padding-bottom: 2% !important;
+	padding-top: 0 !important;
 }
 
 .mod_th_reservation .even{
