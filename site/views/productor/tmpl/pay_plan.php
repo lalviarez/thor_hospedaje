@@ -20,9 +20,9 @@ defined('_JEXEC') or die;
 	<div style="margin: 0px; height: 5px; background-color: transparent; background-image: linear-gradient(to right, #009fe3 0%, rgba(2, 255, 255, 0) 100%);
 	margin-bottom: 3%;"></div>
 	<div class="row-fluid">
-			<img id="img_plan_1" src="media/com_thorhospedaje/images/productor/pago_gratis.png" class="plan"/>
+			<img id="img_plan_1" src="media/com_thorhospedaje/images/productor/pago_gratis.png" class="plan" style="vertical-align: top;"/>
 		
-			<img id="img_plan_2" src="media/com_thorhospedaje/images/productor/pago_6_meses.png" class="plan" style="margin-right: 0px;" />
+			<img id="img_plan_2" src="media/com_thorhospedaje/images/productor/pago_6_meses.png" class="plan" style="margin-right: 0px; vertical-align: top;" />
 	</div>
 	<input type="hidden" name="plan" id="plan" value=""/>
 
