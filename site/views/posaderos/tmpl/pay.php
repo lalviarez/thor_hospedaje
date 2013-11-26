@@ -42,47 +42,47 @@ jQuery(document).ready(function($) {
 	
 	$('#img_plan_1' ).click(function() {
 		$('#plan').val('1');
-		$('#img_plan_1').attr('src', '/travelbooq/media/com_thorhospedaje/images/posaderos/cupon_gratis_color.png');
-		$('#img_plan_2').attr('src', '/travelbooq/media/com_thorhospedaje/images/posaderos/cupon_1_mes_gris.png');
-		$('#img_plan_3').attr('src', '/travelbooq/media/com_thorhospedaje/images/posaderos/cupon_6_meses_gris.png');
-		$('#img_plan_4').attr('src', '/travelbooq/media/com_thorhospedaje/images/posaderos/cupon_1_anio_gris.png');
-		$('#img_plan_5').attr('src', '/travelbooq/media/com_thorhospedaje/images/posaderos/cupon_2_anios_gris.png');
+		$('#img_plan_1').attr('src','" . JURI::base() . "/media/com_thorhospedaje/images/posaderos/cupon_gratis_color.png');
+		$('#img_plan_2').attr('src','" . JURI::base() . "/media/com_thorhospedaje/images/posaderos/cupon_1_mes_gris.png');
+		$('#img_plan_3').attr('src','" . JURI::base() . "/media/com_thorhospedaje/images/posaderos/cupon_6_meses_gris.png');
+		$('#img_plan_4').attr('src','" . JURI::base() . "/media/com_thorhospedaje/images/posaderos/cupon_1_anio_gris.png');
+		$('#img_plan_5').attr('src','" . JURI::base() . "/media/com_thorhospedaje/images/posaderos/cupon_2_anios_gris.png');
 	});
 	
 	$('#img_plan_2' ).click(function() {
 		$('#plan').val('2');
-		$('#img_plan_1').attr('src', '/travelbooq/media/com_thorhospedaje/images/posaderos/cupon_gratis_gris.png');
-		$('#img_plan_2').attr('src', '/travelbooq/media/com_thorhospedaje/images/posaderos/cupon_1_mes_color.png');
-		$('#img_plan_3').attr('src', '/travelbooq/media/com_thorhospedaje/images/posaderos/cupon_6_meses_gris.png');
-		$('#img_plan_4').attr('src', '/travelbooq/media/com_thorhospedaje/images/posaderos/cupon_1_anio_gris.png');
-		$('#img_plan_5').attr('src', '/travelbooq/media/com_thorhospedaje/images/posaderos/cupon_2_anios_gris.png');
+		$('#img_plan_1').attr('src','" . JURI::base() . "/media/com_thorhospedaje/images/posaderos/cupon_gratis_gris.png');
+		$('#img_plan_2').attr('src','" . JURI::base() . "/media/com_thorhospedaje/images/posaderos/cupon_1_mes_color.png');
+		$('#img_plan_3').attr('src','" . JURI::base() . "/media/com_thorhospedaje/images/posaderos/cupon_6_meses_gris.png');
+		$('#img_plan_4').attr('src','" . JURI::base() . "/media/com_thorhospedaje/images/posaderos/cupon_1_anio_gris.png');
+		$('#img_plan_5').attr('src','" . JURI::base() . "/media/com_thorhospedaje/images/posaderos/cupon_2_anios_gris.png');
 	});
 	
 	$('#img_plan_3' ).click(function() {
 		$('#plan').val('3');
-		$('#img_plan_1').attr('src', '/travelbooq/media/com_thorhospedaje/images/posaderos/cupon_gratis_gris.png');
-		$('#img_plan_2').attr('src', '/travelbooq/media/com_thorhospedaje/images/posaderos/cupon_1_mes_gris.png');
-		$('#img_plan_3').attr('src', '/travelbooq/media/com_thorhospedaje/images/posaderos/cupon_6_meses_color.png');
-		$('#img_plan_4').attr('src', '/travelbooq/media/com_thorhospedaje/images/posaderos/cupon_1_anio_gris.png');
-		$('#img_plan_5').attr('src', '/travelbooq/media/com_thorhospedaje/images/posaderos/cupon_2_anios_gris.png');
+		$('#img_plan_1').attr('src','" . JURI::base() . "/media/com_thorhospedaje/images/posaderos/cupon_gratis_gris.png');
+		$('#img_plan_2').attr('src','" . JURI::base() . "/media/com_thorhospedaje/images/posaderos/cupon_1_mes_gris.png');
+		$('#img_plan_3').attr('src','" . JURI::base() . "/media/com_thorhospedaje/images/posaderos/cupon_6_meses_color.png');
+		$('#img_plan_4').attr('src','" . JURI::base() . "/media/com_thorhospedaje/images/posaderos/cupon_1_anio_gris.png');
+		$('#img_plan_5').attr('src','" . JURI::base() . "/media/com_thorhospedaje/images/posaderos/cupon_2_anios_gris.png');
 	});
 	
 	$('#img_plan_4' ).click(function() {
 		$('#plan').val('4');
-		$('#img_plan_1').attr('src', '/travelbooq/media/com_thorhospedaje/images/posaderos/cupon_gratis_gris.png');
-		$('#img_plan_2').attr('src', '/travelbooq/media/com_thorhospedaje/images/posaderos/cupon_1_mes_gris.png');
-		$('#img_plan_3').attr('src', '/travelbooq/media/com_thorhospedaje/images/posaderos/cupon_6_meses_gris.png');
-		$('#img_plan_4').attr('src', '/travelbooq/media/com_thorhospedaje/images/posaderos/cupon_1_anio_color.png');
-		$('#img_plan_5').attr('src', '/travelbooq/media/com_thorhospedaje/images/posaderos/cupon_2_anios_gris.png');
+		$('#img_plan_1').attr('src','" . JURI::base() . "/media/com_thorhospedaje/images/posaderos/cupon_gratis_gris.png');
+		$('#img_plan_2').attr('src','" . JURI::base() . "/media/com_thorhospedaje/images/posaderos/cupon_1_mes_gris.png');
+		$('#img_plan_3').attr('src','" . JURI::base() . "/media/com_thorhospedaje/images/posaderos/cupon_6_meses_gris.png');
+		$('#img_plan_4').attr('src','" . JURI::base() . "/media/com_thorhospedaje/images/posaderos/cupon_1_anio_color.png');
+		$('#img_plan_5').attr('src','" . JURI::base() . "/media/com_thorhospedaje/images/posaderos/cupon_2_anios_gris.png');
 	});
 	
 	$('#img_plan_5' ).click(function() {
 		$('#plan').val('5');
-		$('#img_plan_1').attr('src', '/travelbooq/media/com_thorhospedaje/images/posaderos/cupon_gratis_gris.png');
-		$('#img_plan_2').attr('src', '/travelbooq/media/com_thorhospedaje/images/posaderos/cupon_1_mes_gris.png');
-		$('#img_plan_3').attr('src', '/travelbooq/media/com_thorhospedaje/images/posaderos/cupon_6_meses_gris.png');
-		$('#img_plan_4').attr('src', '/travelbooq/media/com_thorhospedaje/images/posaderos/cupon_1_anio_gris.png');
-		$('#img_plan_5').attr('src', '/travelbooq/media/com_thorhospedaje/images/posaderos/cupon_2_anios_color.png');
+		$('#img_plan_1').attr('src','" . JURI::base() . "/media/com_thorhospedaje/images/posaderos/cupon_gratis_gris.png');
+		$('#img_plan_2').attr('src','" . JURI::base() . "/media/com_thorhospedaje/images/posaderos/cupon_1_mes_gris.png');
+		$('#img_plan_3').attr('src','" . JURI::base() . "/media/com_thorhospedaje/images/posaderos/cupon_6_meses_gris.png');
+		$('#img_plan_4').attr('src','" . JURI::base() . "/media/com_thorhospedaje/images/posaderos/cupon_1_anio_gris.png');
+		$('#img_plan_5').attr('src','" . JURI::base() . "/media/com_thorhospedaje/images/posaderos/cupon_2_anios_color.png');
 	});
 });
 ");
@@ -133,7 +133,7 @@ jQuery(document).ready(function($) {
 		</a>
 	</div>
 	<div class="span6">
-		<a href="" target="_self">
+		<a href="index.php?option=com_thorhospedaje&view=posaderos&layout=success" target="_self">
 			<img style="width:60%; float: right;" src="media/com_thorhospedaje/images/comunes/pagar.png" width="60%"/>
 		</a>
 	</div>
