@@ -23,19 +23,27 @@ $document->addScript(JURI::base().'media/jui/js/chosen.jquery.js');
 $document->addScriptDeclaration("
 jQuery(document).ready(function($) {
 	$('#img_country_1' ).click(function() {
-		$('#country_1').val('checked', true);
+		$('#country_1').attr('checked', true).change();
+		$('#pay-box').show();
+		$('#pay-box-venezuela').hide();
 	});
 	
 	$('#img_country_2' ).click(function() {
-		$('#country_2').attr('checked', true);
+		$('#country_2').attr('checked', true).change();
+		$('#pay-box').show();
+		$('#pay-box-venezuela').hide();
 	});
 	
 	$('#img_country_3' ).click(function() {
-		$('#country_3').attr('checked', true);
+		$('#country_3').attr('checked', true).change();
+		$('#pay-box').hide();
+		$('#pay-box-venezuela').show();
 	});
 	
 	$('#img_country_0' ).click(function() {
-		$('#country_0').attr('checked', true);
+		$('#country_0').attr('checked', true).change();
+		$('#pay-box').show();
+		$('#pay-box-venezuela').hide();
 	});
 	
 	
@@ -86,7 +94,6 @@ jQuery(document).ready(function($) {
 	});
 });
 ");
-
 ?>
 <div class="mod_th_posadero">
 <div class="span3">
@@ -106,7 +113,7 @@ jQuery(document).ready(function($) {
 
 <h2><?php echo JText::_('TH_POSADERO_PAY_MESSAGE_TITLE'); ?></h2>
 
-<form action="<?php echo JRoute::_("");?>" method="POST" class="form-inline">
+<form name="pay-form" id="pay-form" action="<?php echo JRoute::_("");?>" method="POST" class="form-inline">
 
 
 <!-- Seleccionar pais -->

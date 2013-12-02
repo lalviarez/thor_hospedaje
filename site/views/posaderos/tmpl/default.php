@@ -20,6 +20,7 @@ $document->addStyleSheet('media/com_thorhospedaje/css/jquery-themes/jquery-ui.mi
 $document->addStyleSheet(JURI::base().'media/jui/css/chosen.css');
 $document->addScript('media/com_thorhospedaje/js/jquery-ui.min.js');
 $document->addScript(JURI::base().'media/jui/js/chosen.jquery.js');
+
 ?>
 <div class="mod_th_posadero">
 <div class="span3">
