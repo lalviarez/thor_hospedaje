@@ -20,12 +20,7 @@ defined('_JEXEC') or die;
 	<div style="margin: 0px; height: 5px; background-color: transparent; background-image: linear-gradient(to right, #009fe3 0%, rgba(2, 255, 255, 0) 100%);
 	margin-bottom: 3%;"></div>	
 	<div class="row-fluid" id="pay-box">
-		<?php
-		JPluginHelper::importPlugin('thorhospedaje');
-		$dispatcher = JEventDispatcher::getInstance (); 
-		$results = $dispatcher->trigger( 'onTHShowPay', array(NULL, NULL));
-		echo $results[0];
-		?>
+		<h3>Selecciona un plan</h3>
 	</div>
 	<div class="row-fluid" id="pay-box-venezuela" style="display: none;">
 		<h1> Opciones de Venezuela </h1>
