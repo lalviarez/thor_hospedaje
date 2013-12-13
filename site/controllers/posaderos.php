@@ -23,10 +23,37 @@ class ThorHospedajeControllerPosaderos extends JControllerLegacy
 	 */
 	public function pagoAjax()
 	{
+		$plan_B = array(0 => 0, 1 => 1, 2 => 2, 3 => 3, 4 => 4);
+		// Plan USA y Resto del Mundo
+		$plan_U_R = array(0 => 0, 1 => 1, 2 => 2, 3 => 3, 4 => 4);
+		$plan_V = array(0 => 0, 1 => 200, 2 => 1200, 3 => 2400, 4 => 4800);
 		$app = JFactory::getApplication();
+		/* $id_country
+		 * Brasil = 1
+		 * USA = 2
+		 * Venezuela = 3
+		 * Resto del Mundo = 0
+		 * */
+		$id_country	= $this->input->getInt('id_country');
+		$id_plan	= $this->input->getInt('id_plan');
+		switch ($id_country) 
+		{
+			case 0:
+			case 2:
+				$plan = $plan_U_R;
+				break;
+			case 1:
+				$plan = $plan_B;
+				break;
+			case 2:
+				$plan = $plan_V;
+				break;
+		}
+		
 		JPluginHelper::importPlugin('thorhospedaje');
 		$dispatcher = JEventDispatcher::getInstance (); 
-		$results = $dispatcher->trigger( 'onTHShowPay', array(NULL, NULL));
+		$params = array('monto' => $plan[$id_plan]);
+		$results = $dispatcher->trigger( 'onTHShowPay', array(NULL, $params));
 		echo $results[0];
 		JFactory::getApplication()->close();
 	}
