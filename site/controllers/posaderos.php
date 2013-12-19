@@ -38,21 +38,21 @@ class ThorHospedajeControllerPosaderos extends JControllerLegacy
 		$id_plan	= $this->input->getInt('id_plan');
 		switch ($id_country) 
 		{
-			case 0:
-			case 2:
+			case 0: // Resto del Mundo
+			case 2: // USA
 				$plan = $plan_U_R;
 				break;
-			case 1:
+			case 1: // Brasil
 				$plan = $plan_B;
 				break;
-			case 2:
+			case 2: // Venezuela
 				$plan = $plan_V;
 				break;
 		}
 		
 		JPluginHelper::importPlugin('thorhospedaje');
 		$dispatcher = JEventDispatcher::getInstance (); 
-		$params = array('monto' => $plan[$id_plan]);
+		$params = array('monto' => $plan[$id_plan], 'pais' => $id_country);
 		$results = $dispatcher->trigger( 'onTHShowPay', array(NULL, $params));
 		echo $results[0];
 		JFactory::getApplication()->close();
