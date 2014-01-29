@@ -56,7 +56,7 @@ jQuery(document).ready(function($) {
 		$('#img_plan_4').attr('src','" . JURI::base() . "/media/com_thorhospedaje/images/posaderos/cupon_1_anio_gris.png');
 		$('#img_plan_5').attr('src','" . JURI::base() . "/media/com_thorhospedaje/images/posaderos/cupon_2_anios_gris.png');
 		
-		$('#pay-box').load('index.php?option=com_thorhospedaje&task=posaderos.pagoAjax&id_country='+$('input[name=country]').val()+'&id_plan='+$('#plan').val(),function(){});
+		$('#pay-box').load('index.php?option=com_thorhospedaje&task=posaderos.pagoAjax&id_country='+$('input[name=country]:checked').val()+'&id_plan='+$('#plan').val(),function(){});
 	});
 	
 	$('#img_plan_2' ).click(function() {
@@ -66,7 +66,7 @@ jQuery(document).ready(function($) {
 		$('#img_plan_3').attr('src','" . JURI::base() . "/media/com_thorhospedaje/images/posaderos/cupon_6_meses_gris.png');
 		$('#img_plan_4').attr('src','" . JURI::base() . "/media/com_thorhospedaje/images/posaderos/cupon_1_anio_gris.png');
 		$('#img_plan_5').attr('src','" . JURI::base() . "/media/com_thorhospedaje/images/posaderos/cupon_2_anios_gris.png');
-		$('#pay-box').load('index.php?option=com_thorhospedaje&task=posaderos.pagoAjax&id_country='+$('input[name=country]').val()+'&id_plan='+$('#plan').val(),function(){});
+		$('#pay-box').load('index.php?option=com_thorhospedaje&task=posaderos.pagoAjax&id_country='+$('input[name=country]:checked').val()+'&id_plan='+$('#plan').val(),function(){});
 	});
 	
 	$('#img_plan_3' ).click(function() {
@@ -76,7 +76,7 @@ jQuery(document).ready(function($) {
 		$('#img_plan_3').attr('src','" . JURI::base() . "/media/com_thorhospedaje/images/posaderos/cupon_6_meses_color.png');
 		$('#img_plan_4').attr('src','" . JURI::base() . "/media/com_thorhospedaje/images/posaderos/cupon_1_anio_gris.png');
 		$('#img_plan_5').attr('src','" . JURI::base() . "/media/com_thorhospedaje/images/posaderos/cupon_2_anios_gris.png');
-		$('#pay-box').load('index.php?option=com_thorhospedaje&task=posaderos.pagoAjax&id_country='+$('input[name=country]').val()+'&id_plan='+$('#plan').val(),function(){});
+		$('#pay-box').load('index.php?option=com_thorhospedaje&task=posaderos.pagoAjax&id_country='+$('input[name=country]:checked').val()+'&id_plan='+$('#plan').val(),function(){});
 	});
 	
 	$('#img_plan_4' ).click(function() {
@@ -86,7 +86,7 @@ jQuery(document).ready(function($) {
 		$('#img_plan_3').attr('src','" . JURI::base() . "/media/com_thorhospedaje/images/posaderos/cupon_6_meses_gris.png');
 		$('#img_plan_4').attr('src','" . JURI::base() . "/media/com_thorhospedaje/images/posaderos/cupon_1_anio_color.png');
 		$('#img_plan_5').attr('src','" . JURI::base() . "/media/com_thorhospedaje/images/posaderos/cupon_2_anios_gris.png');
-		$('#pay-box').load('index.php?option=com_thorhospedaje&task=posaderos.pagoAjax&id_country='+$('input[name=country]').val()+'&id_plan='+$('#plan').val(),function(){});
+		$('#pay-box').load('index.php?option=com_thorhospedaje&task=posaderos.pagoAjax&id_country='+$('input[name=country]:checked').val()+'&id_plan='+$('#plan').val(),function(){});
 	});
 	
 	$('#img_plan_5' ).click(function() {
@@ -96,7 +96,7 @@ jQuery(document).ready(function($) {
 		$('#img_plan_3').attr('src','" . JURI::base() . "/media/com_thorhospedaje/images/posaderos/cupon_6_meses_gris.png');
 		$('#img_plan_4').attr('src','" . JURI::base() . "/media/com_thorhospedaje/images/posaderos/cupon_1_anio_gris.png');
 		$('#img_plan_5').attr('src','" . JURI::base() . "/media/com_thorhospedaje/images/posaderos/cupon_2_anios_color.png');
-		$('#pay-box').load('index.php?option=com_thorhospedaje&task=posaderos.pagoAjax&id_country='+$('input[name=country]').val()+'&id_plan='+$('#plan').val(),function(){});
+		$('#pay-box').load('index.php?option=com_thorhospedaje&task=posaderos.pagoAjax&id_country='+$('input[name=country]:checked').val()+'&id_plan='+$('#plan').val(),function(){});
 	});
 });
 ");

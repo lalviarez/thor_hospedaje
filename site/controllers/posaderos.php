@@ -25,7 +25,7 @@ class ThorHospedajeControllerPosaderos extends JControllerLegacy
 	{
 		$plan_B = array(0 => 0, 1 => 1, 2 => 2, 3 => 3, 4 => 4);
 		// Plan USA y Resto del Mundo
-		$plan_U_R = array(0 => 0, 1 => 1, 2 => 2, 3 => 3, 4 => 4);
+		$plan_U_R = array(0 => 0, 1 => 10, 2 => 20, 3 => 30, 4 => 40);
 		$plan_V = array(0 => 0, 1 => 200, 2 => 1200, 3 => 2400, 4 => 4800);
 		$app = JFactory::getApplication();
 		/* $id_country
