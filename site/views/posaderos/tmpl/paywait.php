@@ -37,28 +37,17 @@ $document->addScript(JURI::base().'media/jui/js/chosen.jquery.js');
 	<div class="row-fluid" style="margin-top: 11%;">
 		<h1>Travelbooq lo redigirá a un entorno seguro para realizar su pago. Espere...</h1>
 	</div>
-    <?php echo sprintf("formaPagamentoBandeira: %s <br />", $_POST['parcelas']);
-	?>
-	Si es débito o un solo pago <br />
-	<?php
-	echo sprintf("formaPagamentoProduto: es A o 1 respectivamente <br />");
-	echo sprintf("formaPagamentoParcelas: 1 <br />");
-    ?>
-    Si es crédito y varios pagos <br />
-	<?php
-	echo sprintf("formaPagamentoProduto: 2 <br />");
-	echo sprintf("formaPagamentoParcelas: %s <br />", $_POST['parcelas']);
-    ?>
-    Resto de datos <br />
     <?php
-	echo sprintf("dadosEcNumero:  <br />");
-	echo sprintf("dadosEcChave:  <br />");
-	echo sprintf("capturar:  <br />");
-	echo sprintf("autorizar:  <br />");
-	
-	echo sprintf("dadosPedidoNumero:  <br />");
-	echo sprintf("dadosPedidoValor:  <br />");
-	echo sprintf("urlRetorno:  <br />");
-    ?>
+    $tarjetaParcelas = explode("_", $_POST['parcelas']);
+    $params['formaPagamentoBandeira'] =  $tarjetaParcelas[0];
+    $params['formaPagamento'] =  $tarjetaParcelas[1];
+    $params['tipoParcelamento'] = 2;
+    $params['urlRetorno'] = JRoute::_("index.php?option=com_thorhospedaje&view=posaderos&layout=success");
+    
+    JPluginHelper::importPlugin('thorhospedaje');
+	$dispatcher = JEventDispatcher::getInstance (); 
+	$results = $dispatcher->trigger( 'onTHExecutePay', array(NULL, $params));
+	echo $results[0];
+	?>
 </div>
 </div>
