@@ -88,7 +88,7 @@ $document->addScript(JURI::base().'media/jui/js/chosen.jquery.js');
 		</a>
 	</div>
 	<div class="span6">
-		<a href="index.php?option=com_thorhospedaje&view=posaderos&layout=pay" target="_self">
+		<a href="index.php/es-VE/pago-posadero-espanol" target="_self">
 			<img style="width:60%; float: right;" src="media/com_thorhospedaje/images/comunes/siguiente.png" width="60%"/>
 		</a>
 	</div>

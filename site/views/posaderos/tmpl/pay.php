@@ -119,7 +119,7 @@ jQuery(document).ready(function($) {
 
 <h2><?php echo JText::_('TH_POSADERO_PAY_MESSAGE_TITLE'); ?></h2>
 
-<form name="pay-form" id="pay-form" action="<?php echo JRoute::_("index.php?option=com_thorhospedaje&view=posaderos&layout=paywait");?>" method="POST" class="form-inline">
+<form name="pay-form" id="pay-form" action="<?php echo JRoute::_(JURI::base() . "/pago-espere-posadero-espanol");?>" method="POST" class="form-inline">
 
 
 <!-- Seleccionar pais -->

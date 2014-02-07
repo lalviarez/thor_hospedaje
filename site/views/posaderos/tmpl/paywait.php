@@ -42,7 +42,7 @@ $document->addScript(JURI::base().'media/jui/js/chosen.jquery.js');
     $params['formaPagamentoBandeira'] =  $tarjetaParcelas[0];
     $params['formaPagamento'] =  $tarjetaParcelas[1];
     $params['tipoParcelamento'] = 2;
-    $params['urlRetorno'] = JRoute::_("index.php?option=com_thorhospedaje&view=posaderos&layout=success");
+    $params['urlRetorno'] = JRoute::_(JURI::base() . "/pago-exito-posadero-espanol");
     
     JPluginHelper::importPlugin('thorhospedaje');
 	$dispatcher = JEventDispatcher::getInstance (); 
