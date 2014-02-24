@@ -27,25 +27,25 @@ defined('_JEXEC') or die;
 	<div class="row-fluid">
 		<div class="span6">
 			<div class="span6">
-				<div class="control-label" ><label title="" for="asset-user"><?php echo JText::_('TH_POSADERO_ASSET_USER_LABEL'); ?></label></div>
+				<div class="control-label" ><label title="<?php echo JText::_('TH_POSADERO_ASSET_USER_LABEL_TOOLTIP'); ?>" for="asset-user"><?php echo JText::_('TH_POSADERO_ASSET_USER_LABEL'); ?></label></div>
 					<div class="controls">
 						<div class="input">
-							<input type="text" class="input-medium" value="" id="asset-user" name="jform[asset-user]" title="">					
+							<input type="text" class="input-medium" value="" id="asset-user" name="jform[asset-user]" title="<?php echo JText::_('TH_POSADERO_ASSET_USER_TEXT_TOOLTIP'); ?>">					
 						</div>
 					</div>
 			</div>
 			<div class="span6">
-				<div class="control-label" ><label title="" for="asset-password"><?php echo JText::_('TH_POSADERO_ASSET_PASSWORD_LABEL'); ?></label></div>
+				<div class="control-label" ><label title="<?php echo JText::_('TH_POSADERO_ASSET_PASSWORD_LABEL_TOOLTIP'); ?>" for="asset-password"><?php echo JText::_('TH_POSADERO_ASSET_PASSWORD_LABEL'); ?></label></div>
 					<div class="controls">
 						<div class="input">
-							<input type="text" class="input-medium" value="" id="asset-password" name="jform[asset-password]" title="">					
+							<input type="text" class="input-medium" value="" id="asset-password" name="jform[asset-password]" title="<?php echo JText::_('TH_POSADERO_ASSET_PASSWORD_TEXT_TOOLTIP'); ?>">					
 						</div>
 					</div>
 			</div>
 		</div>
-		<div class="span5">
+		<!-- <div class="span5">
 				<img src="media/com_thorhospedaje/images/posaderos/tip_ayuda_hotel.png" width="100%"/>
-		</div>
+		</div> -->
 	</div>
 </div>
 

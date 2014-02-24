@@ -94,14 +94,14 @@ jQuery(document).ready(function($) {
 });
 ");
 ?>
-<form action="" method="GET" class="form-inline">
+<form action="" method="GET" class="form-inline" style="background-color: rgb(255, 255, 255); border: 1px solid rgb(255, 204, 0); border-radius: 10px; box-shadow: 0px 0px 5px rgb(153, 153, 153); margin: 2% 1%; padding: 1%;">
 <input type="hidden" name="option" value="com_thorhospedaje">
 <input type="hidden" name="view" value="availabilityrooms">
 
 <div class="row-fluid">
 <div class="control-group">
-	<div class="span1"></div>
-	<div class="span3">
+	<!-- <div class="span1"></div> -->
+	<div class="span4">
 	<div class="control-label"><label for="country_id" title=""><?php echo JText::_('TH_AR_FIELD_COUNTRY_LABEL'); ?></label></div>
 	<div class="controls">
 	<select name="country_id" id="country_id" data-no_results_text="<?php echo JText::_('TH_AR_FIELD_COUNTRY_NO_RESULTS_TEXT'); ?>" data-placeholder="<?php echo JText::_('TH_AR_FIELD_COUNTRY_PLACEHOLDER'); ?>">
@@ -117,7 +117,7 @@ jQuery(document).ready(function($) {
 	</div>
 	</div>
 
-	<div class="span3">
+	<div class="span4">
 	<div class="control-label"><label for="state_id" title=""><?php echo JText::_('TH_AR_FIELD_STATE_LABEL'); ?></label></div>
 	<div class="controls">
 	<select name="state_id" id="state_id" data-no_results_text="<?php echo JText::_('TH_AR_FIELD_STATE_NO_RESULTS_TEXT'); ?>" data-placeholder="<?php echo JText::_('TH_AR_FIELD_STATE_PLACEHOLDER'); ?>">
@@ -126,7 +126,7 @@ jQuery(document).ready(function($) {
 	</div>
 	</div>
 
-	<div class="span3">
+	<div class="span4">
 	<div class="control-label"><label for="th_asset_id" title=""><?php echo JText::_('TH_AR_FIELD_ASSET_LABEL'); ?></label></div>
 	<div class="controls">
 	<select name="th_asset_id" id="th_asset_id" data-no_results_text="<?php echo JText::_('TH_AR_FIELD_ASSET_NO_RESULTS_TEXT'); ?>" data-placeholder="<?php echo JText::_('TH_AR_FIELD_ASSET_PLACEHOLDER'); ?>">
@@ -134,14 +134,14 @@ jQuery(document).ready(function($) {
 	</select>
 	</div>
 	</div>
-	<div class="span1"></div>
+	<!-- <div class="span1"></div> -->
 </div>	
 </div>
 <br />
 <div class="row-fluid">
 <div class="control-group">
 	<div class="span3"></div>
-	<div class="span3">
+	<div class="span4">
 	<div class="control-label"><label title="" for="checkin"><?php echo JText::_('TH_AR_FIELD_CHECKIN_LABEL'); ?></label></div>
 	<div class="controls"><div class="input-append">
 	<input type="text" class="input-small" size="10" placeholder="yyyy/mm/dd" value="" id="checkin" name="checkin" title="" readonly="readonly">
@@ -154,13 +154,13 @@ jQuery(document).ready(function($) {
 	<input type="text" class="input-small" size="10" placeholder="yyyy/mm/dd" value="" id="checkout" name="checkout" title="" readonly="readonly">
 	<span class="add-on"><span class="icon-calendar"></span></span></div></div>
 	</div>
-	<div class="span3"></div>
+	<div class="span2"></div>
 </div>
 </div>
 <br />
 <div class="row-fluid">
 <div class="control-group">
-	<div class="span3"></div>
+	<div class="span4"></div>
 	<div class="span3">
 	<div class="control-label"><label title="" for="n_adults"><?php echo JText::_('TH_AR_FIELD_N_ADULTS_LABEL'); ?></label></div>
 	<div class="controls">
@@ -192,15 +192,15 @@ jQuery(document).ready(function($) {
 		</select>
 	</div>
 	</div>
-	<div class="span3"></div>
+	<div class="span2"></div>
 </div>
 </div>
 <div class="row-fluid">
 <div class="control-group">
-<div class="span8"></div>	
+<div class="span5"></div>	
 <div class="span2">
 <div class="controls">
-	<button class="btn btn-primary btn" name="Submit" type="submit"><?php echo JText::_('TH_AR_FIELD_SEARCH_BUTTOM'); ?></button>
+	<button class="btn btn-primary btn" name="Submit" type="submit">&nbsp; &nbsp; <?php echo JText::_('TH_AR_FIELD_SEARCH_BUTTOM'); ?>&nbsp; &nbsp; </button>
 </div>
 </div>
 <div class="span1"></div>
@@ -208,5 +208,5 @@ jQuery(document).ready(function($) {
 </div>
 </form>
 
-<hr style="margin: 0px;	border-width: 2px 0;"/>
+<!-- <hr style="margin: 0px;	border-width: 2px 0;"/> -->
 <?php echo $this->loadTemplate('assets'); ?>

@@ -25,7 +25,7 @@ $n_childrens = $app->input->get('n_childrens', NULL);
 <form id="reservation-form" class="" method="GET" action="<?php echo JRoute::_($this->baseurl . '/index.php');?>">
 	<div class="row-fluid rooms">
 		<h3><?php echo JText::_('TH_ASSET_FIELD_ROOMS_LABEL'); ?></h3>
-		<hr />
+		<div style="background-color: transparent; height: 5px; background-image: linear-gradient(to right, #FFCC00 100%, rgba(2, 255, 255, 0) 100%); margin: 0% 0px 3% 0%;"></div>
 		<?php
 		if (isset($this->item->rooms) && ($this->item->rooms)):
 		?>
@@ -37,7 +37,7 @@ $n_childrens = $app->input->get('n_childrens', NULL);
 		?>
 		<div class="row-fluid room <?php echo $class; ?>">
 			<div class="span4">
-				<img src="<?php echo $this->item->image;?>" title="<?php echo $room->asset_name;?>"/>
+				<img src="<?php echo $room->image;?>" title="<?php echo $room->asset_name;?>"/>
 				<h4><?php echo $room->room_name;?></h4>
 				<p><?php echo JText::_('TH_ASSET_FIELD_N_ADULTS_LABEL'); ?>:&nbsp; <?php echo $room->number_adult;?></p>
 				<p><?php echo JText::_('TH_ASSET_FIELD_N_CHILDRENS_LABEL'); ?>:&nbsp; <?php echo $room->number_children;?></p>
@@ -88,6 +88,8 @@ $n_childrens = $app->input->get('n_childrens', NULL);
 			endforeach;
 		endif;
 		?>
+		<div class="row-fluid" style="margin-top: 1%;" ><button id="reservation" name="bookin" class="btn btn-primary" style="float: right;" type="submit">
+			<i class="icon-checkmark"></i> Reservar	</button></div>
 	</div>
 	<input type="hidden" name="option" value="com_thorhospedaje">
 	<input type="hidden" name="view" value="reservation">

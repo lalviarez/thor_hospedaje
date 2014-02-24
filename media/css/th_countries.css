@@ -59,7 +59,7 @@
 }*/
 
 .country-text > h1{
-	font-size: 1.1em;
+	font-size: 1.2em;
 	margin: 0;
 	padding: 0;
 	overflow: hidden;	
@@ -67,4 +67,32 @@
 
 .mod_th_countries .row-fluid > p{
 	margin: 0 0 10px;
+}
+
+.mod_th_countries .hr{
+	margin: 0px;
+	height: 5px;
+	background-color: transparent;
+	background-image: linear-gradient(to right, #009fe3 0%, rgba(2, 255, 255, 0) 100%);
+	margin-bottom: 3%;
+}
+
+._mbuscar{
+  padding: 0px !important;
+  background-color: #4e9dbf !important;
+  -webkit-border-radius: 10px !important;
+  -moz-border-radius: 10px !important;
+  border-radius: 10px !important;
+}
+
+._mbuscar > .menu > li > a {
+  background-color: white;
+  color: black;
+  margin-bottom: 1px;
+  padding: 8px;
+  font-size: 15px;
+}
+
+._mbuscar .nav {
+  margin: 12px 0px;
 }

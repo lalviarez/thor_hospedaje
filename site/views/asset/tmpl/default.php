@@ -146,7 +146,7 @@ $assetImages[] = $this->item->image9;
 <?php /* Falta agregar y probar el uso de la clase que el usuario pasa por parametro */ ?>
 <div class="mod_th_asset">
 	<h1><?php echo $this->item->asset_name; ?></h1>
-	<hr />
+	<div style="background-color: transparent; height: 5px; background-image: linear-gradient(to right, #FFCC00 100%, rgba(2, 255, 255, 0) 100%); margin: 0% 0px 3% 0%;"></div>
 	<div class="row-fluid">
 		<div id="gallery" class="content span8">
 			<!-- <div id="controls" class="controls"></div> -->

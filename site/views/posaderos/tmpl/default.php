@@ -49,10 +49,10 @@ $document->addScript(JURI::base().'media/jui/js/chosen.jquery.js');
 	<div class="hr"></div>
 	<div class="row-fluid">
 	<div class="span6">
-	<div class="control-label"><label title="" for="client-language"><?php echo JText::_('TH_POSADERO_CLIENT_LANGUAGE_LABEL'); ?></label></div>
+	<div class="control-label"><label title="<?php echo JText::_('TH_POSADERO_CLIENT_LANGUAGE_LABEL_TOOLTIP'); ?>" for="client-language"><?php echo JText::_('TH_POSADERO_CLIENT_LANGUAGE_LABEL'); ?></label></div>
 	<div class="controls">
 		<div class="input-append">
-			<select name="client-language" id="client-language">
+			<select name="client-language" id="client-language" title="<?php echo JText::_('TH_POSADERO_CLIENT_LANGUAGE_SELECT_TOOLTIP'); ?>">
 				<option value=""><?php echo JText::_('TH_POSADERO_CLIENT_LANGUAGE_SELECT'); ?></option>
 				<option value="1"><?php echo JText::_('TH_POSADERO_CLIENT_LANGUAGE_PT'); ?></option>
 				<option value="2"><?php echo JText::_('TH_POSADERO_CLIENT_LANGUAGE_EN'); ?></option>
@@ -61,9 +61,9 @@ $document->addScript(JURI::base().'media/jui/js/chosen.jquery.js');
 		</div>
 	</div>
 	</div>
-	<div class="span5">
+	<!--<div class="span5">
 		<img src="media/com_thorhospedaje/images/posaderos/tip_ayuda_idioma.png" width="100%"/>
-	</div>
+	</div> -->
 	</div>
 </div>
 
@@ -84,12 +84,12 @@ $document->addScript(JURI::base().'media/jui/js/chosen.jquery.js');
 <div class="row-fluid">
 	<div class="span6">
 		<a href="index.php/contrate-con-nosotros?id=14" target="_self">
-			<img style="width:60%; float: left;" src="media/com_thorhospedaje/images/comunes/atras.png" width="60%"/>
+			<img style="width: 40%; float: left;" src="media/com_thorhospedaje/images/comunes/atras.png"/>
 		</a>
 	</div>
 	<div class="span6">
-		<a href="index.php/es-VE/pago-posadero-espanol" target="_self">
-			<img style="width:60%; float: right;" src="media/com_thorhospedaje/images/comunes/siguiente.png" width="60%"/>
+		<a href="index.php/home-espaniol-venezuela/pago-posadero-espanol" target="_self">
+			<img style="width: 40%; float: right;" src="media/com_thorhospedaje/images/comunes/siguiente.png"/>
 		</a>
 	</div>
 </div>

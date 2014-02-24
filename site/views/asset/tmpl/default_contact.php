@@ -29,8 +29,8 @@ jQuery(document).ready(function() {
 ?>
 	<div class="row-fluid">
 		<h3><?php echo JText::_('TH_ASSET_FIELD_CONTACS_LABEL'); ?></h3>
-		<hr />
-		<div class="span2">
+		<div style="background-color: transparent; height: 5px; background-image: linear-gradient(to right, #FFCC00 100%, rgba(2, 255, 255, 0) 100%); margin: 0% 0px 3% 0%;"></div>
+		<div class="span3" style="background-color: white; padding: 1%; border-radius: 10px; border: 1px solid #FFCC00">
 			<address>
 				<dl>
 					<dt><?php echo JText::_('TH_ASSET_FIELD_COUNTRY_LABEL'); ?>:</dt>

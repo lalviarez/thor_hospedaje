@@ -60,6 +60,10 @@ JHtml::_('formbehavior.chosen', 'select');
 					<div class="control-label"><?php echo $this->form->getLabel('number_children'); ?></div>
 					<div class="controls"><?php echo $this->form->getInput('number_children'); ?></div>
 				</div>
+				<div class="control-group">
+					<div class="control-label"><?php echo $this->form->getLabel('image'); ?></div>
+					<div class="controls"><?php echo $this->form->getInput('image'); ?></div>
+				</div>
 			</div>
 			
 			<div class="tab-pane" id="publishing">

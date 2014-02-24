@@ -32,7 +32,7 @@ jQuery(document).ready(function(){
 
 $rowCount = (int) $this->params->get('state-rowcount', 2);
 $itemRow = (int) $this->params->get('state-itemrow', 2);;
-$itemWidth = (int) $this->params->get('state-itemwidth', 47);
+$itemWidth = (float) $this->params->get('state-itemwidth', 47);
 $itemMenu = (int) $this->params->get('state-itemMenu', 0);
 ?>
 

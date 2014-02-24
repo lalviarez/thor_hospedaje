@@ -32,7 +32,13 @@
 			
 		<field name="number_children" class="inputbox validate-numeric"  size="10"
 			label="TH_ROOM_FIELD_NUMBER_CHILDREN_LABEL" description="TH_ROOM_FIELD_NUMBER_CHILDREN_DESC"
-			required="true" />			
+			required="true" />	
+			
+		<field
+			name="image"
+			type="media"
+			label="TH_ROOM_FIELD_IMAGE_LABEL"
+			description="TH_ROOM_FIELD_IMAGE_DESC" required="true"/>		
 			
 		<field name="created_date" type="calendar"
 			label="JGLOBAL_FIELD_CREATED_LABEL" description="JGLOBAL_FIELD_CREATED_DESC"

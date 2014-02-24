@@ -32,7 +32,7 @@ jQuery(document).ready(function(){
 
 $rowCount = (int) $this->params->get('country-rowcount', 2);
 $itemRow = (int) $this->params->get('country-itemrow', 2);;
-$itemWidth = (int) $this->params->get('country-itemwidth', 47);
+$itemWidth = (float) $this->params->get('country-itemwidth', 47);
 $itemMenu = (int) $this->params->get('country-itemMenu', 0);
 ?>
 

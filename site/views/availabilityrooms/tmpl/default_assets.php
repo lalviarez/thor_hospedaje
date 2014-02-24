@@ -16,6 +16,8 @@ $checkout = $app->input->get('checkout', NULL);
 $n_adults = $app->input->get('n_adults', NULL);
 $n_childrens = $app->input->get('n_childrens', NULL);
 ?>
+<div style="margin-left: 1%;"><h1><?php echo JText::_('TH_AR_FIELD_AVAILABILITY_LABEL');?></h1></div>
+<div style="background-color: transparent; height: 5px; background-image: linear-gradient(to right, rgb(0, 159, 227) 30%, rgba(2, 255, 255, 0) 100%); margin: 0% 0px 3% 1%;"></div>
 <div class="mod_th_availabilityrooms">
 <?php
 foreach($this->items as $i => $item):
@@ -28,7 +30,7 @@ foreach($this->items as $i => $item):
 		<img src="<?php echo $item->image;?>" title="<?php echo $item->asset_name;?>"/>
 	</div>
 	
-	<div class="span10">
+	<div class="span8">
 		<div class="row-fluid data-asset">			
 			<h4><a href="<?php echo JRoute::_('index.php?option=com_thorhospedaje&view=asset&id='. $item->id .'&Itemid='. $Itemid .'&checkin='. $checkin .'&checkout='. $checkout .'&n_adults='. $n_adults .'&n_childrens='. $n_childrens);?>">
 			<?php echo $item->asset_name;?></a></h4>
@@ -86,6 +88,12 @@ foreach($this->items as $i => $item):
 		endif;
 		?>
 		</div>
+	</div>
+	<div class="span2" style="padding: 5% 0px 0px 0px;">
+		<a href="<?php echo JRoute::_('index.php?option=com_thorhospedaje&view=asset&id='. $item->id .'&Itemid='. $Itemid .'&checkin='. $checkin .'&checkout='. $checkout .'&n_adults='. $n_adults .'&n_childrens='. $n_childrens);?>">
+		<button id="reservation" name="bookin" class="btn btn-primary" type="submit">
+			<i class="icon-checkmark"></i> Reservar	</button>
+		</a>
 	</div>
 </div>	
 <?php

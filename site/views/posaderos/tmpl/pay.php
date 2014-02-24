@@ -119,7 +119,7 @@ jQuery(document).ready(function($) {
 
 <h2><?php echo JText::_('TH_POSADERO_PAY_MESSAGE_TITLE'); ?></h2>
 
-<form name="pay-form" id="pay-form" action="<?php echo JRoute::_(JURI::base() . "/pago-espere-posadero-espanol");?>" method="POST" class="form-inline">
+<form name="pay-form" id="pay-form" action="<?php echo JRoute::_(JURI::base() . "/home-espaniol-venezuela/pago-espere-posadero-espanol");?>" method="POST" class="form-inline">
 
 
 <!-- Seleccionar pais -->
@@ -141,18 +141,15 @@ jQuery(document).ready(function($) {
 
 <div class="row-fluid">
 	<div class="span6">
-		<a href="index.php?option=com_thorhospedaje&view=posaderos" target="_self">
-			<img style="width:60%; float: left;" src="media/com_thorhospedaje/images/comunes/atras.png" width="60%"/>
+		<a href="index.php/inicio-pago-posadero-espanol" target="_self">
+			<img style="width: 40%; float: left;" src="media/com_thorhospedaje/images/comunes/atras.png"/>
 		</a>
 	</div>
 	<div class="span6">
-		<a href="index.php?option=com_thorhospedaje&view=posaderos&layout=paywait" target="_self">
-			<img style="width:60%; float: right;" src="media/com_thorhospedaje/images/comunes/pagar.png" width="60%"/>
-		</a>
+		<input type=image src="media/com_thorhospedaje/images/comunes/pagar.png" style="width: 40%; float: right;">
 	</div>
 	
 </div>
-<input type=image src="media/com_thorhospedaje/images/comunes/pagar.png" width="60%">
 </form>
 </div>
 </div>

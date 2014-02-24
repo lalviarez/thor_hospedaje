@@ -35,7 +35,8 @@
 .mod_th_posadero .bandera{
 	display: block; 
 	width: 40%; 
-	margin: 0 auto 0 auto !important;
+	margin: 0 auto 3px auto !important;
+	padding: 1%;
 	cursor: pointer;
 }
 

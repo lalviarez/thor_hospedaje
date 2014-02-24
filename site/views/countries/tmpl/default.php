@@ -32,10 +32,12 @@ jQuery(document).ready(function(){
 
 $rowCount = (int) $this->params->get('countries-rowcount', 2);
 $itemRow = (int) $this->params->get('countries-itemrow', 2);;
-$itemWidth = (int) $this->params->get('countries-itemwidth', 47);
+$itemWidth = (float) $this->params->get('countries-itemwidth', 47);
 ?>
 <?php /* Falta agregar y probar el uso de la clase que el usuario pasa por parametro */ ?>
 <div class="mod_th_countries">
+	<h1><?php echo JText::_('TH_POSADERO_COUNTRIES_ESCOJA_TITLE'); ?></h1>
+	<div class="hr"></div>
 	<?php
 	$count = 0;
 	for ($i = $count;  $i < count($this->items); $i++):
@@ -81,7 +83,10 @@ $itemWidth = (int) $this->params->get('countries-itemwidth', 47);
 	<?php 
 	endfor; 
 	?>
+	<br />
+	<div class="hr"></div>
 </div>
+
 <?php echo $this->pagination->getListFooter(); ?>
 
 
