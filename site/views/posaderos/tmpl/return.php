@@ -20,6 +20,26 @@ $document->addStyleSheet('media/com_thorhospedaje/css/jquery-themes/jquery-ui.mi
 $document->addStyleSheet(JURI::base().'media/jui/css/chosen.css');
 $document->addScript('media/com_thorhospedaje/js/jquery-ui.min.js');
 $document->addScript(JURI::base().'media/jui/js/chosen.jquery.js');
+$app =& JFactory::getApplication();
+jimport('cielo_thorhospedaje.cielo.cielo');
+
+	$Pago = new THCielo();
+	$Pago->FromString($app->getUserState('thorhospedaje.posaderos.pago', NULL));
+   /* $Prueba = $app->getUserState('thorhospedaje.posaderos.pago', "Hola");
+    print_r($Pago);
+    print_r($Prueba);
+    exit(1);*/
+    // Consulta situação da transação
+	$objResposta = $Pago->RequisicaoConsulta();
+	
+	// Atualiza status
+	$Pago->status = $objResposta->status;
+	
+	if($Pago->status == '4' || $Pago->status == '6')
+		$finalizacao = true;
+	else
+		$finalizacao = false;
+
 ?>
 <div class="mod_th_posadero">
 <div class="span3">
@@ -35,19 +55,24 @@ $document->addScript(JURI::base().'media/jui/js/chosen.jquery.js');
 		<img src="media/com_thorhospedaje/images/posaderos/ruta_pago.png" />
 	</div>
 	<div class="row-fluid" style="margin-top: 11%;">
-		<h1>Travelbooq lo redigirá a un entorno seguro para realizar su pago. Espere...</h1>
+		<!-- <h1>Retornando...</h1>	 -->
 	</div>
-    <?php
-    $tarjetaParcelas = explode("_", $_POST['parcelas']);
-    $params['formaPagamentoBandeira'] =  $tarjetaParcelas[0];
-    $params['formaPagamento'] =  $tarjetaParcelas[1];
-    $params['tipoParcelamento'] = 2;
-    $params['urlRetorno'] = JRoute::_(JURI::base() . "/home-espaniol-venezuela/pago-retorno-posadero-espanol");
-    
-    JPluginHelper::importPlugin('thorhospedaje');
-	$dispatcher = JEventDispatcher::getInstance (); 
-	$results = $dispatcher->trigger( 'onTHExecutePay', array(NULL, $params));
-	echo $results[0];
+	<?php
+	if ($finalizacao)
+	{
+		$html = '<script type="text/javascript">
+				window.location.href = "/home-espaniol-venezuela/pago-exito-posadero-espanol"
+			 </script>';
+	}
+	else
+	{
+		$html = '<script type="text/javascript">
+				window.location.href = "/home-espaniol-venezuela/pago-fallo-posadero-espanol"
+			 </script>';
+		
+	}
+	echo $html;
 	?>
+	
 </div>
 </div>
